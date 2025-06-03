@@ -1,49 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Book Kerala Houseboat</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f1f8f5;
-      color: #2c3e50;
-      text-align: center;
-      padding: 50px;
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script>
+    // Scroll to Top Button
+    window.onscroll = function () {
+      const btn = document.getElementById("scrollToTop");
+      if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+        btn.style.display = "block";
+      } else {
+        btn.style.display = "none";
+      }
+    };
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
-    h1 {
-      color: #00796b;
-    }
-    .hero {
-      background: url('assets/houseboat.jpg') no-repeat center;
-      background-size: cover;
-      padding: 120px 20px;
-      color: white;
-    }
-    .cta {
-      margin-top: 30px;
-    }
-    .btn {
-      padding: 10px 20px;
-      background: #00796b;
-      color: white;
-      text-decoration: none;
-      border-radius: 5px;
-    }
-  </style>
+  </script>
 </head>
-<body>
-  <div class="hero h-[60vh] sm:h-[70vh] md:h-[90vh] flex items-center justify-center text-center px-4">
-  <div>
-    <h1 class="text-4xl sm:text-5xl font-bold text-white">Book Kerala Houseboat</h1>
-    <p class="mt-4 text-lg sm:text-xl text-white">Experience the beauty of Alleppey backwaters</p>
-    <div class="mt-6">
-      <a href="mailto:info@bookkeralahouseboat.com" class="bg-teal-700 text-white px-6 py-3 rounded hover:bg-teal-800 transition">Book Now</a>
+
+<body class="bg-black text-white">
+  <!-- Navbar -->
+  <nav class="bg-black bg-opacity-80 fixed w-full z-50 top-0 shadow-md">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <div class="flex-shrink-0 text-lg font-bold text-white">
+          <a href="#">BookKeralaHouseboat</a>
+        </div>
+        <div class="hidden md:block">
+          <div class="ml-10 flex items-baseline space-x-4">
+            <a href="#" class="hover:text-teal-400">Home</a>
+            <a href="#contact" class="hover:text-teal-400">Contact</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <div class="relative w-full h-screen bg-cover bg-center flex items-center justify-center px-4 pt-16" style="background-image: url('assets/houseboat.jpg');">
+    <div class="bg-black bg-opacity-60 p-6 rounded-xl max-w-md text-center text-white">
+      <h1 class="text-3xl sm:text-4xl font-bold mb-4">Book Kerala Houseboat</h1>
+      <p class="text-lg sm:text-xl mb-6">Experience the beauty of Alleppey backwaters</p>
+      <a href="mailto:info@bookkeralahouseboat.com" class="inline-block bg-teal-600 hover:bg-teal-700 text-white font-semibold py-2 px-6 rounded transition">Book Now</a>
     </div>
   </div>
-</div>
 
-  <p>Contact us at info@bookkeralahouseboat.com</p>
+  <!-- WhatsApp / Call Floating Button -->
+  <div class="fixed bottom-6 right-6 space-y-2 z-50">
+    <a href="tel:+919995857686" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-full shadow-md block text-center">Call</a>
+    <a href="https://wa.me/919995857686" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-full shadow-md block text-center">WhatsApp</a>
+  </div>
+
+  <!-- Contact Info -->
+  <div id="contact" class="text-center py-8 px-4 bg-black text-white text-base">
+    Contact us at <br />
+    <a href="mailto:info@bookkeralahouseboat.com" class="underline">info@bookkeralahouseboat.com</a>
+  </div>
+
+  <!-- Scroll to Top Button -->
+  <button id="scrollToTop" onclick="scrollToTop()" class="hidden fixed bottom-6 left-6 bg-gray-700 hover:bg-gray-800 text-white p-2 rounded-full shadow-md z-50">↑</button>
+
 </body>
+
 </html>
+
