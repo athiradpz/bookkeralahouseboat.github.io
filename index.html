@@ -165,6 +165,18 @@
 
   <!-- Scroll to Top Button -->
   <button id="scrollToTop" onclick="scrollToTop()" class="hidden fixed bottom-6 left-6 bg-gray-700 hover:bg-gray-800 text-white p-2 rounded-full shadow-md z-50">↑</button>
+<!-- Scroll To Top Button -->
+<button id="scrollToTop" onclick="scrollToTop()" class="fixed bottom-4 right-4 bg-teal-600 hover:bg-teal-700 text-white px-4 py-2 rounded-full shadow-lg hidden z-50">Top</button>
+
+<script>
+  function toggleForm() {
+    const form = document.getElementById("bookingForm");
+    form.classList.toggle("hidden");
+    form.scrollIntoView({ behavior: "smooth" });
+  }
+</script>
+</body>
+</html>
 
 </body>
 
