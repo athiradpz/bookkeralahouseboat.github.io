@@ -81,6 +81,48 @@
     </form>
   </div>
 </section>
+  <form action="https://getform.io/f/byvyepga" method="POST">
+  <!-- Name -->
+  <label for="name">Name:</label>
+  <input type="text" id="name" name="name" required /><br /><br />
+
+  <!-- Email -->
+  <label for="email">Email:</label>
+  <input type="email" id="email" name="email" required /><br /><br />
+
+  <!-- Date of Booking -->
+  <label for="date">Date of Booking:</label>
+  <input type="date" id="date" name="booking_date" /><br /><br />
+
+  <!-- Checkbox (example: Require Pickup?) -->
+  <input type="hidden" name="pickup" value="no" />
+  <label>
+    <input type="checkbox" name="pickup" value="yes" />
+    Need Pickup
+  </label><br /><br />
+
+  <!-- Radio Buttons (example: Package type) -->
+  <p>Choose Package:</p>
+  <label><input type="radio" name="package" value="deluxe" /> Deluxe</label><br />
+  <label><input type="radio" name="package" value="premium" /> Premium</label><br /><br />
+
+  <!-- Select Dropdown -->
+  <label for="guests">Number of Guests:</label>
+  <select name="guests" id="guests">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3-4">3-4</option>
+    <option value="5+">5+</option>
+  </select><br /><br />
+
+  <!-- Message -->
+  <label for="message">Message:</label><br />
+  <textarea id="message" name="message" rows="4" cols="50"></textarea><br /><br />
+
+  <!-- Submit Button -->
+  <button type="submit">Submit</button>
+</form>
+
 
 
   <!-- Scroll to Top Button -->
