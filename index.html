@@ -19,6 +19,88 @@
     function scrollToTop() {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
+    <!-- Tailwind CDN -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+<form 
+  action="https://getform.io/f/byvyepga" 
+  method="POST" 
+  class="max-w-xl mx-auto bg-white p-8 rounded-xl shadow-md space-y-6">
+
+  <h2 class="text-2xl font-bold text-gray-800">Book Your Houseboat</h2>
+
+  <!-- Name -->
+  <div>
+    <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
+    <input type="text" id="name" name="name" required
+      class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500" />
+  </div>
+
+  <!-- Email -->
+  <div>
+    <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+    <input type="email" id="email" name="email" required
+      class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500" />
+  </div>
+
+  <!-- Booking Date -->
+  <div>
+    <label for="date" class="block text-sm font-medium text-gray-700">Date of Booking</label>
+    <input type="date" id="date" name="booking_date"
+      class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500" />
+  </div>
+
+  <!-- Pickup Checkbox -->
+  <div class="flex items-center space-x-2">
+    <input type="hidden" name="pickup" value="no" />
+    <input type="checkbox" name="pickup" value="yes" id="pickup"
+      class="text-blue-600 border-gray-300 focus:ring-blue-500 rounded" />
+    <label for="pickup" class="text-sm text-gray-700">Need Pickup</label>
+  </div>
+
+  <!-- Package Radio Buttons -->
+  <div>
+    <p class="text-sm font-medium text-gray-700">Choose Package</p>
+    <div class="mt-2 space-y-1">
+      <label class="flex items-center space-x-2">
+        <input type="radio" name="package" value="deluxe" class="text-blue-600" />
+        <span>Deluxe</span>
+      </label>
+      <label class="flex items-center space-x-2">
+        <input type="radio" name="package" value="premium" class="text-blue-600" />
+        <span>Premium</span>
+      </label>
+    </div>
+  </div>
+
+  <!-- Number of Adults -->
+  <div>
+    <label for="adults" class="block text-sm font-medium text-gray-700">Number of Adults</label>
+    <input type="number" id="adults" name="adults" min="1" placeholder="e.g. 2"
+      class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500" />
+  </div>
+
+  <!-- Number of Children -->
+  <div>
+    <label for="children" class="block text-sm font-medium text-gray-700">Number of Children (above 5 years)</label>
+    <input type="number" id="children" name="children_above_5" min="0" placeholder="e.g. 1"
+      class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500" />
+  </div>
+
+  <!-- Message -->
+  <div>
+    <label for="message" class="block text-sm font-medium text-gray-700">Message</label>
+    <textarea id="message" name="message" rows="4"
+      class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500"></textarea>
+  </div>
+
+  <!-- Submit Button -->
+  <div>
+    <button type="submit"
+      class="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition">Submit</button>
+  </div>
+</form>
+
   </script>
 </head>
 
@@ -81,49 +163,6 @@
     </form>
   </div>
 </section>
-  <form action="https://getform.io/f/byvyepga" method="POST">
-  <!-- Name -->
-  <label for="name">Name:</label>
-  <input type="text" id="name" name="name" required /><br /><br />
-
-  <!-- Email -->
-  <label for="email">Email:</label>
-  <input type="email" id="email" name="email" required /><br /><br />
-
-  <!-- Date of Booking -->
-  <label for="date">Date of Booking:</label>
-  <input type="date" id="date" name="booking_date" /><br /><br />
-
-  <!-- Checkbox (example: Require Pickup?) -->
-  <input type="hidden" name="pickup" value="no" />
-  <label>
-    <input type="checkbox" name="pickup" value="yes" />
-    Need Pickup
-  </label><br /><br />
-
-  <!-- Radio Buttons (example: Package type) -->
-  <p>Choose Package:</p>
-  <label><input type="radio" name="package" value="deluxe" /> Deluxe</label><br />
-  <label><input type="radio" name="package" value="premium" /> Premium</label><br /><br />
-
-  <!-- Select Dropdown -->
-  <label for="guests">Number of Guests:</label>
-  <select name="guests" id="guests">
-    <option value="1">1</option>
-    <option value="2">2</option>
-    <option value="3-4">3-4</option>
-    <option value="5+">5+</option>
-  </select><br /><br />
-
-  <!-- Message -->
-  <label for="message">Message:</label><br />
-  <textarea id="message" name="message" rows="4" cols="50"></textarea><br /><br />
-
-  <!-- Submit Button -->
-  <button type="submit">Submit</button>
-</form>
-
-
 
   <!-- Scroll to Top Button -->
   <button id="scrollToTop" onclick="scrollToTop()" class="hidden fixed bottom-6 left-6 bg-gray-700 hover:bg-gray-800 text-white p-2 rounded-full shadow-md z-50">↑</button>
