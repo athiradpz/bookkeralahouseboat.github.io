@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enquire Now - Book Kerala Houseboat</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-white text-gray-900">
+  <!-- Navbar -->
+  <nav class="bg-black bg-opacity-90 fixed w-full z-50 top-0 shadow-md">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <div class="text-lg font-bold text-white">
+          <a href="index.html">BookKeralaHouseboat</a>
+        </div>
+        <div class="hidden md:block">
+          <div class="ml-10 flex space-x-4">
+            <a href="index.html" class="hover:text-teal-400 text-white">Home</a>
+            <a href="#" class="hover:text-yellow-400 text-white">Our Houseboats</a>
+            <a href="#" class="hover:text-yellow-400 text-white">Kerala Tour Packages</a>
+            <a href="#" class="hover:text-yellow-400 text-white">Backwater Activities</a>
+            <a href="#" class="hover:text-yellow-400 text-white">Food Menue</a>
+            <a href="#" class="hover:text-yellow-400 text-white">Blog</a>
+            <a href="enquiry.html" class="hover:text-yellow-400 text-white font-semibold">Enquire Now</a>
+            <a href="#" class="hover:text-yellow-400 text-white">Contact Us</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Enquiry Section -->
+  <section class="pt-28 pb-16 bg-gray-50 min-h-screen">
+    <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-8">
+      <!-- Form -->
+      <div class="bg-white p-6 shadow-md rounded-xl">
+        <h2 class="text-2xl font-bold text-center mb-6">Enquire Now</h2>
+        <form class="space-y-4">
+          <div class="grid grid-cols-2 gap-4">
+            <input type="text" placeholder="Your Name" class="p-2 border rounded w-full" />
+            <input type="email" placeholder="Email Address" class="p-2 border rounded w-full" />
+          </div>
+          <div class="grid grid-cols-2 gap-4">
+            <input type="text" placeholder="WhatsApp Number" class="p-2 border rounded w-full" />
+            <input type="text" placeholder="Check-in | Arrival Date" class="p-2 border rounded w-full" />
+          </div>
+          <div class="grid grid-cols-3 gap-4">
+            <select class="p-2 border rounded w-full">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+            </select>
+            <select class="p-2 border rounded w-full">
+              <option>Deluxe</option>
+              <option>Premium</option>
+            </select>
+            <select class="p-2 border rounded w-full">
+              <option>Private Boat</option>
+              <option>Sharing</option>
+            </select>
+          </div>
+          <div class="grid grid-cols-2 gap-4">
+            <input type="number" placeholder="Adults (Above 12 Yrs)" class="p-2 border rounded w-full" />
+            <input type="number" placeholder="Children (6 to 12 Yrs)" class="p-2 border rounded w-full" />
+          </div>
+          <input type="number" placeholder="Children (0 to 5 Yrs)" class="p-2 border rounded w-full" />
+          <textarea placeholder="Special Requirements (if any)" class="p-2 border rounded w-full"></textarea>
+
+          <div class="flex items-center space-x-2">
+            <input type="checkbox" class="w-4 h-4" />
+            <p class="text-xs">I authorize contact via WhatsApp & phone for booking details.</p>
+          </div>
+          <button type="submit" class="w-full bg-yellow-500 hover:bg-yellow-600 text-white font-semibold py-2 rounded">Submit</button>
+        </form>
+      </div>
+
+      <!-- Info Section -->
+      <div class="bg-white p-6 shadow-md rounded-xl text-sm space-y-4">
+        <div>
+          <h3 class="text-lg font-bold text-blue-800 mb-2">Please Note:</h3>
+          <ul class="list-disc list-inside space-y-1">
+            <li>Children below 5 years are complimentary.</li>
+            <li>Children above 5 yrs without mattress are chargeable.</li>
+            <li>Children above 10 yrs considered extra adult.</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-lg font-bold text-blue-800 mb-2">Cancellation Policy:</h3>
+          <ul class="list-decimal list-inside space-y-1">
+            <li>No charges up to 14 days prior to check-in.</li>
+            <li>25% charge between 14–7 days before check-in.</li>
+            <li>50% charge between 7–3 days before check-in.</li>
+            <li>100% charge less than 3 days before check-in.</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-lg font-bold text-blue-800 mb-2">Terms & Conditions:</h3>
+          <ul class="list-disc list-inside space-y-1">
+            <li>Check-in: 12 PM | Check-out: 9 AM</li>
+            <li>Advance booking confirmation required.</li>
+            <li>Late arrival policy till 6 PM.</li>
+            <li>No-show or cancellations charged full price.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+
+</html>
