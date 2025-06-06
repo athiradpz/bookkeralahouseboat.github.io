@@ -165,20 +165,91 @@
 
   <!-- Scroll to Top Button -->
   <button id="scrollToTop" onclick="scrollToTop()" class="hidden fixed bottom-6 left-6 bg-gray-700 hover:bg-gray-800 text-white p-2 rounded-full shadow-md z-50">↑</button>
-<!-- Scroll To Top Button -->
-<button id="scrollToTop" onclick="scrollToTop()" class="fixed bottom-4 right-4 bg-teal-600 hover:bg-teal-700 text-white px-4 py-2 rounded-full shadow-lg hidden z-50">Top</button>
+<div class="max-w-4xl mx-auto mt-12 p-8 bg-white rounded-xl shadow-lg">
+  <h2 class="text-2xl font-bold mb-6 text-center text-blue-900">Enquire Now</h2>
+  
+  <form class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <div>
+      <label class="block text-sm font-medium text-gray-700">Your Name</label>
+      <input type="text" name="name" class="w-full border border-gray-300 rounded p-2" required>
+    </div>
+    
+    <div>
+      <label class="block text-sm font-medium text-gray-700">Email Address</label>
+      <input type="email" name="email" class="w-full border border-gray-300 rounded p-2" required>
+    </div>
+    
+    <div>
+      <label class="block text-sm font-medium text-gray-700">WhatsApp Number</label>
+      <input type="tel" name="whatsapp" class="w-full border border-gray-300 rounded p-2" required>
+    </div>
+    
+    <div>
+      <label class="block text-sm font-medium text-gray-700">Check-in / Arrival Date</label>
+      <input type="date" name="arrival" class="w-full border border-gray-300 rounded p-2" required>
+    </div>
+    
+    <div>
+      <label class="block text-sm font-medium text-gray-700">No. of Rooms</label>
+      <select name="rooms" class="w-full border border-gray-300 rounded p-2">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+      </select>
+    </div>
 
-<script>
-  function toggleForm() {
-    const form = document.getElementById("bookingForm");
-    form.classList.toggle("hidden");
-    form.scrollIntoView({ behavior: "smooth" });
-  }
+    <div>
+      <label class="block text-sm font-medium text-gray-700">Houseboat Type</label>
+      <select name="type" class="w-full border border-gray-300 rounded p-2">
+        <option>Deluxe</option>
+        <option>Premium</option>
+        <option>Luxury</option>
+      </select>
+    </div>
+
+    <div>
+      <label class="block text-sm font-medium text-gray-700">Houseboat Preference</label>
+      <select name="preference" class="w-full border border-gray-300 rounded p-2">
+        <option>Private Boat</option>
+        <option>Sharing Boat</option>
+      </select>
+    </div>
+
+    <div>
+      <label class="block text-sm font-medium text-gray-700">Adults (Above 12 Yrs)</label>
+      <input type="number" name="adults" min="0" class="w-full border border-gray-300 rounded p-2">
+    </div>
+
+    <div>
+      <label class="block text-sm font-medium text-gray-700">Children (6 to 12 Yrs)</label>
+      <input type="number" name="children6_12" min="0" class="w-full border border-gray-300 rounded p-2">
+    </div>
+
+    <div>
+      <label class="block text-sm font-medium text-gray-700">Children (0 to 5 Yrs)</label>
+      <input type="number" name="children0_5" min="0" class="w-full border border-gray-300 rounded p-2">
+    </div>
+
+    <div class="md:col-span-2">
+      <label class="block text-sm font-medium text-gray-700">Special Requirements (if any)</label>
+      <textarea name="requirements" class="w-full border border-gray-300 rounded p-2" rows="3"></textarea>
+    </div>
+
+    <div class="md:col-span-2 flex items-start">
+      <input type="checkbox" name="consent" class="mr-2 mt-1" required>
+      <p class="text-sm text-gray-700">I authorize LEDDHab to communicate with me on the given number for my accommodation needs.</p>
+    </div>
+
+    <div class="md:col-span-2 text-center mt-4">
+      <button type="submit" class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-6 rounded-full transition">
+        Enquire Now
+      </button>
+    </div>
+  </form>
+</div>
+
 </script>
 </body>
 </html>
 
-</body>
-
-</html>
 
