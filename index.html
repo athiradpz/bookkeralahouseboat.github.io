@@ -38,32 +38,56 @@
   });
 </script>
 <body class="bg-black text-white">
- <!-- Navbar -->
-  <nav class="bg-black bg-opacity-80 fixed w-full z-50 top-0 shadow-md">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between h-16">
-        <div class="flex-shrink-0 text-lg font-bold text-white">
-            <a href="#l">
-    <img src="assets/New BHK.png" alt="BookKeralaHouseboat" class="h-10"> 
-  </a>
-</div>
-           <div class="hidden md:block">
-    
-          <div class="ml-10 flex items-baseline space-x-4">
-            <a href="#" class="hover:text-teal-400">Home</a>
-            <a href="#" class="hover:text-yellow-400">Our Houseboats</a>
-            <a href="https://www.triptgo.com" target="_blank" class="hover:text-yellow-400">
-<class="hover:text-yellow-400">Kerala Tour Packages</a>
-            <a href="#" class="hover:text-yellow-400">Backwater Activities</a>
-            <a href="#" class="hover:text-yellow-400">Food Menu</a>
-            <a href="#" class="hover:text-yellow-400">Blog</a>
-            <a href="#" class="hover:text-yellow-400">Enquire Now</a>
-            <a href="#" class="hover:text-yellow-400">Contact Us</a>
-          </div>
-        </div>
+<!-- Navbar -->
+<nav class="bg-black bg-opacity-80 fixed w-full z-50 top-0 shadow-md">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      
+      <!-- Logo -->
+      <div class="flex-shrink-0">
+        <a href="#">
+          <img src="assets/New BHK.png" alt="BookKeralaHouseboat" class="h-10">
+        </a>
+      </div>
+
+      <!-- Mobile menu button -->
+      <div class="md:hidden">
+        <button id="mobileMenuButton" class="text-white focus:outline-none">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"
+               viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Desktop Menu -->
+      <div class="hidden md:flex space-x-6 items-center text-white font-medium">
+        <a href="#" class="hover:text-teal-400">Home</a>
+        <a href="#" class="hover:text-yellow-400">Our Houseboats</a>
+        <a href="https://www.triptgo.com" target="_blank" class="hover:text-yellow-400">Kerala Tour Packages</a>
+        <a href="#" class="hover:text-yellow-400">Backwater Activities</a>
+        <a href="#" class="hover:text-yellow-400">Food Menu</a>
+        <a href="#" class="hover:text-yellow-400">Blog</a>
+        <a href="#" class="hover:text-yellow-400">Enquire Now</a>
+        <a href="#" class="hover:text-yellow-400">Contact Us</a>
       </div>
     </div>
-  </nav>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobileMenu" class="md:hidden hidden px-4 pb-4 text-white bg-black bg-opacity-90 space-y-2">
+    <a href="#" class="block hover:text-teal-400">Home</a>
+    <a href="#" class="block hover:text-yellow-400">Our Houseboats</a>
+    <a href="https://www.triptgo.com" target="_blank" class="block hover:text-yellow-400">Kerala Tour Packages</a>
+    <a href="#" class="block hover:text-yellow-400">Backwater Activities</a>
+    <a href="#" class="block hover:text-yellow-400">Food Menu</a>
+    <a href="#" class="block hover:text-yellow-400">Blog</a>
+    <a href="#" class="block hover:text-yellow-400">Enquire Now</a>
+    <a href="#" class="block hover:text-yellow-400">Contact Us</a>
+  </div>
+</nav>
+
   <!-- Background Video -->
   <video autoplay muted loop playsinline class="absolute top-0 left-0 w-full h-full object-cover z-0">
     <source src="assets/wesite video bkh.mp4" type="video/mp4">
