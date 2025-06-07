@@ -30,7 +30,13 @@
     }
   </script>
 </head>
-
+<script>
+  // Mobile menu toggle
+  document.getElementById('mobileMenuButton').addEventListener('click', function () {
+    const menu = document.getElementById('mobileMenu');
+    menu.classList.toggle('hidden');
+  });
+</script>
 <body class="bg-black text-white">
   <!-- Navbar -->
   <nav class="bg-black bg-opacity-80 fixed w-full z-50 top-0 shadow-md">
