@@ -36,58 +36,54 @@
   <section class="pt-28 pb-16 bg-gray-50 min-h-screen">
     <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-8">
       <!-- Form -->
-    <form action="https://getform.io/f/byvyepga" method="POST" class="space-y-4">
-     <div class="bg-white p-6 shadow-md rounded-xl">
-      <h2 class="text-2xl font-bold text-center mb-6">Enquire Now</h2>
-      <form class="space-y-4" action="mailto:yourmail@example.com" method="POST" enctype="text/plain">
-        <div class="grid grid-cols-2 gap-4">
-          <input type="text" name="name" placeholder="Your Name" class="p-2 border rounded w-full" required />
-          <input type="email" name="email" placeholder="Email Address" class="p-2 border rounded w-full" required />
-        </div>
+  
+<form action="https://getform.io/f/your-unique-form-id" method="POST" class="space-y-4">
+  <div class="grid grid-cols-2 gap-4">
+    <input type="text" name="name" placeholder="Your Name" class="p-2 border rounded w-full" required />
+    <input type="email" name="email" placeholder="Email Address" class="p-2 border rounded w-full" required />
+  </div>
 
-        <div class="grid grid-cols-2 gap-4">
-          <input type="text" name="whatsapp" placeholder="WhatsApp Number" class="p-2 border rounded w-full" />
-          <input type="date" name="checkin" class="p-2 border rounded w-full" required />
-        </div>
+  <div class="grid grid-cols-2 gap-4">
+    <input type="text" name="whatsapp" placeholder="WhatsApp Number" class="p-2 border rounded w-full" />
+    <input type="date" name="checkin" class="p-2 border rounded w-full" required />
+  </div>
 
-        <div class="grid grid-cols-3 gap-4">
-          <select name="nights" class="p-2 border rounded w-full">
-            <option value="">Nights</option>
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-          </select>
-          <select name="type" class="p-2 border rounded w-full">
-            <option value="">Boat Type</option>
-            <option>Deluxe</option>
-            <option>Premium</option>
-          </select>
-          <select name="category" class="p-2 border rounded w-full">
-            <option value="">Category</option>
-            <option>Private Boat</option>
-            <option>Sharing</option>
-          </select>
-        </div>
+  <div class="grid grid-cols-3 gap-4">
+    <select name="nights" class="p-2 border rounded w-full">
+      <option value="">Nights</option>
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+    </select>
+    <select name="type" class="p-2 border rounded w-full">
+      <option value="">Boat Type</option>
+      <option>Deluxe</option>
+      <option>Premium</option>
+    </select>
+    <select name="category" class="p-2 border rounded w-full">
+      <option value="">Category</option>
+      <option>Private Boat</option>
+      <option>Sharing</option>
+    </select>
+  </div>
 
-        <div class="grid grid-cols-2 gap-4">
-          <input type="number" name="adults" placeholder="Adults (Above 12 Yrs)" class="p-2 border rounded w-full" />
-          <input type="number" name="children6to12" placeholder="Children (6 to 12 Yrs)" class="p-2 border rounded w-full" />
-        </div>
+  <div class="grid grid-cols-2 gap-4">
+    <input type="number" name="adults" placeholder="Adults (Above 12 Yrs)" class="p-2 border rounded w-full" />
+    <input type="number" name="children6to12" placeholder="Children (6 to 12 Yrs)" class="p-2 border rounded w-full" />
+  </div>
 
-        <input type="number" name="children0to5" placeholder="Children (0 to 5 Yrs)" class="p-2 border rounded w-full" />
+  <input type="number" name="children0to5" placeholder="Children (0 to 5 Yrs)" class="p-2 border rounded w-full" />
+  <textarea name="requirements" placeholder="Special Requirements (if any)" class="p-2 border rounded w-full"></textarea>
 
-        <textarea name="requirements" placeholder="Special Requirements (if any)" class="p-2 border rounded w-full"></textarea>
+  <div class="flex items-center space-x-2">
+    <input type="checkbox" name="whatsapp_consent" class="w-4 h-4" />
+    <p class="text-xs">I authorize contact via WhatsApp & phone for booking details.</p>
+  </div>
 
-        <div class="flex items-center space-x-2">
-          <input type="checkbox" class="w-4 h-4" name="whatsapp_consent" />
-          <p class="text-xs">I authorize contact via WhatsApp & phone for booking details.</p>
-        </div>
-
-        <button type="submit" class="w-full bg-green-500 hover:bg-yellow-600 text-white font-semibold py-2 rounded">
-          Submit
-        </button>
-      </form>
-    </div>
+  <button type="submit" class="w-full bg-green-500 hover:bg-yellow-600 text-white font-semibold py-2 rounded">
+    Submit
+  </button>
+</form>
 
       <!-- Info Section -->
       <div class="bg-white p-6 shadow-md rounded-xl text-sm space-y-4">
