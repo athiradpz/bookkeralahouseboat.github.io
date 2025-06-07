@@ -59,9 +59,16 @@
     </div>
   </nav>
 
-  <!-- Hero Section -->
-  <div class="relative w-full h-screen bg-cover bg-center flex items-center justify-center px-4 pt-20" style="background-image: url('assets/wesite video bkh.mp4');">
-    <div class="bg-black bg-opacity-60 p-6 rounded-xl max-w-md text-center text-white">
+  <div class="relative w-full h-screen overflow-hidden pt-20">
+  <!-- Background Video -->
+  <video autoplay muted loop playsinline class="absolute top-0 left-0 w-full h-full object-cover z-0">
+    <source src="assets/wesite video bkh.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <!-- Overlay Content -->
+  <div class="absolute inset-0 bg-black bg-opacity-60 flex items-center justify-center px-4">
+    <div class="p-6 rounded-xl max-w-md text-center text-white z-10">
       <h1 class="text-3xl sm:text-4xl font-bold mb-4">Book Kerala Houseboat</h1>
       <p class="text-lg sm:text-xl mb-6">More than a sail, it's an experience to treasure</p>
       <button onclick="toggleForm()" class="inline-block bg-teal-600 hover:bg-teal-700 text-white font-semibold py-2 px-6 rounded transition">
@@ -69,6 +76,8 @@
       </button>
     </div>
   </div>
+</div>
+  
 
   <!-- Booking Form Section -->
   <div id="bookingForm" class="hidden py-12 bg-gray-900 text-white">
