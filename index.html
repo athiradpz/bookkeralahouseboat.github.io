@@ -92,9 +92,10 @@
   </div>
 </nav>
 
-
+<!-- Hero Section with Video, Overlay & Booking Form -->
+<div class="relative h-[500px]">
   <!-- Background Video -->
-  <video autoplay muted loop playsinline class="absolute top-0 left-0 w-full h-full object-cover z-0">
+  <video autoplay muted loop playsinline class="w-full h-full object-cover">
     <source src="assets/wesite video bkh.mp4" type="video/mp4">
     Your browser does not support the video tag.
   </video>
@@ -109,63 +110,48 @@
       </button>
     </div>
   </div>
-</div>
-  
 
-  <!-- Booking Form Section -->
-  <div id="bookingForm" class="hidden py-12 bg-gray-900 text-white">
-    <div class="max-w-3xl mx-auto bg-gray-800 p-8 rounded-xl shadow-md">
-      <h2 class="text-2xl font-bold mb-6 text-center">Book Your Houseboat</h2>
-      <form action="https://getform.io/f/byvyepga" method="POST" class="space-y-6">
-        <div>
-          <label for="name" class="block text-sm font-medium">Name</label>
-          <input type="text" id="name" name="name" required class="w-full p-2 rounded text-black" />
+  <!-- Booking Form (Overlayed and Hidden Initially) -->
+  <div id="bookingForm" class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-80 hidden z-20 px-4">
+    <div class="bg-white p-6 rounded-xl shadow-md max-w-lg w-full text-black">
+      <h2 class="text-2xl font-bold mb-4 text-center">Book Your Houseboat</h2>
+      <form action="https://getform.io/f/anlxkkqa" method="POST" class="space-y-4">
+        <input type="text" name="name" placeholder="Your Name" required class="w-full p-2 border rounded" />
+        <input type="email" name="email" placeholder="Email Address" required class="w-full p-2 border rounded" />
+        <input type="tel" name="whatsapp" placeholder="WhatsApp Number" class="w-full p-2 border rounded" />
+        <input type="date" name="booking_date" class="w-full p-2 border rounded" />
+
+        <div class="flex space-x-4">
+          <label><input type="radio" name="package" value="Deluxe" /> Deluxe</label>
+          <label><input type="radio" name="package" value="Premium" /> Premium</label>
         </div>
 
-        <div>
-          <label for="email" class="block text-sm font-medium">Email</label>
-          <input type="email" id="email" name="email" required class="w-full p-2 rounded text-black" />
-        </div>
-
-        <div>
-          <label for="date" class="block text-sm font-medium">Booking Date</label>
-          <input type="date" id="date" name="booking_date" class="w-full p-2 rounded text-black" />
-        </div>
-
-        <div>
-          <label class="block text-sm font-medium">Package</label>
-          <div class="flex space-x-4 mt-1">
-            <label><input type="radio" name="package" value="deluxe" /> Deluxe</label>
-            <label><input type="radio" name="package" value="premium" /> Premium</label>
-          </div>
-        </div>
-
-        <div>
-          <label for="adults" class="block text-sm font-medium">Number of Adults</label>
-          <input type="number" id="adults" name="adults" min="1" class="w-full p-2 rounded text-black" />
-        </div>
-
-        <div>
-          <label for="children" class="block text-sm font-medium">Number of Children (above 5 years)</label>
-          <input type="number" id="children" name="children_above_5" min="0" class="w-full p-2 rounded text-black" />
-        </div>
+        <input type="number" name="adults" placeholder="Number of Adults" class="w-full p-2 border rounded" />
+        <input type="number" name="children_above_5" placeholder="Children (above 5)" class="w-full p-2 border rounded" />
 
         <div class="flex items-center space-x-2">
-          <input type="checkbox" name="pickup" value="yes" id="pickup" />
-          <label for="pickup">Need Pickup</label>
+          <input type="checkbox" name="pickup" id="pickup" value="Yes" />
+          <label for="pickup" class="text-sm">Need Pickup</label>
         </div>
 
-        <div>
-          <label for="message" class="block text-sm font-medium">Message</label>
-          <textarea id="message" name="message" rows="4" class="w-full p-2 rounded text-black"></textarea>
-        </div>
+        <textarea name="message" placeholder="Message" rows="3" class="w-full p-2 border rounded"></textarea>
 
-        <div>
-          <button type="submit" class="w-full bg-teal-600 hover:bg-teal-700 py-2 rounded">Submit</button>
-        </div>
+        <button type="submit" class="w-full bg-teal-600 hover:bg-teal-700 py-2 rounded text-white font-semibold">
+          Submit
+        </button>
       </form>
     </div>
   </div>
+</div>
+
+<!-- Toggle Script -->
+<script>
+  function toggleForm() {
+    const form = document.getElementById('bookingForm');
+    form.classList.toggle('hidden');
+  }
+</script>
+
 
   <!-- WhatsApp / Call Floating Button -->
   <div class="fixed bottom-6 right-6 space-y-2 z-50 sm:right-6 sm:bottom-6">
