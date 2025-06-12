@@ -8,6 +8,7 @@
   <meta name="description" content="Book premium Kerala houseboat experiences with ease. Enjoy deluxe cruises, local food, and serene backwater tours.">
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
   <script>
     // Show/hide scroll to top button
     window.onscroll = function () {
@@ -39,54 +40,58 @@
 </script>
 <body class="bg-black text-white">
 <!-- Navbar -->
-<nav class="bg-black bg-opacity-80 fixed w-full z-50 top-0 shadow-md">
+  <!-- Navbar with Mobile Hamburger -->
+<nav class="bg-black bg-opacity-90 fixed w-full z-50 top-0 shadow-md" x-data="{ open: false }">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-16">
-      
       <!-- Logo -->
-      <div class="flex-shrink-0">
-        <a href="#">
-          <img src="assets/New BHK.png" alt="BookKeralaHouseboat" class="h-10">
-        </a>
+      <div class="text-lg font-bold text-white">
+        <a href="index.html">BookKeralaHouseboat</a>
       </div>
 
-      <!-- Mobile menu button -->
+      <!-- Hamburger Button (Mobile) -->
       <div class="md:hidden">
-        <button id="mobileMenuButton" class="text-white focus:outline-none">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"
-               viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round"
-                  d="M4 6h16M4 12h16M4 18h16" />
+        <button @click="open = !open" type="button" class="text-white focus:outline-none">
+          <svg x-show="!open" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+            viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+          <svg x-show="open" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+            viewBox="0 0 24 24" stroke="currentColor" x-cloak>
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M6 18L18 6M6 6l12 12" />
           </svg>
         </button>
       </div>
 
-      <!-- Desktop Menu -->
-      <div class="hidden md:flex space-x-6 items-center text-white font-medium">
-        <a href="#" class="hover:text-teal-400">Home</a>
-        <a href="#" class="hover:text-yellow-400">Our Houseboats</a>
-        <a href="https://www.triptgo.com" target="_blank" class="hover:text-yellow-400">Kerala Tour Packages</a>
-        <a href="#" class="hover:text-yellow-400">Backwater Activities</a>
-        <a href="#" class="hover:text-yellow-400">Food Menu</a>
-        <a href="#" class="hover:text-yellow-400">Blog</a>
-        <a href="enquiry.html" class="hover:text-yellow-400">Enquire Now</a></li>
-        <a href="#" class="hover:text-yellow-400">Contact Us</a>
+      <!-- Menu Items (Desktop) -->
+      <div class="hidden md:flex space-x-4">
+        <a href="index.html" class="hover:text-teal-400 text-white">Home</a>
+        <a href="#" class="hover:text-yellow-400 text-white">Our Houseboats</a>
+        <a href="#" class="hover:text-yellow-400 text-white">Kerala Tour Packages</a>
+        <a href="#" class="hover:text-yellow-400 text-white">Backwater Activities</a>
+        <a href="#" class="hover:text-yellow-400 text-white">Food Menu</a>
+        <a href="#" class="hover:text-yellow-400 text-white">Blog</a>
+        <a href="enquiry.html" class="hover:text-yellow-400 text-white font-semibold">Enquire Now</a>
+        <a href="#" class="hover:text-yellow-400 text-white">Contact Us</a>
       </div>
     </div>
-  </div>
 
-  <!-- Mobile Menu -->
-  <div id="mobileMenu" class="md:hidden hidden px-4 pb-4 text-white bg-black bg-opacity-90 space-y-2">
-    <a href="#" class="block hover:text-teal-400">Home</a>
-    <a href="#" class="block hover:text-yellow-400">Our Houseboats</a>
-    <a href="https://www.triptgo.com" target="_blank" class="block hover:text-yellow-400">Kerala Tour Packages</a>
-    <a href="#" class="block hover:text-yellow-400">Backwater Activities</a>
-    <a href="#" class="block hover:text-yellow-400">Food Menu</a>
-    <a href="#" class="block hover:text-yellow-400">Blog</a>
-    <a href="#" class="block hover:text-yellow-400">Enquire Now</a>
-    <a href="#" class="block hover:text-yellow-400">Contact Us</a>
+    <!-- Mobile Menu (Dropdown) -->
+    <div x-show="open" x-transition class="md:hidden mt-2 space-y-2 pb-4">
+      <a href="index.html" class="block text-white hover:text-teal-400">Home</a>
+      <a href="#" class="block text-white hover:text-yellow-400">Our Houseboats</a>
+      <a href="#" class="block text-white hover:text-yellow-400">Kerala Tour Packages</a>
+      <a href="#" class="block text-white hover:text-yellow-400">Backwater Activities</a>
+      <a href="#" class="block text-white hover:text-yellow-400">Food Menu</a>
+      <a href="#" class="block text-white hover:text-yellow-400">Blog</a>
+      <a href="enquiry.html" class="block text-white hover:text-yellow-400 font-semibold">Enquire Now</a>
+      <a href="#" class="block text-white hover:text-yellow-400">Contact Us</a>
+    </div>
   </div>
 </nav>
+
 
   <!-- Background Video -->
   <video autoplay muted loop playsinline class="absolute top-0 left-0 w-full h-full object-cover z-0">
