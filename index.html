@@ -94,6 +94,33 @@
   </div>
 </nav>
 
+  <!-- Search Bar Section -->
+<div class="bg-white shadow-md rounded-xl p-6 max-w-4xl mx-auto mt-10">
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+    <!-- Room Type Dropdown -->
+    <select class="border rounded px-4 py-2 w-full" id="roomType">
+      <option value="1bhk">1 Bedroom Houseboat in Alleppey</option>
+      <option value="2bhk">2 Bedroom Houseboat in Kumarakom</option>
+    </select>
+
+    <!-- Category Dropdown -->
+    <select class="border rounded px-4 py-2 w-full" id="category">
+      <option value="deluxe">Deluxe Houseboats</option>
+      <option value="premium">Premium Houseboats</option>
+      <option value="luxury">Luxury Houseboats</option>
+    </select>
+
+    <!-- Search Button -->
+    <button
+      onclick="searchHouseboats()"
+      class="bg-yellow-500 hover:bg-yellow-600 text-white px-6 py-2 rounded w-full">
+      Search
+    </button>
+  </div>
+</div>
+
+
+
   <!-- Background Video -->
 <video autoplay muted loop playsinline class="absolute top-0 left-0 w-full h-full object-cover z-0">
   <source src="assets/wesite video bkh.mp4" type="video/mp4">
@@ -179,30 +206,5 @@
 </body>
 
 </html>
-<!-- Search Bar Section -->
-<div class="bg-white shadow-md rounded-xl p-6 max-w-4xl mx-auto mt-10">
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-    <!-- Room Type Dropdown -->
-    <select class="border rounded px-4 py-2 w-full" id="roomType">
-      <option value="1bhk">1 Bedroom Houseboat in Alleppey</option>
-      <option value="2bhk">2 Bedroom Houseboat in Kumarakom</option>
-    </select>
-
-    <!-- Category Dropdown -->
-    <select class="border rounded px-4 py-2 w-full" id="category">
-      <option value="deluxe">Deluxe Houseboats</option>
-      <option value="premium">Premium Houseboats</option>
-      <option value="luxury">Luxury Houseboats</option>
-    </select>
-
-    <!-- Search Button -->
-    <button
-      onclick="searchHouseboats()"
-      class="bg-yellow-500 hover:bg-yellow-600 text-white px-6 py-2 rounded w-full">
-      Search
-    </button>
-  </div>
-</div>
-
 
 
