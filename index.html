@@ -157,6 +157,27 @@
   </div>
 </div>
 
+
+<!-- Toggle Script -->
+<script>
+  function toggleForm() {
+    const form = document.getElementById('bookingForm');
+    form.classList.toggle('hidden');
+  }
+</script>
+
+
+  <!-- WhatsApp / Call Floating Button -->
+  <div class="fixed bottom-6 right-6 space-y-2 z-50 sm:right-6 sm:bottom-6">
+    <a href="tel:+919995857686" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-full shadow-md block text-center">Call</a>
+    <a href="https://wa.me/919995857686" target="_blank" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-full shadow-md block text-center">WhatsApp</a>
+  </div>
+
+  <!-- Scroll to Top Button -->
+  <button id="scrollToTop" onclick="scrollToTop()" class="hidden fixed bottom-20 right-6 bg-teal-600 hover:bg-teal-700 text-white px-4 py-2 rounded-full shadow z-50">
+    ↑ Top
+  </button>
+
     <!-- 🔍 Search Bar Section BELOW VIDEO -->
 <section class="bg-white py-10">
   <div class="max-w-5xl mx-auto px-4">
@@ -183,27 +204,6 @@
     </div>
   </div>
 </section>
-
-
-<!-- Toggle Script -->
-<script>
-  function toggleForm() {
-    const form = document.getElementById('bookingForm');
-    form.classList.toggle('hidden');
-  }
-</script>
-
-
-  <!-- WhatsApp / Call Floating Button -->
-  <div class="fixed bottom-6 right-6 space-y-2 z-50 sm:right-6 sm:bottom-6">
-    <a href="tel:+919995857686" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-full shadow-md block text-center">Call</a>
-    <a href="https://wa.me/919995857686" target="_blank" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-full shadow-md block text-center">WhatsApp</a>
-  </div>
-
-  <!-- Scroll to Top Button -->
-  <button id="scrollToTop" onclick="scrollToTop()" class="hidden fixed bottom-20 right-6 bg-teal-600 hover:bg-teal-700 text-white px-4 py-2 rounded-full shadow z-50">
-    ↑ Top
-  </button>
 
   <script>
   function searchHouseboats() {
