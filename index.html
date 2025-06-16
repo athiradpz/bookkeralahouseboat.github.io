@@ -185,27 +185,34 @@
 <div class="flex justify-center mt-8">
   <div class="bg-white rounded-lg shadow-lg p-4 flex items-center space-x-4 w-full max-w-5xl">
     
-    <!-- Room Type Input -->
-    <input 
-      type="text" 
-      placeholder="Enter Room Type (e.g., 1 BHK in Alleppey)" 
-      class="flex-1 border rounded px-4 py-2 bg-white text-black"
-    />
+    <!-- Room Type Dropdown -->
+    <div class="flex-1">
+      <label for="roomType" class="block text-sm font-medium text-gray-700 mb-1">Select Room Type:</label>
+      <select id="roomType" class="w-full border rounded px-4 py-2 bg-white text-black">
+        <option>All Room Types</option>
+        <option>1 Bedroom Houseboat in Alleppey</option>
+        <option>2 Bedroom Houseboat in Alleppey</option>
+        <option>3 Bedroom Houseboat in Alleppey</option>
+      </select>
+    </div>
 
-    <!-- Category Input -->
-    <input 
-      type="text" 
-      placeholder="Enter Category (e.g., Deluxe, Luxury)" 
-      class="flex-1 border rounded px-4 py-2 bg-white text-black"
-    />
+    <!-- Category Dropdown -->
+    <div class="flex-1">
+      <label for="category" class="block text-sm font-medium text-gray-700 mb-1">Select Category:</label>
+      <select id="category" class="w-full border rounded px-4 py-2 bg-white text-black">
+        <option>All Categories</option>
+        <option>Deluxe Houseboats</option>
+        <option>Luxury Houseboats</option>
+        <option>Premium Houseboats</option>
+      </select>
+    </div>
 
     <!-- Search Button -->
-    <button class="bg-yellow-500 hover:bg-yellow-600 text-white font-semibold px-6 py-2 rounded">
-      Search
-    </button>
-
-  </div>
-</div>
+    <div>
+      <button class="bg-yellow-500 hover:bg-yellow-600 text-white font-semibold px-6 py-2 rounded mt-5 sm:mt-6">
+        Search
+      </button>
+    </div>
 
 
   <script>
