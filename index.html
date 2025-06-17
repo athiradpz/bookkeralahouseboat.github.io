@@ -6,11 +6,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Book Kerala Houseboat</title>
   <meta name="description" content="Book premium Kerala houseboat experiences with ease. Enjoy deluxe cruises, local food, and serene backwater tours.">
+
+  <!-- Tailwind CSS -->
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="assets/favicon.ico" type="image/x-icon" />
+
   <script>
-    // Show/hide scroll to top button
     window.onscroll = function () {
       const btn = document.getElementById("scrollToTop");
       if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
@@ -29,285 +37,191 @@
       form.classList.toggle("hidden");
       form.scrollIntoView({ behavior: "smooth" });
     }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const mobileMenuBtn = document.getElementById('mobileMenuButton');
+      if (mobileMenuBtn) {
+        mobileMenuBtn.addEventListener('click', () => {
+          const menu = document.getElementById('mobileMenu');
+          if (menu) menu.classList.toggle('hidden');
+        });
+      }
+    });
   </script>
 </head>
-<script>
-  // Mobile menu toggle
-  document.getElementById('mobileMenuButton').addEventListener('click', function () {
-    const menu = document.getElementById('mobileMenu');
-    menu.classList.toggle('hidden');
-  });
-</script>
-<body class="bg-black text-white">
-<!-- Navbar -->
-  <!-- Navbar with Mobile Hamburger -->
-<nav class="bg-black bg-opacity-90 fixed w-full z-50 top-0 shadow-md" x-data="{ open: false }">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex items-center justify-between h-16">
-      <!-- Logo -->
-      <div class="flex items-center space-x-2">
-  <img src="assets/New BHK.png" alt="Logo" class="h-14 w-14 sm:h-16 sm:w-16 object-contain" />
-  <a href="index.html" class="text-lg font-bold text-white">BookKeralaHouseboat</a>
-</div>
 
+<body class="bg-black text-white flex flex-col min-h-screen">
 
-      <!-- Hamburger Button (Mobile) -->
-      <div class="md:hidden">
-        <button @click="open = !open" type="button" class="text-white focus:outline-none">
-          <svg x-show="!open" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
-            viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
-          <svg x-show="open" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
-            viewBox="0 0 24 24" stroke="currentColor" x-cloak>
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              d="M6 18L18 6M6 6l12 12" />
-          </svg>
-        </button>
+  <!-- Navbar -->
+  <nav class="bg-black bg-opacity-90 fixed w-full z-50 top-0 shadow-md" x-data="{ open: false }">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <div class="flex items-center space-x-2">
+          <img src="assets/New BHK.png" alt="Logo" class="h-14 w-14 sm:h-16 sm:w-16 object-contain" />
+          <a href="index.html" class="text-lg font-bold text-white">BookKeralaHouseboat</a>
+        </div>
+
+        <div class="md:hidden">
+          <button @click="open = !open" type="button" class="text-white focus:outline-none">
+            <svg x-show="!open" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+              viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+            <svg x-show="open" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+              viewBox="0 0 24 24" stroke="currentColor" x-cloak>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+
+        <div class="hidden md:flex space-x-4">
+          <a href="index.html" class="hover:text-teal-400 text-white">Home</a>
+          <a href="houseboats.html" class="hover:text-yellow-400 text-white">Houseboats</a>
+          <a href="https://www.triptgo.com" target="_blank" class="hover:text-yellow-400 text-white">Kerala Tour Packages</a>
+          <a href="#" class="hover:text-yellow-400 text-white">Backwater Activities</a>
+          <a href="#" class="hover:text-yellow-400 text-white">Blog</a>
+          <a href="#" class="hover:text-yellow-400 text-white">Collaborations</a>
+          <a href="enquiry.html" class="hover:text-yellow-400 text-white font-semibold">Enquire Now</a>
+          <a href="#" class="hover:text-yellow-400 text-white">Contact Us</a>
+        </div>
       </div>
 
-      <!-- Menu Items (Desktop) -->
-      <div class="hidden md:flex space-x-4">
-        <a href="index.html" class="hover:text-teal-400 text-white">Home</a>
-        <a href="houseboats.html" class="hover:text-yellow-400 text-white">Houseboats</a>
-        <a href="https://www.triptgo.com" target="_blank" class="hover:text-yellow-400 text-white">Kerala Tour Packages</a>
-        <a href="#" class="hover:text-yellow-400 text-white">Backwater Activities</a>
-        <a href="#" class="hover:text-yellow-400 text-white">Blog</a>
+      <div x-show="open" x-transition class="md:hidden mt-2 space-y-2 pb-4" id="mobileMenu">
+        <a href="index.html" class="block text-white hover:text-teal-400">Home</a>
+        <a href="houseboats.html" class="block text-white hover:text-yellow-400">Houseboats</a>
+        <a href="https://www.triptgo.com" target="_blank" class="block text-white hover:text-yellow-400">Kerala Tour Packages</a>
+        <a href="#" class="block text-white hover:text-yellow-400">Backwater Activities</a>
+        <a href="#" class="block text-white hover:text-yellow-400">Blog</a>
         <a href="#" class="block text-white hover:text-yellow-400">Collaborations</a>
-        <a href="enquiry.html" class="hover:text-yellow-400 text-white font-semibold">Enquire Now</a>
-        <a href="#" class="hover:text-yellow-400 text-white">Contact Us</a>
+        <a href="enquiry.html" class="block text-white hover:text-yellow-400 font-semibold">Enquire Now</a>
+        <a href="#" class="block text-white hover:text-yellow-400">Contact Us</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="flex-grow pt-16">
+
+    <!-- Video Section -->
+    <div class="relative w-full h-screen">
+      <video autoplay muted loop playsinline class="absolute top-0 left-0 w-full h-full object-cover z-0">
+        <source src="assets/wesite video bkh.mp4" type="video/mp4">
+      </video>
+      <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center px-4">
+        <div class="p-6 rounded-xl max-w-md text-center text-white z-10">
+          <h1 class="text-3xl sm:text-4xl font-bold mb-4">Book Kerala Houseboat</h1>
+          <p class="text-lg sm:text-xl mb-6">More than a sail, it's an experience to treasure</p>
+          <button onclick="toggleForm()" class="bg-yellow-600 hover:bg-teal-700 text-white font-semibold py-2 px-6 rounded transition">Book Now</button>
+        </div>
       </div>
     </div>
 
-    <!-- Mobile Menu (Dropdown) -->
-    <div x-show="open" x-transition class="md:hidden mt-2 space-y-2 pb-4">
-      <a href="index.html" class="block text-white hover:text-teal-400">Home</a>
-      <a href="#" class="block text-white hover:text-yellow-400">Houseboats</a>
-      <a href="https://www.triptgo.com" target="_blank" class="block text-white hover:text-yellow-400">Kerala Tour Packages</a>
-      <a href="#" class="block text-white hover:text-yellow-400">Backwater Activities</a>
-      <a href="#" class="block text-white hover:text-yellow-400">Blog</a>
-      <a href="#" class="block text-white hover:text-yellow-400">Collaborations</a>
-      <a href="enquiry.html" class="block text-white hover:text-yellow-400 font-semibold">Enquire Now</a>
-      <a href="#" class="block text-white hover:text-yellow-400">Contact Us</a>
+    <!-- Booking Form -->
+    <div id="bookingForm" class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-80 hidden z-20 px-4 relative">
+      <button onclick="toggleForm()" class="absolute top-4 right-4 text-white text-3xl font-bold z-30 hover:text-red-500">&times;</button>
+      <div class="bg-white p-6 rounded-xl shadow-md max-w-lg w-full text-black">
+        <h2 class="text-2xl font-bold mb-4 text-center">Book Your Houseboat</h2>
+        <form action="https://getform.io/f/anlxkkqa" method="POST" class="space-y-4">
+          <input type="text" name="name" placeholder="Your Name" required class="w-full p-2 border rounded" />
+          <input type="email" name="email" placeholder="Email Address" required class="w-full p-2 border rounded" />
+          <input type="tel" name="whatsapp" placeholder="WhatsApp Number" class="w-full p-2 border rounded" />
+          <input type="date" name="booking_date" class="w-full p-2 border rounded" />
+          <div class="flex flex-wrap gap-2">
+            <label><input type="radio" name="package" value="Deluxe" /> Deluxe</label>
+            <label><input type="radio" name="package" value="Premium" /> Premium</label>
+            <label><input type="radio" name="package" value="Luxury" /> Luxury</label>
+            <label><input type="radio" name="package" value="Ultraluxury" /> Ultraluxury</label>
+          </div>
+          <input type="number" name="adults" placeholder="Number of Adults" class="w-full p-2 border rounded" />
+          <input type="number" name="children_above_5" placeholder="Children (above 5)" class="w-full p-2 border rounded" />
+          <div class="flex items-center space-x-2">
+            <input type="checkbox" name="pickup" id="pickup" value="Yes" />
+            <label for="pickup" class="text-sm">Need Pickup</label>
+          </div>
+          <textarea name="message" placeholder="Message" rows="3" class="w-full p-2 border rounded"></textarea>
+          <button type="submit" class="w-full bg-green-500 hover:bg-yellow-600 text-white font-semibold py-2 rounded">Submit</button>
+          <button type="button" onclick="toggleForm()" class="w-full bg-gray-500 hover:bg-gray-600 py-2 rounded text-white font-semibold mt-2">Close</button>
+        </form>
+      </div>
     </div>
-  </div>
-</nav>
-  
-  <!-- Background Video with Overlay -->
-<div class="relative w-full h-screen">
-  <!-- Background Video -->
-  <video autoplay muted loop playsinline class="absolute top-0 left-0 w-full h-full object-cover z-0">
-    <source src="assets/wesite video bkh.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
-
-  <!-- Overlay Content -->
-  <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center px-4">
-    <div class="p-6 rounded-xl max-w-md text-center text-white z-10">
-      <h1 class="text-3xl sm:text-4xl font-bold mb-4">Book Kerala Houseboat</h1>
-      <p class="text-lg sm:text-xl mb-6">More than a sail, it's an experience to treasure</p>
-      <button onclick="toggleForm()" class="bg-yellow-600 hover:bg-teal-700 text-white font-semibold py-2 px-6 rounded transition">
-        Book Now
-      </button>
-    </div>
-  </div>
-</div>
 
 
-<!-- Booking Form -->
-<div id="bookingForm" class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-80 hidden z-20 px-4 relative">
+    <!-- Scroll to Top -->
+    <button id="scrollToTop" onclick="scrollToTop()" class="hidden fixed bottom-20 right-6 bg-teal-600 hover:bg-teal-700 text-white px-4 py-2 rounded-full shadow z-50">↑ Top</button>
 
-<!-- Floating Close Button -->
-<button onclick="toggleForm()" class="absolute top-4 right-4 text-white text-3xl font-bold z-30 hover:text-red-500">
-  &times;
-</button>
+  </main>
 
-<div class="bg-white p-6 rounded-xl shadow-md max-w-lg w-full text-black">
-    <h2 class="text-2xl font-bold mb-4 text-center">Book Your Houseboat</h2>
-    <form action="https://getform.io/f/anlxkkqa" method="POST" class="space-y-4">
-      <input type="text" name="name" placeholder="Your Name" required class="w-full p-2 border rounded" />
-      <input type="email" name="email" placeholder="Email Address" required class="w-full p-2 border rounded" />
-      <input type="tel" name="whatsapp" placeholder="WhatsApp Number" class="w-full p-2 border rounded" />
-      <input type="date" name="booking_date" class="w-full p-2 border rounded" />
-
-      <div class="flex space-x-4">
-        <label><input type="radio" name="package" value="Deluxe" /> Deluxe</label>
-        <label><input type="radio" name="package" value="Premium" /> Premium</label>
-        <label><input type="radio" name="package" value="Premium" /> Luxury</label>
-        <label><input type="radio" name="package" value="Premium" /> Ultraluxury</label>
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white pt-10 mt-auto">
+    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-10">
+      <div>
+        <h3 class="text-xl font-bold mb-4">Book Kerala Houseboat</h3>
+        <hr class="border-gray-500 mb-4 w-20">
+        <p class="text-sm mb-2"><i class="fas fa-map-marker-alt mr-2"></i>Church Road, Pallathuruthy, Alappuzha, Kerala 688009</p>
+        <p class="text-sm mb-2"><i class="fas fa-phone-alt mr-2"></i>+91 9103614770, +91 9995857686</p>
+        <p class="text-sm"><i class="fas fa-envelope mr-2"></i>info@bookeralahouseboat.com</p>
       </div>
 
-      <input type="number" name="adults" placeholder="Number of Adults" class="w-full p-2 border rounded" />
-      <input type="number" name="children_above_5" placeholder="Children (above 5)" class="w-full p-2 border rounded" />
-
-      <div class="flex items-center space-x-2">
-        <input type="checkbox" name="pickup" id="pickup" value="Yes" />
-        <label for="pickup" class="text-sm">Need Pickup</label>
+      <div>
+        <h4 class="text-lg font-bold mb-4">Company</h4>
+        <ul class="space-y-2 text-sm">
+          <li><a href="#" class="hover:text-yellow-400">About Us</a></li>
+          <li><a href="#" class="hover:text-yellow-400">Contact us</a></li>
+        </ul>
       </div>
 
-      <textarea name="message" placeholder="Message" rows="3" class="w-full p-2 border rounded"></textarea>
+      <div>
+        <h4 class="text-lg font-bold mb-4">Quick Links</h4>
+        <ul class="space-y-2 text-sm">
+          <li><a href="#" class="hover:text-yellow-400">Book Houseboat</a></li>
+          <li><a href="#" class="hover:text-yellow-400">Kerala packages</a></li>
+          <li><a href="#" class="hover:text-yellow-400">Guest Reviews</a></li>
+          <li><a href="#" class="hover:text-yellow-400">FAQs</a></li>
+          <li><a href="#" class="hover:text-yellow-400">Conference Houseboats</a></li>
+        </ul>
+      </div>
 
-      <button type="submit" class="w-full bg-green-500 hover:bg-yellow-600 text-white font-semibold py-2 rounded">
-    Submit
-  </button>
-      <button type="button" onclick="toggleForm()" class="w-full bg-gray-500 hover:bg-gray-600 py-2 rounded text-white font-semibold mt-2">
-    Close
-  </button>
-
-
-    </form>
-  </div>
-</div>
-
-
-<!-- Toggle Script -->
-<script>
-  function toggleForm() {
-    const form = document.getElementById('bookingForm');
-    form.classList.toggle('hidden');
-  }
-</script>
-
-
-  <!-- WhatsApp / Call Floating Button -->
-  <div class="fixed bottom-6 right-6 space-y-2 z-50 sm:right-6 sm:bottom-6">
-    <a href="tel:+919995857686" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-full shadow-md block text-center">Call</a>
-    <a href="https://wa.me/919995857686" target="_blank" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-full shadow-md block text-center">WhatsApp</a>
-  </div>
-
-  <!-- Scroll to Top Button -->
-  <button id="scrollToTop" onclick="scrollToTop()" class="hidden fixed bottom-20 right-6 bg-teal-600 hover:bg-teal-700 text-white px-4 py-2 rounded-full shadow z-50">
-    ↑ Top
-  </button>
-  
-<!-- 🔍 Search Bar Section BELOW VIDEO -->
-<div class="flex justify-center mt-8">
-  <div class="bg-white rounded-lg shadow-lg p-4 flex items-center space-x-4 w-full max-w-5xl">
-    
-    <!-- Room Type Dropdown -->
-    <div class="flex-1">
-      <label for="roomType" class="block text-sm font-medium text-gray-700 mb-1">Select Room Type:</label>
-      <select id="roomType" class="w-full border rounded px-4 py-2 bg-white text-black">
-        <option>All Room Types</option>
-        <option>1 Bedroom </option>
-        <option>2 Bedroom </option>
-        <option>3 Bedroom </option>
-        <option>4 Bedroom </option>
-        <option>5 Bedroom </option>
-        <option>6 Bedroom </option>
-        <option>7 Bedroom </option>
-        <option>8 Bedroom </option>
-        <option>9 Bedroom </option>
-        <option>10 Bedroom </option>
-        <option>11 Bedroom </option>
-        <option>12 Bedroom </option>
-        <option>13 Bedroom </option>
-        <option>14 Bedroom </option>
-        <option> More than 14 Bedroom </option>
-      </select>
+      <div>
+        <h4 class="text-lg font-bold mb-4">Policies</h4>
+        <ul class="space-y-2 text-sm">
+          <li><a href="#" class="font-semibold hover:text-yellow-400">Cancellation Policy</a></li>
+          <li><a href="#" class="font-semibold hover:text-yellow-400">Booking Policy</a></li>
+          <li><a href="#" class="font-semibold hover:text-yellow-400">Child Policy</a></li>
+          <li><a href="#" class="font-semibold hover:text-yellow-400">Food Menu</a></li>
+        </ul>
+      </div>
     </div>
 
-    <!-- Category Dropdown -->
-    <div class="flex-1">
-      <label for="category" class="block text-sm font-medium text-gray-700 mb-1">Select Category:</label>
-      <select id="category" class="w-full border rounded px-4 py-2 bg-white text-black">
-        <option>All Categories</option>
-        <option>Deluxe Houseboats</option>
-        <option>Premium Houseboats</option>
-        <option>Luxury Houseboats</option>
-        <option>Ultra Luxury Houseboats</option>
-      </select>
+    <!-- WhatsApp / Call Buttons -->
+    <div class="fixed bottom-6 right-6 space-y-2 z-50">
+      <a href="tel:+919995857686" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-full shadow-md block text-center">Call</a>
+      <a href="https://wa.me/919995857686" target="_blank" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-full shadow-md block text-center">WhatsApp</a>
     </div>
 
-    <!-- Search Button -->
-    <div>
-      <button class="bg-yellow-500 hover:bg-yellow-600 text-white font-semibold px-6 py-2 rounded mt-5 sm:mt-6">
-        Search
-      </button>
+    <div class="bg-gray-900 mt-10 flex flex-col md:flex-row items-center justify-between px-6 py-4 text-sm text-gray-300">
+      <p class="text-center">&copy; 2025 Book Kerala Houseboat. All Rights Reserved.</p>
+      <div class="flex space-x-4 mt-4 md:mt-0">
+        <a href="#" class="bg-yellow-500 p-2 rounded-full hover:bg-yellow-400" title="Back to Top">
+          <i class="fas fa-arrow-up text-white"></i>
+        </a>
+        <a href="#" class="bg-white text-gray-800 p-2 rounded-full hover:opacity-75" title="Facebook">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="#" class="bg-white text-gray-800 p-2 rounded-full hover:opacity-75" title="Instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://wa.me/919995857686" target="_blank" class="bg-white text-green-600 p-2 rounded-full hover:opacity-75" title="WhatsApp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </div>
     </div>
-
-
-  <script>
-  function searchHouseboats() {
-    const roomType = document.getElementById('roomType').value;
-    const category = document.getElementById('category').value;
-    window.location.href = `houseboats.html?roomType=${roomType}&category=${category}`;
-  }
-</script>
-<!-- Add Font Awesome CDN in <head> of your HTML -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-
-<footer class="bg-gray-800 text-white pt-10">
-  <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-10">
-    <!-- Contact Info -->
-    <div>
-      <h3 class="text-xl font-bold mb-4">Book Kerala Houseboat</h3>
-      <hr class="border-gray-500 mb-4 w-20">
-      <p class="text-sm mb-2"><i class="fas fa-map-marker-alt mr-2"></i>Book Kerala Houseboats,<br>Church Road, Pallathuruthy, Alappuzha,<br>Kerala 688009</p>
-      <p class="text-sm mb-2"><i class="fas fa-phone-alt mr-2"></i>+91 9103614770, +91 9995857686</p>
-      <p class="text-sm"><i class="fas fa-envelope mr-2"></i>info@bookeralahouseboat.com</p>
-    </div>
-
-    <!-- Company -->
-    <div>
-      <h4 class="text-lg font-bold mb-4">Company</h4>
-      <ul class="space-y-2 text-sm">
-        <li><a href="#" class="hover:text-yellow-400">About Us</a></li>
-        <li><a href="#" class="hover:text-yellow-400">Contact us</a></li>
-      </ul>
-    </div>
-
-    <!-- Quick Links -->
-    <div>
-      <h4 class="text-lg font-bold mb-4">Quick Links</h4>
-      <ul class="space-y-2 text-sm">
-        <li><a href="#" class="hover:text-yellow-400">Book Houseboat</a></li>
-        <li><a href="#" class="hover:text-yellow-400">Kerala packages</a></li>
-        <li><a href="#" class="hover:text-yellow-400">Guest Reviews</a></li>
-        <li><a href="#" class="hover:text-yellow-400">FAQs</a></li>
-        <li><a href="#" class="hover:text-yellow-400">Conference Houseboats</a></li>
-      </ul>
-    </div>
-
-    <!-- Policies -->
-    <div>
-      <h4 class="text-lg font-bold mb-4">Policies</h4>
-      <ul class="space-y-2 text-sm">
-        <li><a href="#" class="font-semibold hover:text-yellow-400">Cancellation Policy</a></li>
-        <li><a href="#" class="font-semibold hover:text-yellow-400">Booking Policy</a></li>
-        <li><a href="#" class="font-semibold hover:text-yellow-400">Child Policy</a></li>
-        <li><a href="#" class="font-semibold hover:text-yellow-400">Food menue</a></li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- Bottom Bar -->
-  <div class="bg-gray-900 mt-10 flex flex-col md:flex-row items-center justify-between px-6 py-4 text-sm text-gray-300">
-    <p class="text-center">&copy; 2025 Book Kerala Houseboat. All Rights Reserved.</p>
-    <div class="flex space-x-4 mt-4 md:mt-0">
-      <!-- Scroll to top -->
-      <a href="#" class="bg-yellow-500 p-2 rounded-full hover:bg-yellow-400" title="Back to Top">
-        <i class="fas fa-arrow-up text-white"></i>
-      </a>
-      <!-- Facebook -->
-      <a href="#" class="bg-white text-gray-800 p-2 rounded-full hover:opacity-75" title="Facebook">
-        <i class="fab fa-facebook-f"></i>
-      </a>
-      <!-- Instagram -->
-      <a href="#" class="bg-white text-gray-800 p-2 rounded-full hover:opacity-75" title="Instagram">
-        <i class="fab fa-instagram"></i>
-      </a>
-      <!-- WhatsApp -->
-      <a href="https://wa.me/919995857686" target="_blank" class="bg-white text-green-600 p-2 rounded-full hover:opacity-75" title="WhatsApp">
-        <i class="fab fa-whatsapp"></i>
-      </a>
-    </div>
-  </div>
-</footer>
+  </footer>
 
 </body>
 
 </html>
+
 
 
