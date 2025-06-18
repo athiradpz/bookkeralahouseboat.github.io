@@ -1,56 +1,47 @@
-const CACHE_NAME = "bookkeralahouseboat-cache-v1";
+const CACHE_NAME = "bkh-v1";
 
+// ✅ List only your own site’s assets – exclude external CDN URLs like tailwindcss.com
 const urlsToCache = [
   "/",
   "/index.html",
-  "/enquiry.html",
-  "/houseboats.html",
-  "/favicon.ico",
-  "/favicon-16x16.png",
   "/favicon-32x32.png",
-  "/apple-touch-icon.png",
-  "/android-chrome-192x192.png",
-  "/android-chrome-512x512.png",
-  "/site.webmanifest",
-  "/assets/css/tailwind.min.css", // Local Tailwind CSS
+  "/favicon-16x16.png",
+  "/manifest.json",
+  "/assets/wesite video bkh.mp4"
+  // Add other local assets if needed (e.g., CSS, JS, images)
 ];
 
-// Install service worker and cache assets
-self.addEventListener("install", (event) => {
+self.addEventListener("install", event => {
   event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => {
+    caches.open(CACHE_NAME).then(cache => {
       return cache.addAll(urlsToCache);
+    }).catch(error => {
+      console.error("Cache installation failed:", error);
     })
   );
-  self.skipWaiting();
 });
 
-// Activate service worker and clean old caches
-self.addEventListener("activate", (event) => {
+self.addEventListener("activate", event => {
   event.waitUntil(
-    caches.keys().then((cacheNames) =>
-      Promise.all(
-        cacheNames
-          .filter((name) => name !== CACHE_NAME)
-          .map((name) => caches.delete(name))
-      )
-    )
-  );
-});
-
-// Fetch assets
-self.addEventListener("fetch", (event) => {
-  event.respondWith(
-    caches.match(event.request).then((cachedResponse) => {
-      return (
-        cachedResponse ||
-        fetch(event.request).catch(() => {
-          // Optional: fallback HTML
-          if (event.request.mode === "navigate") {
-            return caches.match("/index.html");
+    caches.keys().then(cacheNames => {
+      return Promise.all(
+        cacheNames.map(name => {
+          if (name !== CACHE_NAME) {
+            return caches.delete(name);
           }
         })
       );
+    })
+  );
+});
+
+self.addEventListener("fetch", event => {
+  event.respondWith(
+    caches.match(event.request).then(response => {
+      // Return cached response or fetch from network
+      return response || fetch(event.request);
+    }).catch(error => {
+      console.error("Fetch failed:", error);
     })
   );
 });
