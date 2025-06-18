@@ -1,47 +1,48 @@
-const CACHE_NAME = "bkh-v1";
-
-// ✅ List only your own site’s assets – exclude external CDN URLs like tailwindcss.com
+const CACHE_NAME = "bkh-cache-v1";
 const urlsToCache = [
   "/",
   "/index.html",
-  "/favicon-32x32.png",
-  "/favicon-16x16.png",
+  "/assets/tailwind.min.css",
+  "/assets/logo.png",
+  "/assets/banner.mp4",
   "/manifest.json",
-  "/assets/wesite video bkh.mp4"
-  // Add other local assets if needed (e.g., CSS, JS, images)
+  "/favicon.ico"
 ];
 
-self.addEventListener("install", event => {
+// Install the service worker and cache resources
+self.addEventListener("install", (event) => {
   event.waitUntil(
-    caches.open(CACHE_NAME).then(cache => {
+    caches.open(CACHE_NAME).then((cache) => {
       return cache.addAll(urlsToCache);
-    }).catch(error => {
-      console.error("Cache installation failed:", error);
     })
   );
 });
 
-self.addEventListener("activate", event => {
+// Activate the service worker
+self.addEventListener("activate", (event) => {
   event.waitUntil(
-    caches.keys().then(cacheNames => {
-      return Promise.all(
-        cacheNames.map(name => {
-          if (name !== CACHE_NAME) {
-            return caches.delete(name);
+    caches.keys().then((keyList) =>
+      Promise.all(
+        keyList.map((key) => {
+          if (key !== CACHE_NAME) {
+            return caches.delete(key);
           }
         })
-      );
-    })
+      )
+    )
   );
 });
 
-self.addEventListener("fetch", event => {
+// Fetch cached resources if offline
+self.addEventListener("fetch", (event) => {
   event.respondWith(
-    caches.match(event.request).then(response => {
-      // Return cached response or fetch from network
-      return response || fetch(event.request);
-    }).catch(error => {
-      console.error("Fetch failed:", error);
+    caches.match(event.request).then((response) => {
+      return (
+        response ||
+        fetch(event.request).catch(() =>
+          caches.match("/offline.html") // optional fallback
+        )
+      );
     })
   );
 });
