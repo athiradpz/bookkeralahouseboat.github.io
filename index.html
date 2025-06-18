@@ -21,7 +21,6 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
   <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
   <link rel="manifest" href="/site.webmanifest">
-  <link rel="manifest" href="/manifest.json">
 
   
   <script>
@@ -200,6 +199,11 @@
       </div>
     </div>
 
+    <button id="installBtn" class="fixed bottom-28 right-6 bg-yellow-600 hover:bg-yellow-700 text-white px-4 py-2 rounded-full shadow z-50 hidden">
+      Install App
+    </button>
+
+
     <!-- WhatsApp / Call Buttons -->
     <div class="fixed bottom-6 right-6 space-y-2 z-50">
       <a href="tel:+919995857686" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-full shadow-md block text-center">Call</a>
@@ -224,6 +228,37 @@
       </div>
     </div>
   </footer>
+
+  <script>
+  let deferredPrompt;
+
+  window.addEventListener('beforeinstallprompt', (e) => {
+    // Prevent automatic prompt
+    e.preventDefault();
+    deferredPrompt = e;
+
+    // Optionally, show your custom install button
+    const installBtn = document.getElementById('installBtn');
+    if (installBtn) {
+      installBtn.style.display = 'block';
+
+      installBtn.addEventListener('click', () => {
+        installBtn.style.display = 'none';
+        deferredPrompt.prompt();
+
+        deferredPrompt.userChoice.then((choiceResult) => {
+          if (choiceResult.outcome === 'accepted') {
+            console.log('User accepted the install prompt');
+          } else {
+            console.log('User dismissed the install prompt');
+          }
+          deferredPrompt = null;
+        });
+      });
+    }
+  });
+</script>
+
 
   <script>
   if ('serviceWorker' in navigator) {
