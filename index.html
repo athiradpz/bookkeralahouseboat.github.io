@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Book Kerala Houseboat</title>
   <meta name="description" content="Book premium Kerala houseboat experiences with ease. Enjoy deluxe cruises, local food, and serene backwater tours.">
-  <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
 
 
   <!-- Tailwind CSS -->
@@ -109,17 +108,12 @@
          <div class="relative group">
           <a href="#" class="hover:text-yellow-400 text-white">Houseboats</a>
           <ul class="absolute left-0 mt-2 bg-white text-black w-64 rounded shadow-lg opacity-0 group-hover:opacity-100 invisible group-hover:visible transition duration-300 z-50">
-           <li><a href="1bedroom.html" class="block px-4 py-2 hover:bg-yellow-100">1 Bedroom Houseboat in Alleppey</a></li>
-           <li><a href="2bedroom.html" class="block px-4 py-2 hover:bg-yellow-100">2 Bedroom Houseboat in Alleppey</a></li>
-          <li><a href="3bedroom.html" class="block px-4 py-2 hover:bg-yellow-100">3 Bedroom Houseboat in Alleppey</a></li>
-          <li><a href="4bedroom.html" class="block px-4 py-2 hover:bg-yellow-100">4 Bedroom Houseboat in Alleppey</a></li>
-          <li><a href="5bedroom.html" class="block px-4 py-2 hover:bg-yellow-100">5 Bedroom Houseboat in Alleppey</a></li>
-          <li><a href="6bedroom.html" class="block px-4 py-2 hover:bg-yellow-100">6 Bedroom Houseboat in Alleppey</a></li>
-          <li><a href="7bedroom.html" class="block px-4 py-2 hover:bg-yellow-100">7 Bedroom Houseboat in Alleppey</a></li>
-          <li><a href="8bedroom.html" class="block px-4 py-2 hover:bg-yellow-100">8 Bedroom Houseboat in Alleppey</a></li>
-          <li><a href="9bedroom.html" class="block px-4 py-2 hover:bg-yellow-100">9 Bedroom Houseboat in Alleppey</a></li>
-          <li><a href="10bedroom.html" class="block px-4 py-2 hover:bg-yellow-100">10 Bedroom Houseboat in Alleppey</a></li>
-         </ul>
+          <div class="relative" x-data="{ openDropdown: false }" @mouseleave="openDropdown = false">
+           <button @mouseenter="openDropdown = true" class="hover:text-yellow-400 text-white">Houseboats</button>
+           <ul x-show="openDropdown" x-transition class="absolute left-0 mt-2 bg-white text-black w-64 rounded shadow-lg z-50">
+            <li><a href="1bedroom.html" class="block px-4 py-2 hover:bg-yellow-100">1 Bedroom Houseboat in Alleppey</a></li>
+            <li><a href="2bedroom.html" class="block px-4 py-2 hover:bg-yellow-100">2 Bedroom Houseboat in Alleppey</a></li>
+           </ul>
         </div>
       </div>
 
