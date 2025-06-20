@@ -80,90 +80,94 @@
 <body class="bg-black text-white flex flex-col min-h-screen">
 
   <!-- Navbar -->
-  <nav class="bg-black bg-opacity-90 fixed w-full z-50 top-0 shadow-md" x-data="{ open: false }">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between h-16">
-        <div class="flex items-center space-x-2">
-          <img src="assets/New BHK.png" alt="Logo" class="h-14 w-14 sm:h-16 sm:w-16 object-contain" />
-          <a href="index.html" class="text-lg font-bold text-white">BookKeralaHouseboat</a>
-        </div>
+<nav class="bg-black bg-opacity-90 fixed w-full z-50 top-0 shadow-md" x-data="{ open: false, dropdownOpen: false }">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <!-- Logo -->
+      <div class="flex items-center space-x-2">
+        <img src="assets/New BHK.png" alt="Logo" class="h-14 w-14 sm:h-16 sm:w-16 object-contain" />
+        <a href="index.html" class="text-lg font-bold text-white">BookKeralaHouseboat</a>
+      </div>
 
-        <div class="md:hidden">
-          <button @click="open = !open" type="button" class="text-white focus:outline-none">
-            <svg x-show="!open" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+      <!-- Mobile menu button -->
+      <div class="md:hidden">
+        <button @click="open = !open" type="button" class="text-white focus:outline-none">
+          <template x-if="!open">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
               viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                 d="M4 6h16M4 12h16M4 18h16" />
             </svg>
-            <svg x-show="open" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
-              viewBox="0 0 24 24" stroke="currentColor" x-cloak>
+          </template>
+          <template x-if="open">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+              viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                 d="M6 18L18 6M6 6l12 12" />
             </svg>
-          </button>
-        </div>
-
-        <div class="hidden md:flex space-x-4">
-         <a href="index.html" class="hover:text-teal-400 text-white">Home</a>
-         <!-- Houseboats Dropdown -->
-        <!-- Houseboats Dropdown -->
-<div 
-  class="relative" 
-  x-data="{ dropdownOpen: false }" 
-  @mouseenter.window="if (window.innerWidth >= 768) dropdownOpen = true" 
-  @mouseleave.window="if (window.innerWidth >= 768) dropdownOpen = false"
->
-  <button 
-    @click="dropdownOpen = !dropdownOpen" 
-    class="hover:text-yellow-400 text-white focus:outline-none"
-  >
-    Houseboats
-  </button>
-  <ul
-    x-show="dropdownOpen"
-    x-transition
-    @click.away="dropdownOpen = false"
-    class="absolute left-0 mt-2 bg-white text-black w-64 rounded shadow-lg z-50"
-  >
-    <li><a href="1bedroom.html" class="block px-4 py-2 hover:bg-yellow-100">1 Bedroom Houseboat</a></li>
-    <li><a href="2bedroom.html" class="block px-4 py-2 hover:bg-yellow-100">2 Bedroom Houseboat</a></li>
-    <li><a href="3bedroom.html" class="block px-4 py-2 hover:bg-yellow-100">3 Bedroom Houseboat</a></li>
-    <li><a href="4bedroom.html" class="block px-4 py-2 hover:bg-yellow-100">4 Bedroom Houseboat</a></li>
-    <li><a href="5bedroom.html" class="block px-4 py-2 hover:bg-yellow-100">5 Bedroom Houseboat</a></li>
-    <li><a href="6bedroom.html" class="block px-4 py-2 hover:bg-yellow-100">6 Bedroom Houseboat</a></li>
-    <li><a href="7bedroom.html" class="block px-4 py-2 hover:bg-yellow-100">7 Bedroom Houseboat</a></li>
-    <li><a href="8bedroom.html" class="block px-4 py-2 hover:bg-yellow-100">8 Bedroom Houseboat</a></li>
-    <li><a href="9bedroom.html" class="block px-4 py-2 hover:bg-yellow-100">9 Bedroom Houseboat</a></li>
-    <li><a href="10bedroom.html" class="block px-4 py-2 hover:bg-yellow-100">10 Bedroom Houseboat</a></li>
-    <li><a href="10bedroom.html" class="block px-4 py-2 hover:bg-yellow-100">11 Bedroom Houseboat</a></li>
-    <li><a href="10bedroom.html" class="block px-4 py-2 hover:bg-yellow-100">12 Bedroom Houseboat</a></li>
-    <li><a href="10bedroom.html" class="block px-4 py-2 hover:bg-yellow-100">13 Bedroom Houseboat</a></li>
-    <li><a href="10bedroom.html" class="block px-4 py-2 hover:bg-yellow-100">14 Bedroom Houseboat</a></li>
-  </ul>
-</div>
-
-
-          <a href="https://www.triptgo.com" target="_blank" class="hover:text-yellow-400 text-white">Kerala Tour Packages</a>
-          <a href="#" class="hover:text-yellow-400 text-white">Backwater Activities</a>
-          <a href="#" class="hover:text-yellow-400 text-white">Blog</a>
-          <a href="#" class="hover:text-yellow-400 text-white">Collaborations</a>
-          <a href="enquiry.html" class="hover:text-yellow-400 text-white font-semibold">Enquire Now</a>
-          <a href="#" class="hover:text-yellow-400 text-white">Contact Us</a>
-        </div>
+          </template>
+        </button>
       </div>
 
-      <div x-show="open" x-transition class="md:hidden mt-2 space-y-2 pb-4" id="mobileMenu">
-        <a href="index.html" class="block text-white hover:text-teal-400">Home</a>
-        <a href="houseboats.html" class="block text-white hover:text-yellow-400">Houseboats</a>
-        <a href="https://www.triptgo.com" target="_blank" class="block text-white hover:text-yellow-400">Kerala Tour Packages</a>
-        <a href="#" class="block text-white hover:text-yellow-400">Backwater Activities</a>
-        <a href="#" class="block text-white hover:text-yellow-400">Blog</a>
-        <a href="#" class="block text-white hover:text-yellow-400">Collaborations</a>
-        <a href="enquiry.html" class="block text-white hover:text-yellow-400 font-semibold">Enquire Now</a>
-        <a href="#" class="block text-white hover:text-yellow-400">Contact Us</a>
+      <!-- Desktop Menu -->
+      <div class="hidden md:flex space-x-4 items-center">
+        <a href="index.html" class="hover:text-teal-400 text-white">Home</a>
+
+        <!-- Houseboats Dropdown - Desktop -->
+        <div class="relative group" @mouseenter="dropdownOpen = true" @mouseleave="dropdownOpen = false">
+          <button class="hover:text-yellow-400 text-white focus:outline-none">
+            Houseboats
+          </button>
+          <ul
+            x-show="dropdownOpen"
+            x-transition
+            class="absolute left-0 mt-2 bg-white text-black w-64 rounded shadow-lg z-50"
+            @click.away="dropdownOpen = false"
+          >
+            <li><a href="1bedroom.html" class="block px-4 py-2 hover:bg-yellow-100">1 Bedroom Houseboat</a></li>
+            <li><a href="2bedroom.html" class="block px-4 py-2 hover:bg-yellow-100">2 Bedroom Houseboat</a></li>
+            <li><a href="3bedroom.html" class="block px-4 py-2 hover:bg-yellow-100">3 Bedroom Houseboat</a></li>
+            <li><a href="4bedroom.html" class="block px-4 py-2 hover:bg-yellow-100">4 Bedroom Houseboat</a></li>
+            <li><a href="5bedroom.html" class="block px-4 py-2 hover:bg-yellow-100">5 Bedroom Houseboat</a></li>
+            <!-- Add more if needed -->
+          </ul>
+        </div>
+
+        <a href="https://www.triptgo.com" target="_blank" class="hover:text-yellow-400 text-white">Kerala Tour Packages</a>
+        <a href="#" class="hover:text-yellow-400 text-white">Backwater Activities</a>
+        <a href="#" class="hover:text-yellow-400 text-white">Blog</a>
+        <a href="#" class="hover:text-yellow-400 text-white">Collaborations</a>
+        <a href="enquiry.html" class="hover:text-yellow-400 text-white font-semibold">Enquire Now</a>
+        <a href="#" class="hover:text-yellow-400 text-white">Contact Us</a>
       </div>
     </div>
-  </nav>
+
+    <!-- Mobile Menu -->
+    <div x-show="open" x-transition class="md:hidden mt-2 space-y-2 pb-4" id="mobileMenu">
+      <a href="index.html" class="block text-white hover:text-teal-400">Home</a>
+
+      <!-- Mobile Dropdown -->
+      <div x-data="{ dropdownOpen: false }">
+        <button @click="dropdownOpen = !dropdownOpen" class="block w-full text-left px-4 py-2 text-white hover:text-yellow-400">
+          Houseboats
+        </button>
+        <ul x-show="dropdownOpen" x-transition class="bg-white text-black rounded shadow-lg space-y-1 px-2 py-2">
+          <li><a href="1bedroom.html" class="block px-4 py-2 hover:bg-yellow-100">1 Bedroom Houseboat</a></li>
+          <li><a href="2bedroom.html" class="block px-4 py-2 hover:bg-yellow-100">2 Bedroom Houseboat</a></li>
+          <li><a href="3bedroom.html" class="block px-4 py-2 hover:bg-yellow-100">3 Bedroom Houseboat</a></li>
+        </ul>
+      </div>
+
+      <a href="https://www.triptgo.com" target="_blank" class="block text-white hover:text-yellow-400">Kerala Tour Packages</a>
+      <a href="#" class="block text-white hover:text-yellow-400">Backwater Activities</a>
+      <a href="#" class="block text-white hover:text-yellow-400">Blog</a>
+      <a href="#" class="block text-white hover:text-yellow-400">Collaborations</a>
+      <a href="enquiry.html" class="block text-white hover:text-yellow-400 font-semibold">Enquire Now</a>
+      <a href="#" class="block text-white hover:text-yellow-400">Contact Us</a>
+    </div>
+  </div>
+</nav>
+
 
   <!-- Main Content -->
   <main class="flex-grow pt-16">
