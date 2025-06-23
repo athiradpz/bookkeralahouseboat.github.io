@@ -297,6 +297,22 @@
     <h2 class="text-2xl font-bold mb-6 text-center text-black">
   Find Your Perfect Houseboat
 </h2>
+    <!-- Houseboat Cards -->
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <template x-for="boat in houseboats.filter(h => (!bedroom || h.bedroom === bedroom) && (!type || h.type === type))" :key="boat.id">
+        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+          <img :src="boat.image" alt="Houseboat Image" class="w-full h-48 object-cover">
+          <div class="p-4">
+            <h3 class="text-xl font-semibold mb-2">[[ boat.name ]]</h3>
+            <p class="text-gray-600">Price: [[ boat.price ]]</p>
+            <p class="text-yellow-600">Rating: [[ boat.rating ]] ⭐</p>
+            <a href="enquiry.html" class="inline-block mt-3 px-4 py-2 bg-yellow-400 hover:bg-yellow-500 text-white rounded">Enquire</a>
+          </div>
+        </div>
+      </template>
+    </div>
+  </div>
+</section>
 
 
     <!-- Filters -->
