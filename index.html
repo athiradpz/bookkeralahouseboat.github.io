@@ -228,140 +228,116 @@
 <section id="houseboat-filter" class="bg-gray-400 py-10" x-data="{
   bedroom: '',
   type: '',
-  houseboats:  [
-  {
-    id: 5,
-    name: 'Deluxe two bedroom',
-    type: 'Deluxe',
-    bedroom: '2',
-    price: '₹10,000 onwards',
-    rating: 4.5,
-    mainImage: 'images/deluxe/2bed/Wood Cas/1.jpg',
-    thumbnails: [
-      'images/deluxe/2bed/Wood Cas/10.jpg',
-      'images/deluxe/2bed/Wood Cas/11.jpg',
-      'images/deluxe/2bed/Wood Cas/12.jpg',
-      'images/deluxe/2bed/Wood Cas/2.jpg',
-      'images/deluxe/2bed/Wood Cas/12.jpg'
-   ]
-  },
-  {
-    id: 6,
-    name: 'Deluxe two bedroom-Upper Deck',
-    type: 'Deluxe',
-    bedroom: '2',
-    price: '₹12,000 onwards',
-    rating: 4.0,
-    mainImage: 'images/deluxe/2bed/Regal/Regal1 (1).jpg',
-    thumbnails: [
-      'images/deluxe/2bed/Regal/Regal1 (2).jpg',
-      'images/deluxe/2bed/Regal/Regal1 (3).jpg',
-      'images/deluxe/2bed/Regal/Regal1 (5).jpg'
-    ]
-  },
-  {
-    id: 3,
-    name: 'Deluxe 1BR - Sunset Cruise',
-    type: 'Deluxe',
-    bedroom: '1',
-    price: '₹8,500 - ₹10,000',
-    rating: 4.3,
-    mainImage: 'images/Deluxe/sunsetcruise.jpg',
-    thumbnails: [
-      'images/Deluxe/sunsetcruise1.jpg',
-      'images/Deluxe/sunsetcruise2.jpg'
-    ]
-  },
-  {
-    id: 4,
-    name: 'Deluxe 1BR - Emerald Wave',
-    type: 'Deluxe',
-    bedroom: '1',
-    price: '₹9,000 - ₹10,500',
-    rating: 4.6,
-    mainImage: 'images/Deluxe/emeraldwave.jpg',
-    thumbnails: [
-      'images/Deluxe/emeraldwave1.jpg',
-      'images/Deluxe/emeraldwave2.jpg'
-    ]
-  }
-],
-    { id: 2, name: 'Premium 1 Bedroom', bedroom: '1', type: 'Premium', price: '$120', rating: '4.7', image: 'images/1b-premium.jpg' },
-    { id: 3, name: 'Luxury 1 Bedroom', bedroom: '1', type: 'Luxury', price: '$150', rating: '4.9', image: 'images/Luxury/1bed/luxury(1)' },
-    { id: 4, name: 'Deluxe 2 Bedroom', bedroom: '2', type: 'Deluxe', price: '$180', rating: '4.6', image: 'images/2b-deluxe.jpg' },
-    { id: 5, name: 'Luxury 3 Bedroom', bedroom: '3', type: 'Luxury', price: '$250', rating: '5.0', image: 'images/3b-luxury.jpg' }
-    // Add more as needed
+  houseboats: [
+    {
+      id: 5,
+      name: 'Deluxe two bedroom',
+      type: 'Deluxe',
+      bedroom: '2',
+      price: '₹10,000 onwards',
+      rating: 4.5,
+      mainImage: 'images/deluxe/2bed/Wood Cas/1.jpg',
+      thumbnails: [
+        'images/deluxe/2bed/Wood Cas/10.jpg',
+        'images/deluxe/2bed/Wood Cas/11.jpg',
+        'images/deluxe/2bed/Wood Cas/12.jpg',
+        'images/deluxe/2bed/Wood Cas/2.jpg',
+        'images/deluxe/2bed/Wood Cas/12.jpg'
+      ]
+    },
+    {
+      id: 6,
+      name: 'Deluxe two bedroom - Upper Deck',
+      type: 'Deluxe',
+      bedroom: '2',
+      price: '₹12,000 onwards',
+      rating: 4.0,
+      mainImage: 'images/deluxe/2bed/Regal/Regal1 (1).jpg',
+      thumbnails: [
+        'images/deluxe/2bed/Regal/Regal1 (2).jpg',
+        'images/deluxe/2bed/Regal/Regal1 (3).jpg',
+        'images/deluxe/2bed/Regal/Regal1 (5).jpg'
+      ]
+    },
+    {
+      id: 3,
+      name: 'Deluxe 1BR - Sunset Cruise',
+      type: 'Deluxe',
+      bedroom: '1',
+      price: '₹8,500 - ₹10,000',
+      rating: 4.3,
+      mainImage: 'images/Deluxe/sunsetcruise.jpg',
+      thumbnails: [
+        'images/Deluxe/sunsetcruise1.jpg',
+        'images/Deluxe/sunsetcruise2.jpg'
+      ]
+    },
+    {
+      id: 4,
+      name: 'Deluxe 1BR - Emerald Wave',
+      type: 'Deluxe',
+      bedroom: '1',
+      price: '₹9,000 - ₹10,500',
+      rating: 4.6,
+      mainImage: 'images/Deluxe/emeraldwave.jpg',
+      thumbnails: [
+        'images/Deluxe/emeraldwave1.jpg',
+        'images/Deluxe/emeraldwave2.jpg'
+      ]
+    },
+    {
+      id: 7,
+      name: 'Premium 1 Bedroom',
+      bedroom: '1',
+      type: 'Premium',
+      price: '₹12,000',
+      rating: 4.7,
+      mainImage: 'images/Premium/1b-premium.jpg'
+    },
+    {
+      id: 8,
+      name: 'Luxury 1 Bedroom',
+      bedroom: '1',
+      type: 'Luxury',
+      price: '₹15,000',
+      rating: 4.9,
+      mainImage: 'images/Luxury/1bed/luxury(1).jpg'
+    },
+    {
+      id: 9,
+      name: 'Deluxe 2 Bedroom',
+      bedroom: '2',
+      type: 'Deluxe',
+      price: '₹10,000',
+      rating: 4.6,
+      mainImage: 'images/2b-deluxe.jpg'
+    },
+    {
+      id: 10,
+      name: 'Luxury 3 Bedroom',
+      bedroom: '3',
+      type: 'Luxury',
+      price: '₹18,000',
+      rating: 5.0,
+      mainImage: 'images/3b-luxury.jpg'
+    }
   ]
 }">
   <div class="max-w-7xl mx-auto px-4">
     <h2 class="text-2xl font-bold mb-6 text-center text-black">
-  Find Your Perfect Houseboat
-</h2>
-    <!-- Houseboat Cards -->
-    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      <template x-for="boat in houseboats.filter(h => (!bedroom || h.bedroom === bedroom) && (!type || h.type === type))" :key="boat.id">
-        <div class="bg-white rounded-lg shadow-md overflow-hidden">
-          <img :src="boat.image" alt="Houseboat Image" class="w-full h-48 object-cover">
-          <div class="p-4">
-            <h3 class="text-xl font-semibold mb-2">[[ boat.name ]]</h3>
-            <p class="text-gray-600">Price: [[ boat.price ]]</p>
-            <p class="text-yellow-600">Rating: [[ boat.rating ]] ⭐</p>
-            <a href="enquiry.html" class="inline-block mt-3 px-4 py-2 bg-yellow-400 hover:bg-yellow-500 text-white rounded">Enquire</a>
-          </div>
-        </div>
-      </template>
-    </div>
-  </div>
-</section>
-
-
-    <!-- Filters -->
-    <div class="grid md:grid-cols-2 gap-4 mb-6">
-      <div>
-        <label class="block mb-2 font-semibold text-gray-700">Select Bedroom:</label>
-        <select
-  x-model="selectedBedroom"
-  class="w-full border border-gray-300 rounded-md p-2 bg-white text-gray-800"
->
-          <option value="">All</option>
-          <option value="">1 Bedroom Houseboat</option>
-          <option value="">2 Bedroom Houseboat</option>
-          <option value="">3 Bedroom Houseboat</option>
-          <option value="">4 Bedroom Houseboat</option>
-          <option value="">5 Bedroom Houseboat</option>
-          <option value="">6 Bedroom Houseboat</option>
-          <option value="">7 Bedroom Houseboat</option>
-          <option value="">8 Bedroom Houseboat</option>
-          <option value="">9 Bedroom Houseboat</option>
-          <option value="">10 Bedroom Houseboat</option>
-          <option value="">11 Bedroom Houseboat</option>
-          <option value="">12 Bedroom Houseboat</option>
-          <option value="">13 Bedroom Houseboat</option>
-          <option value="">14 Bedroom Houseboat</option>
-          </select>
-      </div>
-      <div>
-        <label class="block mb-2 font-semibold text-gray-700">Select Type:</label>
-        <select x-model="type" class="w-full border border-gray-300 rounded-md p-2 bg-white text-gray-800">
-          <option value="">All</option>
-          <option value="Deluxe">Deluxe</option>
-          <option value="Premium">Premium</option>
-          <option value="Luxury">Luxury</option>
-          <option value="Ultra Luxury">Ultra Luxury</option>
-        </select>
-      </div>
-    </div>
+      Find Your Perfect Houseboat
+    </h2>
 
     <!-- Houseboat Cards -->
     <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
       <template x-for="boat in houseboats.filter(h => (!bedroom || h.bedroom === bedroom) && (!type || h.type === type))" :key="boat.id">
         <div class="bg-white rounded-lg shadow-md overflow-hidden">
-          <img :src="boat.image" alt="Houseboat Image" class="w-full h-48 object-cover">
+          <img :src="boat.mainImage" alt="Houseboat Image" class="w-full h-48 object-cover">
           <div class="p-4">
-            <h3 class="text-xl font-semibold mb-2">[[ boat.name ]]</h3>
-            <p class="text-gray-600">Price: [[ boat.price ]]</p>
-            <p class="text-yellow-600">Rating: [[ boat.rating ]] ⭐</p>
-            <a href="enquiry.html" class="inline-block mt-3 px-4 py-2 bg-yellow-400 hover:bg-yellow-500 text-white rounded">Enquire</a>
+            <h3 class="text-xl font-semibold mb-2" x-text="boat.name"></h3>
+            <p class="text-gray-600" x-text="'Price: ' + boat.price"></p>
+            <p class="text-yellow-600" x-text="'Rating: ' + boat.rating + ' ⭐'"></p>
+            <a :href="'houseboat-detail.html?id=' + boat.id" class="inline-block mt-3 px-4 py-2 bg-yellow-400 hover:bg-yellow-500 text-white rounded">Enquire</a>
           </div>
         </div>
       </template>
