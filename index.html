@@ -366,6 +366,7 @@
 
     <!-- Houseboat Cards -->
     <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <pre class="text-xs text-red-600" x-text="JSON.stringify(boat)"></pre>
       <template x-for="boat in houseboats.filter(h => (!bedroom || h.bedroom === bedroom) && (!type || h.type === type))" :key="boat.id">
         <div class="bg-white rounded-lg shadow-md overflow-hidden">
           <img :src="boat.mainImage" alt="Houseboat Image" class="w-full h-48 object-cover">
