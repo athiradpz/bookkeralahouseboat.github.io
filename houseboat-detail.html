@@ -1,112 +1,154 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" x-data="houseboatDetail()">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Houseboat Details</title>
-  <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-</head>
-<body class="bg-gray-100 text-gray-800">
 
-  <div class="max-w-5xl mx-auto py-10 px-4" 
-       x-data="houseboatDetail()" 
-       x-init="init()">
-
-    <template x-if="houseboat">
-      <div class="bg-white rounded shadow-md p-6">
-        <h1 class="text-3xl font-bold mb-4" x-text="houseboat.name"></h1>
-        <div class="flex flex-col lg:flex-row gap-6">
-
-          <!-- Main Image -->
-          <img :src="houseboat.mainImage" alt="Main Houseboat Image" class="w-full lg:w-1/2 h-64 object-cover rounded" />
-
-          <!-- Info Section -->
-          <div>
-            <p class="mb-2"><strong>Type:</strong> <span x-text="houseboat.type"></span></p>
-            <p class="mb-2"><strong>Bedrooms:</strong> <span x-text="houseboat.bedroom"></span></p>
-            <p class="mb-2"><strong>Price:</strong> <span x-text="houseboat.price"></span></p>
-            <p class="mb-2"><strong>Rating:</strong> <span x-text="houseboat.rating + ' ⭐'"></span></p>
-            <a href="enquiry.html" class="inline-block mt-4 px-4 py-2 bg-yellow-500 text-white rounded hover:bg-yellow-600">Enquire Now</a>
-          </div>
-        </div>
-
-        <!-- Thumbnail Images -->
-        <div class="mt-6">
-          <h2 class="text-xl font-semibold mb-2">Gallery</h2>
-          <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-            <template x-for="thumb in houseboat.thumbnails" :key="thumb">
-              <img :src="thumb" class="w-full h-32 object-cover rounded" />
-            </template>
-          </div>
-        </div>
-      </div>
-    </template>
-
-    <template x-if="!houseboat">
-      <div class="text-center py-20">
-        <p class="text-lg font-semibold text-red-500">Houseboat not found.</p>
-        <a href="index.html" class="text-blue-600 underline">Back to Home</a>
-      </div>
-    </template>
-  </div>
-
+  <!-- Alpine Component Function -->
   <script>
     function houseboatDetail() {
-      return {
-        houseboat: null,
-        init() {
-          const id = new URLSearchParams(window.location.search).get("id");
+      const urlParams = new URLSearchParams(window.location.search);
+      const id = parseInt(urlParams.get('id'));
 
-          const allHouseboats = [
-            {
-              id: 3,
-              name: "Deluxe 1BR - Sunset Cruise",
-              type: "Deluxe",
-              bedroom: "1",
-              price: "₹8,500 - ₹10,000",
-              rating: 4.3,
-              mainImage: "images/Deluxe/sunsetcruise.jpg",
-              thumbnails: [
-                "images/Deluxe/sunsetcruise1.jpg",
-                "images/Deluxe/sunsetcruise2.jpg"
-              ]
-            },
-            {
-              id: 4,
-              name: "Deluxe 1BR - Emerald Wave",
-              type: "Deluxe",
-              bedroom: "1",
-              price: "₹9,000 - ₹10,500",
-              rating: 4.6,
-              mainImage: "images/Deluxe/emeraldwave.jpg",
-              thumbnails: [
-                "images/Deluxe/emeraldwave1.jpg",
-                "images/Deluxe/emeraldwave2.jpg"
-              ]
-            },
-            {
-              id: 5,
-              name: "Deluxe two bedroom",
-              type: "Deluxe",
-              bedroom: "2",
-              price: "₹10,000 onwards",
-              rating: 4.5,
-              mainImage: "images/deluxe/2bed/Wood Cas/1.jpg",
-              thumbnails: [
-                "images/deluxe/2bed/Wood Cas/10.jpg",
-                "images/deluxe/2bed/Wood Cas/11.jpg",
-                "images/deluxe/2bed/Wood Cas/12.jpg"
-              ]
-            }
-            // ➕ Add more boat entries here
-          ];
-
-          this.houseboat = allHouseboats.find(b => b.id == id);
+      const houseboats = [
+        {
+          id: 3,
+          name: 'Deluxe 1BR - Sunset Cruise',
+          type: 'Deluxe',
+          bedroom: '1',
+          price: '₹8,500 - ₹10,000',
+          rating: 4.3,
+          mainImage: 'images/Deluxe/sunsetcruise.jpg',
+          thumbnails: [
+            'images/Deluxe/sunsetcruise1.jpg',
+            'images/Deluxe/sunsetcruise2.jpg'
+          ]
+        },
+        {
+          id: 4,
+          name: 'Deluxe 1BR - Emerald Wave',
+          type: 'Deluxe',
+          bedroom: '1',
+          price: '₹9,000 - ₹10,500',
+          rating: 4.6,
+          mainImage: 'images/Deluxe/emeraldwave.jpg',
+          thumbnails: [
+            'images/Deluxe/emeraldwave1.jpg',
+            'images/Deluxe/emeraldwave2.jpg'
+          ]
+        },
+        {
+          id: 5,
+          name: 'Deluxe two bedroom',
+          type: 'Deluxe',
+          bedroom: '2',
+          price: '₹10,000 onwards',
+          rating: 4.5,
+          mainImage: 'images/deluxe/2bed/Wood Cas/1.jpg',
+          thumbnails: [
+            'images/deluxe/2bed/Wood Cas/10.jpg',
+            'images/deluxe/2bed/Wood Cas/11.jpg',
+            'images/deluxe/2bed/Wood Cas/12.jpg',
+            'images/deluxe/2bed/Wood Cas/2.jpg'
+          ]
+        },
+        {
+          id: 6,
+          name: 'Deluxe two bedroom - Upper Deck',
+          type: 'Deluxe',
+          bedroom: '2',
+          price: '₹12,000 onwards',
+          rating: 4.0,
+          mainImage: 'images/deluxe/2bed/Regal/Regal1 (1).jpg',
+          thumbnails: [
+            'images/deluxe/2bed/Regal/Regal1 (2).jpg',
+            'images/deluxe/2bed/Regal/Regal1 (3).jpg',
+            'images/deluxe/2bed/Regal/Regal1 (5).jpg'
+          ]
+        },
+        {
+          id: 7,
+          name: 'Premium 1 Bedroom',
+          bedroom: '1',
+          type: 'Premium',
+          price: '₹12,000',
+          rating: 4.7,
+          mainImage: 'images/Premium/1b-premium.jpg',
+          thumbnails: []
+        },
+        {
+          id: 8,
+          name: 'Luxury 1 Bedroom',
+          bedroom: '1',
+          type: 'Luxury',
+          price: '₹15,000',
+          rating: 4.9,
+          mainImage: 'images/Luxury/1bed/luxury(1).jpg',
+          thumbnails: []
+        },
+        {
+          id: 9,
+          name: 'Deluxe 2 Bedroom',
+          bedroom: '2',
+          type: 'Deluxe',
+          price: '₹10,000',
+          rating: 4.6,
+          mainImage: 'images/2b-deluxe.jpg',
+          thumbnails: []
+        },
+        {
+          id: 10,
+          name: 'Luxury 3 Bedroom',
+          bedroom: '3',
+          type: 'Luxury',
+          price: '₹18,000',
+          rating: 5.0,
+          mainImage: 'images/3b-luxury.jpg',
+          thumbnails: []
         }
-      };
+      ];
+
+      const boat = houseboats.find(b => b.id === id);
+      return { boat };
     }
   </script>
 
+  <!-- Alpine.js -->
+  <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+
+  <style>
+    body { font-family: sans-serif; padding: 20px; background: #f8f8f8; }
+    .thumbnails img {
+      width: 100px;
+      margin: 5px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+  <div x-show="boat">
+    <div class="max-w-4xl mx-auto bg-white p-6 rounded-lg shadow">
+      <h1 class="text-3xl font-bold mb-4 text-black" x-text="boat.name"></h1>
+      <img :src="boat.mainImage" alt="Houseboat Main" class="w-full h-64 object-cover rounded mb-4">
+      <p class="text-gray-700 mb-2" x-text="'Type: ' + boat.type"></p>
+      <p class="text-gray-700 mb-2" x-text="'Bedrooms: ' + boat.bedroom"></p>
+      <p class="text-gray-700 mb-2" x-text="'Price: ' + boat.price"></p>
+      <p class="text-yellow-600 mb-4" x-text="'Rating: ' + boat.rating + ' ⭐'"></p>
+
+      <h2 class="text-xl font-semibold mb-2">Gallery</h2>
+      <div class="thumbnails flex flex-wrap">
+        <template x-for="thumb in boat.thumbnails" :key="thumb">
+          <img :src="thumb" alt="Thumbnail" class="rounded">
+        </template>
+      </div>
+    </div>
+  </div>
+
+  <div x-show="!boat">
+    <p class="text-red-500 text-center text-xl">No houseboat found with this ID.</p>
+  </div>
 </body>
 </html>
+
