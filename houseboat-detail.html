@@ -15,12 +15,16 @@
     <img :src="boat.mainImage" alt="Main Image" class="w-full h-96 object-cover rounded mb-4">
 
     <!-- Thumbnails -->
-      <div class="flex space-x-2 overflow-x-auto mb-6 scrollbar-hide">
-      <template x-for="(thumb, index) in boat.thumbnails" :key="index">
-        <img :src="thumb" class="w-24 h-16 object-cover rounded border">
-      <img :src="thumb" class="w-24 h-16 object-cover rounded border transform transition duration-300 hover:scale-110 cursor-pointer">
-      </template>
-    </div>
+<div class="flex space-x-2 overflow-x-auto mb-6 scrollbar-hide">
+  <template x-for="(thumb, index) in boat.thumbnails" :key="index">
+    <img 
+      :src="thumb" 
+      class="w-24 h-16 object-cover rounded border transform transition duration-300 hover:scale-110 cursor-pointer"
+      @click="boat.mainImage = thumb"
+    >
+  </template>
+</div>
+
 
     <!-- Title and Overview -->
     <h1 class="text-3xl font-bold text-black mb-4" x-text="boat.name"></h1>
