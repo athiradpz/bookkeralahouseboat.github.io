@@ -97,23 +97,29 @@
     <p class="text-gray-700">Email: <span x-text="boat.contact.email"></span></p>
   </div>
 
-  <!-- Recommendation Section -->
-    <div class="mt-12">
-      <h2 class="text-2xl font-semibold text-gray-800 mb-4">Similar Houseboats</h2>
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        <template x-for="other in allHouseboats.filter(h => h.type === boat.type && h.id !== boat.id)" :key="other.id">
-          <div class="bg-white shadow rounded overflow-hidden">
-            <img :src="other.mainImage" class="w-full h-40 object-cover">
-            <div class="p-4">
-              <h3 class="font-bold text-lg mb-1" x-text="other.name"></h3>
-              <p class="text-gray-600" x-text="'From ' + other.price"></p>
-              <a :href="'houseboat-detail.html?id=' + other.id" class="inline-block mt-2 px-3 py-1 bg-yellow-500 text-white rounded">View Details</a>
-            </div>
-          </div>
-        </template>
+   <!-- Recommended Boats -->
+<div class="mt-10">
+  <h2 class="text-xl font-semibold text-gray-800 mb-4">Other Deluxe Houseboats</h2>
+  <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
+    <template 
+      x-for="rec in allHouseboats.filter(b => b.id !== boat.id && b.type === boat.type)" 
+      :key="rec.id"
+    >
+      <div class="bg-white rounded-lg shadow-md overflow-hidden">
+        <img :src="rec.mainImage" alt="" class="w-full h-40 object-cover">
+        <div class="p-4">
+          <h3 class="text-lg font-bold mb-2" x-text="rec.name"></h3>
+          <p class="text-gray-600" x-text="'Price: ' + rec.price"></p>
+          <a :href="'houseboat-detail.html?id=' + rec.id"
+             class="inline-block mt-2 px-4 py-2 bg-yellow-400 hover:bg-yellow-500 text-white rounded">
+             View Details
+          </a>
+        </div>
       </div>
-    </div>
+    </template>
   </div>
+</div>
+
 
   <!-- Alpine Script -->
   <script>
