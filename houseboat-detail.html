@@ -15,9 +15,9 @@
     <img :src="boat.mainImage" alt="Main Image" class="w-full h-96 object-cover rounded mb-4">
 
     <!-- Thumbnails -->
-    <div class="flex space-x-2 overflow-x-auto mb-6">
+    <div class="flex space-x-2 overflow-x-auto mb-6 scrollbar-hide">
       <template x-for="(thumb, index) in boat.thumbnails" :key="index">
-        <img :src="thumb" @click="boat.mainImage = thumb" class="w-24 h-16 object-cover rounded border transform hover:scale-110 transition-transform cursor-pointer">
+        <img :src="thumb" class="w-24 h-16 object-cover rounded border transform transition duration-300 hover:scale-110 cursor-pointer">
       </template>
     </div>
 
@@ -81,15 +81,33 @@
     </ul>
 
     <!-- Cruise Route Map -->
-    <h2 class="text-xl font-semibold text-gray-800 mb-2">Cruise Route Map</h2>
-    <div class="w-full h-96 mb-10">
-      <iframe src="https://www.google.com/maps/d/embed?mid=1YRpRzqAsd3TmH3qJv9R7P9tuCVjT3dE&ehbc=2E312F" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    <div class="mb-8">
+      <h2 class="text-xl font-semibold text-gray-800 mb-2">Cruise Route Map</h2>
+      <img :src="boat.mapImage" alt="Cruise Map" class="w-full rounded shadow hover:scale-105 transition-transform duration-300">
     </div>
 
     <!-- Contact Info -->
     <h2 class="text-xl font-semibold text-gray-800 mb-2">Contact Info</h2>
     <p class="text-gray-700">Phone: <span x-text="boat.contact.phone"></span></p>
     <p class="text-gray-700">Email: <span x-text="boat.contact.email"></span></p>
+  </div>
+
+  <!-- Recommendation Section -->
+    <div class="mt-12">
+      <h2 class="text-2xl font-semibold text-gray-800 mb-4">Similar Houseboats</h2>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <template x-for="other in allHouseboats.filter(h => h.type === boat.type && h.id !== boat.id)" :key="other.id">
+          <div class="bg-white shadow rounded overflow-hidden">
+            <img :src="other.mainImage" class="w-full h-40 object-cover">
+            <div class="p-4">
+              <h3 class="font-bold text-lg mb-1" x-text="other.name"></h3>
+              <p class="text-gray-600" x-text="'From ' + other.price"></p>
+              <a :href="'houseboat-detail.html?id=' + other.id" class="inline-block mt-2 px-3 py-1 bg-yellow-500 text-white rounded">View Details</a>
+            </div>
+          </div>
+        </template>
+      </div>
+    </div>
   </div>
 
   <!-- Alpine Script -->
@@ -112,8 +130,8 @@
               'images/deluxe/2bed/Wood Cas/12.jpg',
               'images/deluxe/2bed/Wood Cas/2.jpg'
             ],
-            description: 'The Lake Queen 1 Bedroom Deluxe Houseboat is a great option if you are on your honeymoon or looking for a small family vacation. This quaint Alappuzha boat house has a small living room, one attached bedroom and upper deck for stunning scenery...',
-            amenities: ['9pm-6am AC', 'Dining Area', 'Dining Table', 'Music System', 'Private Bathroom', 'TV in Dining Area', 'Upper Deck'],
+            description: 'budget friendly',
+            amenities: ['9pm-6am AC', 'Dining Area', 'Dining Table', 'Music System', 'Private Bathroom', 'TV in Dining Area'],
             foodMenu: {
               veg: ['Lemon Juice', 'Sambar', 'Mezhukkupuratti', 'Karimeen Fry', 'Pappadam', 'Salad'],
               nonVeg: ['Chicken Roast', 'Dal Curry', 'White Rice', 'Fish Fry', 'Pickle', 'Onion Pakoda']
