@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en" x-data="houseboatDetail">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Houseboat Details</title>
+  <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <style>
+    [x-cloak] { display: none; }
+  </style>
+  <script>
+  const urlParams = new URLSearchParams(window.location.search);
+  const houseboatId = parseInt(urlParams.get('id'));
+
+  const allBoats = [
+    {
+      id: 1,
+      name: 'Deluxe 1 Bedroom Houseboat',
+      type: 'Deluxe',
+      bedroom: '1',
+      price: '₹7,000 - ₹9,000',
+      rating: 4.2,
+      mainImage: 'images/Deluxe/deluxe1.jpg',
+      thumbnails: [
+        'images/Deluxe/deluxe1a.jpg',
+        'images/Deluxe/deluxe1b.jpg',
+        'images/Deluxe/deluxe1c.jpg'
+      ],
+      description: 'Comfortable deluxe 1-bedroom houseboat with Kerala-style interiors and home-cooked meals.'
+    },
+    {
+      id: 2,
+      name: 'Premium 1 Bedroom Houseboat',
+      type: 'Premium',
+      bedroom: '1',
+      price: '₹9,000 - ₹11,000',
+      rating: 4.5,
+      mainImage: 'images/Premium/premium1.jpg',
+      thumbnails: [
+        'images/Premium/premium1a.jpg',
+        'images/Premium/premium1b.jpg',
+        'images/Premium/premium1c.jpg'
+      ],
+      description: 'Premium houseboat offering air-conditioned rooms, polished wooden finish, and backwater sunset views.'
+    },
+    {
+      id: 3,
+      name: 'Luxury 1 Bedroom Houseboat',
+      type: 'Luxury',
+      bedroom: '1',
+      price: '₹11,000 - ₹14,000',
+      rating: 4.8,
+      mainImage: 'images/Luxury/luxury1.jpg',
+      thumbnails: [
+        'images/Luxury/luxury1a.jpg',
+        'images/Luxury/luxury1b.jpg',
+        'images/Luxury/luxury1c.jpg'
+      ],
+      description: 'Spacious luxury houseboat with jacuzzi, fine-dining meals, and exceptional onboard services.'
+    },
+    {
+      id: 4,
+      name: 'Ultra Luxury 1 Bedroom Houseboat',
+      type: 'Ultra Luxury',
+      bedroom: '1',
+      price: '₹15,000 - ₹20,000',
+      rating: 5.0,
+      mainImage: 'images/UltraLuxury/ultraluxury1.jpg',
+      thumbnails: [
+        'images/UltraLuxury/ultraluxury1a.jpg',
+        'images/UltraLuxury/ultraluxury1b.jpg',
+        'images/UltraLuxury/ultraluxury1c.jpg'
+      ],
+      description: 'Top-tier houseboat experience with private chef, butler service, and designer interiors.'
+    }
+  ];
+
+  const selectedBoat = allBoats.find(boat => boat.id === houseboatId);
+
+  if (selectedBoat) {
+    document.querySelector('#boatName').textContent = selectedBoat.name;
+    document.querySelector('#boatMainImage').src = selectedBoat.mainImage;
+    document.querySelector('#boatDescription').textContent = selectedBoat.description;
+    document.querySelector('#boatPrice').textContent = `Price: ${selectedBoat.price}`;
+    document.querySelector('#boatRating').textContent = `Rating: ${selectedBoat.rating} ⭐`;
+
+    const thumbnailsContainer = document.querySelector('#boatThumbnails');
+    selectedBoat.thumbnails.forEach(img => {
+      const thumb = document.createElement('img');
+      thumb.src = img;
+      thumb.className = 'w-24 h-16 object-cover rounded mr-2';
+      thumbnailsContainer.appendChild(thumb);
+    });
+  } else {
+    document.querySelector('#boatContainer').innerHTML = '<p class="text-red-500">Houseboat not found.</p>';
+  }
+</script>
+  
+</head>
+<body class="bg-gray-100 py-10 px-4">
+
+  <div class="max-w-4xl mx-auto bg-white p-6 rounded-lg shadow" x-cloak x-show="boat">
+    <h1 class="text-3xl font-bold mb-4 text-black" x-text="boat.name"></h1>
+
+    <img :src="boat.mainImage" alt="Houseboat Main" class="w-full h-64 object-cover rounded mb-4">
+
+    <!-- Thumbnails -->
+    <div class="flex space-x-2 mb-4">
+      <template x-for="thumb in boat.thumbnails" :key="thumb">
+        <img :src="thumb" class="w-24 h-16 object-cover rounded border">
+      </template>
+    </div>
+
+    <p class="text-gray-700 mb-2" x-text="boat.description"></p>
+    <p class="text-gray-600 mb-1"><strong>Type:</strong> <span x-text="boat.type"></span></p>
+    <p class="text-gray-600 mb-1"><strong>Bedrooms:</strong> <span x-text="boat.bedroom"></span></p>
+    <p class="text-gray-600 mb-1"><strong>Price:</strong> <span x-text="boat.price"></span></p>
+    <p class="text-yellow-600 mb-4"><strong>Rating:</strong> <span x-text="boat.rating"></span> ⭐</p>
+
+    <a href="enquiry.html" class="px-6 py-2 bg-yellow-400 hover:bg-yellow-500 text-white rounded">Enquire Now</a>
+  </div>
+
+  <div x-cloak x-show="!boat" class="text-center text-red-600 font-semibold">Houseboat not found.</div>
+
+</body>
+</html>
