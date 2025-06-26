@@ -111,6 +111,16 @@
         </button>
       </div>
 
+
+       <!-- Mobile menu panel -->
+  <div x-show="open" x-transition class="md:hidden absolute top-full left-0 w-full bg-white shadow-md z-50 p-4">
+    <nav class="flex flex-col space-y-2 text-black">
+      <a href="index.html" class="hover:text-yellow-600">Home</a>
+      <a href="houseboats.html" class="hover:text-yellow-600">Our Houseboats</a>
+      <a href="contact.html" class="hover:text-yellow-600">Contact</a>
+    </nav>
+  </div>
+
       <!-- Desktop Menu -->
       <div class="hidden md:flex space-x-4 items-center">
         <a href="index.html" class="hover:text-teal-400 text-white">Home</a>
