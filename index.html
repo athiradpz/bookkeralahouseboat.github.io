@@ -111,15 +111,13 @@
         </button>
       </div>
 
-
-       <!-- Mobile menu panel -->
-  <div x-show="open" x-transition class="md:hidden absolute top-full left-0 w-full bg-white shadow-md z-50 p-4">
-    <nav class="flex flex-col space-y-2 text-black">
-      <a href="index.html" class="hover:text-yellow-600">Home</a>
-      <a href="houseboats.html" class="hover:text-yellow-600">Our Houseboats</a>
-      <a href="contact.html" class="hover:text-yellow-600">Contact</a>
-    </nav>
-  </div>
+       <!-- Close button -->
+  <button @click="isOpen = false" class="absolute top-4 right-4">
+    <svg class="w-6 h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M6 18L18 6M6 6l12 12" />
+    </svg>
+  </button>
 
       <!-- Desktop Menu -->
       <div class="hidden md:flex space-x-4 items-center">
