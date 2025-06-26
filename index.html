@@ -6,6 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Book Kerala Houseboat</title>
   <meta name="description" content="Book premium Kerala houseboat experiences with ease. Enjoy deluxe cruises, local food, and serene backwater tours.">
+  <style>[x-cloak] { display: none !important; }</style>
+
 
 
   <!-- Tailwind CSS -->
@@ -93,16 +95,16 @@
 
       <!-- Mobile menu button -->
 <div class="md:hidden">
-  <button @click="open = !open" type="button" class="text-white focus:outline-none">
+  <button @click="open = !open" type="button" class="text-white focus:outline-none relative">
     <!-- Hamburger Icon -->
-    <svg x-show="!open" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+    <svg x-show="!open" x-cloak xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 absolute" fill="none"
          viewBox="0 0 24 24" stroke="currentColor">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
             d="M4 6h16M4 12h16M4 18h16" />
     </svg>
 
     <!-- Close Icon -->
-    <svg x-show="open" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+    <svg x-show="open" x-cloak xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 absolute" fill="none"
          viewBox="0 0 24 24" stroke="currentColor">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
             d="M6 18L18 6M6 6l12 12" />
