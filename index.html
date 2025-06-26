@@ -83,8 +83,7 @@
 
  
  <!-- Navbar -->
-  <!-- Navbar -->
-<nav class="bg-black bg-opacity-90 fixed w-full z-50 top-0 shadow-md" x-data="{ open: false, dropdownOpen: false }">
+  <nav class="bg-black bg-opacity-90 fixed w-full z-50 top-0 shadow-md" x-data="{ open: false, dropdownOpen: false }">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-16">
       <!-- Logo -->
@@ -92,27 +91,27 @@
         <img src="assets/New BHK.png" alt="Logo" class="h-14 w-14 sm:h-16 sm:w-16 object-contain" />
         <a href="index.html" class="text-lg font-bold text-white">BookKeralaHouseboat</a>
       </div>
-
-      <!-- Mobile menu button -->
-<div class="md:hidden">
-  <button @click="open = !open" type="button" class="text-white focus:outline-none relative">
-    <!-- Hamburger Icon -->
-    <svg x-show="!open" x-cloak xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 absolute" fill="none"
+         <!-- Mobile menu button -->
+        <div class="md:hidden">
+          <button @click="open = !open" type="button" class="text-white focus:outline-none relative w-6 h-6">
+            <!-- Hamburger Icon -->
+    <svg x-show="!open" x-cloak xmlns="http://www.w3.org/2000/svg" class="absolute w-6 h-6" fill="none"
          viewBox="0 0 24 24" stroke="currentColor">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
             d="M4 6h16M4 12h16M4 18h16" />
     </svg>
 
     <!-- Close Icon -->
-    <svg x-show="open" x-cloak xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 absolute" fill="none"
+    <svg x-show="open" x-cloak xmlns="http://www.w3.org/2000/svg" class="absolute w-6 h-6" fill="none"
          viewBox="0 0 24 24" stroke="currentColor">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
             d="M6 18L18 6M6 6l12 12" />
     </svg>
+
   </button>
 </div>
-
-      <!-- Desktop Menu -->
+    
+    <!-- Desktop Menu -->
       <div class="hidden md:flex space-x-4 items-center">
         <a href="index.html" class="hover:text-teal-400 text-white">Home</a>
 
