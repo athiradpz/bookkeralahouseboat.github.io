@@ -83,49 +83,49 @@
 
  
  <!-- Navbar -->
-  <nav class="bg-black bg-opacity-90 fixed w-full z-50 top-0 shadow-md" x-data="{ open: false, dropdownOpen: false }">
+  <!-- Navbar -->
+<nav class="bg-black bg-opacity-90 fixed w-full z-50 top-0 shadow-md" x-data="{ open: false, dropdownOpen: false }">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-16">
+      
       <!-- Logo -->
       <div class="flex items-center space-x-2">
         <img src="assets/New BHK.png" alt="Logo" class="h-14 w-14 sm:h-16 sm:w-16 object-contain" />
         <a href="index.html" class="text-lg font-bold text-white">BookKeralaHouseboat</a>
       </div>
-        <!-- Mobile menu button -->
-<div class="md:hidden">
-  <button @click="open = !open" type="button" class="text-white focus:outline-none relative w-6 h-6">
 
-    <!-- Hamburger Icon -->
-    <template x-if="!open">
-      <svg xmlns="http://www.w3.org/2000/svg" class="absolute w-6 h-6" fill="none"
-           viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              d="M4 6h16M4 12h16M4 18h16" />
-      </svg>
-    </template>
+      <!-- Mobile menu button -->
+      <div class="md:hidden">
+        <button @click="open = !open" type="button" class="text-white focus:outline-none relative w-6 h-6">
+          
+          <!-- Hamburger Icon -->
+          <template x-if="!open">
+            <svg xmlns="http://www.w3.org/2000/svg" class="absolute w-6 h-6" fill="none"
+                 viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </template>
 
-    <!-- Close Icon -->
-    <template x-if="open">
-      <svg xmlns="http://www.w3.org/2000/svg" class="absolute w-6 h-6" fill="none"
-           viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              d="M6 18L18 6M6 6l12 12" />
-      </svg>
-    </template>
+          <!-- Close Icon -->
+          <template x-if="open">
+            <svg xmlns="http://www.w3.org/2000/svg" class="absolute w-6 h-6" fill="none"
+                 viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </template>
 
-  </button>
-</div>
+        </button>
+      </div>
 
-    
-    <!-- Desktop Menu -->
+      <!-- Desktop Menu -->
       <div class="hidden md:flex space-x-4 items-center">
         <a href="index.html" class="hover:text-teal-400 text-white">Home</a>
 
-        <!-- Houseboats Dropdown - Desktop -->
+        <!-- Houseboats Dropdown -->
         <div class="relative group" x-data="{ dropdownOpen: false }" @mouseenter="dropdownOpen = true" @mouseleave="dropdownOpen = false">
-          <button class="hover:text-yellow-400 text-white focus:outline-none">
-            Houseboats
-          </button>
+          <button class="hover:text-yellow-400 text-white focus:outline-none">Houseboats</button>
           <ul
             x-show="dropdownOpen"
             x-transition
@@ -133,7 +133,9 @@
             @click.away="dropdownOpen = false"
           >
             <template x-for="i in 14" :key="i">
-              <li><a :href="`${i}bedroom.html`" class="block px-4 py-2 hover:bg-yellow-100" x-text="`${i} Bedroom Houseboat`"></a></li>
+              <li>
+                <a :href="`${i}bedroom.html`" class="block px-4 py-2 hover:bg-yellow-100" x-text="`${i} Bedroom Houseboat`"></a>
+              </li>
             </template>
           </ul>
         </div>
@@ -150,8 +152,8 @@
 
   <!-- Mobile Menu -->
   <div x-show="open" x-transition
-    class="md:hidden fixed inset-0 bg-black bg-opacity-95 z-40 overflow-y-auto pt-20 pb-4 space-y-2"
-    id="mobileMenu">
+       class="md:hidden fixed inset-0 bg-black bg-opacity-95 z-40 overflow-y-auto pt-20 pb-4 space-y-2"
+       id="mobileMenu">
     
     <a href="index.html" class="block text-white hover:text-teal-400 px-4">Home</a>
 
@@ -175,6 +177,7 @@
     <a href="#" class="block text-white hover:text-yellow-400 px-4">Contact Us</a>
   </div>
 </nav>
+
 
 
 
