@@ -6,25 +6,34 @@
   <title x-text="boat?.name || 'Houseboat Details'"></title>
   <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    .scrollbar-hide::-webkit-scrollbar { display: none; }
+    .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
 </head>
 <body class="bg-gray-100 py-10 px-4">
 
-  <div class="max-w-6xl mx-auto" x-show="boat">
+  <div class="max-w-4xl mx-auto" x-show="boat">
     <!-- Main Image -->
-    <img :src="boat.mainImage" alt="Main Image" class="w-full h-96 object-cover rounded mb-4">
+    <div class="mb-4">
+      <img :src="mainImage" alt="Main Image" class="w-full h-[28rem] object-cover rounded mb-2 cursor-pointer" @click="openLightbox(mainImage, currentThumbIndex)">
+    </div>
 
     <!-- Thumbnails -->
-<div class="flex space-x-2 overflow-x-auto mb-6 scrollbar-hide">
-  <template x-for="(thumb, index) in boat.thumbnails" :key="index">
-    <img 
-      :src="thumb" 
-      class="w-24 h-16 object-cover rounded border transform transition duration-300 hover:scale-110 cursor-pointer"
-      @click="boat.mainImage = thumb"
-    >
-  </template>
-</div>
+    <div class="flex space-x-2 overflow-x-auto mb-6 scrollbar-hide">
+      <template x-for="(thumb, index) in boat.thumbnails" :key="index">
+        <img :src="thumb" class="w-24 h-16 object-cover rounded border transform transition duration-300 hover:scale-110 cursor-pointer"
+             @click="mainImage = thumb; currentThumbIndex = index">
+      </template>
+    </div>
 
+    <!-- Lightbox -->
+    <div x-show="isLightboxOpen" x-transition class="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center">
+      <button @click="closeLightbox" class="absolute top-5 right-5 text-white text-3xl">&times;</button>
+      <button @click="prevImage" class="absolute left-5 text-white text-3xl">&#10094;</button>
+      <img :src="lightboxImage" class="max-h-[80vh] max-w-full rounded">
+      <button @click="nextImage" class="absolute right-5 text-white text-3xl">&#10095;</button>
+    </div>
 
     <!-- Title and Overview -->
     <h1 class="text-3xl font-bold text-black mb-4" x-text="boat.name"></h1>
@@ -32,47 +41,28 @@
 
     <!-- Amenities -->
     <h2 class="text-xl font-semibold text-gray-800 mb-2">Houseboat Amenities</h2>
-    <ul class="grid grid-cols-2 md:grid-cols-3 list-none pl-0 mb-6">
+    <ul class="grid grid-cols-2 md:grid-cols-3 list-disc pl-5 mb-6">
       <template x-for="amenity in boat.amenities" :key="amenity">
-        <li class="flex items-center space-x-2 text-gray-700"><i class="fas fa-check-circle text-green-600"></i><span x-text="amenity"></span></li>
+        <li><span class="inline-block w-4 h-4 bg-yellow-400 rounded-full mr-2"></span><span x-text="amenity"></span></li>
       </template>
     </ul>
 
     <!-- Food Menu -->
     <div class="grid md:grid-cols-2 gap-6 mb-6">
-      <div class="bg-white rounded shadow p-4">
-        <h2 class="text-xl font-bold text-blue-900 mb-3 border-b pb-1">DELUX VEG MENU</h2>
-        <p class="font-semibold text-sm text-gray-800 mb-1">WELCOME DRINK</p>
-        <ul class="list-disc ml-5 text-gray-700 mb-3"><li>Lemon Juice</li></ul>
-        <p class="font-semibold text-sm text-gray-800 mb-1">LUNCH</p>
-        <ul class="list-disc ml-5 text-gray-700 mb-3">
-          <li>White Rice</li><li>Sambar</li><li>Mixed Vegetables</li><li>Mezhukkupuratti (Long Beans)</li><li>Fish Fry (Pearl Spot-Karimeen)</li><li>Banana Kalan/Curd</li><li>Pappadam</li><li>Salad</li><li>Pickle</li><li>Tropical seasonal fruit</li>
-        </ul>
-        <p class="font-semibold text-sm text-gray-800 mb-1">EVENING</p>
-        <ul class="list-disc ml-5 text-gray-700 mb-3"><li>Tea / Coffee</li><li>Banana Fritters/Onion Pakoda</li></ul>
-        <p class="font-semibold text-sm text-gray-800 mb-1">DINNER</p>
-        <ul class="list-disc ml-5 text-gray-700 mb-3"><li>Chappati</li><li>White rice</li><li>Dal Curry</li><li>Chicken Roast</li><li>Vendakka Mezhukkupuratti(Bhindi Fry)</li><li>Salad</li></ul>
-        <p class="font-semibold text-sm text-gray-800 mb-1">BREAKFAST</p>
-        <ul class="list-disc ml-5 text-gray-700 mb-3">
-          <li>Tea / Coffee</li><li>Idly, Sambar. (By default) OR</li><li>(Bread, Jam, Butter, Omlette )OR</li><li>(Dosa, Sambar) OR</li><li>(Puttu Kadala/Egg curry)</li>
+      <div>
+        <h2 class="text-xl font-semibold text-gray-800 mb-2">Deluxe Veg Menu</h2>
+        <ul class="list-disc pl-5 text-gray-700">
+          <template x-for="item in boat.foodMenu.veg" :key="item">
+            <li x-text="item"></li>
+          </template>
         </ul>
       </div>
-
-      <div class="bg-white rounded shadow p-4">
-        <h2 class="text-xl font-bold text-blue-900 mb-3 border-b pb-1">DELUX NON VEG MENU</h2>
-        <p class="font-semibold text-sm text-gray-800 mb-1">WELCOME DRINK</p>
-        <ul class="list-disc ml-5 text-gray-700 mb-3"><li>Lemon Juice</li></ul>
-        <p class="font-semibold text-sm text-gray-800 mb-1">LUNCH</p>
-        <ul class="list-disc ml-5 text-gray-700 mb-3">
-          <li>White Rice</li><li>Sambar</li><li>Mixed Vegetables</li><li>Mezhukkupuratti (Long Beans)</li><li>Fish Fry (Pearl Spot-Karimeen)</li><li>Banana Kalan/Curd</li><li>Pappadam</li><li>Salad</li><li>Pickle</li><li>Tropical seasonal fruit</li>
-        </ul>
-        <p class="font-semibold text-sm text-gray-800 mb-1">EVENING</p>
-        <ul class="list-disc ml-5 text-gray-700 mb-3"><li>Tea / Coffee</li><li>Banana Fritters/Onion Pakoda</li></ul>
-        <p class="font-semibold text-sm text-gray-800 mb-1">DINNER</p>
-        <ul class="list-disc ml-5 text-gray-700 mb-3"><li>Chappati</li><li>White rice</li><li>Dal Curry</li><li>Chicken Roast</li><li>Vendakka Mezhukkupuratti(Bhindi Fry)</li><li>Salad</li></ul>
-        <p class="font-semibold text-sm text-gray-800 mb-1">BREAKFAST</p>
-        <ul class="list-disc ml-5 text-gray-700 mb-3">
-          <li>Tea / Coffee</li><li>Idly, Sambar. (By default) OR</li><li>(Bread, Jam, Butter, Omlette )OR</li><li>(Dosa, Sambar) OR</li><li>(Puttu Kadala/Egg curry)</li>
+      <div>
+        <h2 class="text-xl font-semibold text-gray-800 mb-2">Deluxe Non-Veg Menu</h2>
+        <ul class="list-disc pl-5 text-gray-700">
+          <template x-for="item in boat.foodMenu.nonVeg" :key="item">
+            <li x-text="item"></li>
+          </template>
         </ul>
       </div>
     </div>
@@ -85,47 +75,36 @@
       </template>
     </ul>
 
-    <!-- Cruise Route Map -->
-    <div class="mb-8">
-      <h2 class="text-xl font-semibold text-gray-800 mb-2">Cruise Route Map</h2>
-      <img :src="boat.mapImage" alt="Cruise Map" class="w-full rounded shadow hover:scale-105 transition-transform duration-300">
-    </div>
-
     <!-- Contact Info -->
     <h2 class="text-xl font-semibold text-gray-800 mb-2">Contact Info</h2>
     <p class="text-gray-700">Phone: <span x-text="boat.contact.phone"></span></p>
     <p class="text-gray-700">Email: <span x-text="boat.contact.email"></span></p>
-  </div>
 
-   <!-- Recommended Boats -->
-<div class="mt-10">
-  <h2 class="text-xl font-semibold text-gray-800 mb-4">Other Deluxe Houseboats</h2>
-  <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
-    <template 
-      x-for="rec in allHouseboats.filter(b => b.id !== boat.id && b.type === boat.type)" 
-      :key="rec.id"
-    >
-      <div class="bg-white rounded-lg shadow-md overflow-hidden">
-        <img :src="rec.mainImage" alt="" class="w-full h-40 object-cover">
-        <div class="p-4">
-          <h3 class="text-lg font-bold mb-2" x-text="rec.name"></h3>
-          <p class="text-gray-600" x-text="'Price: ' + rec.price"></p>
-          <a :href="'houseboat-detail.html?id=' + rec.id"
-             class="inline-block mt-2 px-4 py-2 bg-yellow-400 hover:bg-yellow-500 text-white rounded">
-             View Details
-          </a>
-        </div>
-      </div>
-    </template>
+    <!-- Recommendations -->
+    <h2 class="text-2xl font-bold text-gray-800 mt-10 mb-4">Similar Houseboats</h2>
+    <div class="grid md:grid-cols-2 gap-4">
+      <template x-for="rec in recommendedBoats" :key="rec.id">
+        <a :href="'houseboat-detail.html?id=' + rec.id" class="bg-white rounded shadow hover:shadow-lg transition overflow-hidden">
+          <img :src="rec.mainImage" alt="Houseboat Image" class="w-full h-48 object-cover">
+          <div class="p-4">
+            <h3 class="text-xl font-semibold mb-1" x-text="rec.name"></h3>
+            <p class="text-gray-600" x-text="'Price: ' + rec.price"></p>
+            <p class="text-yellow-600" x-text="'Rating: ' + rec.rating + ' ⭐'"></p>
+          </div>
+        </a>
+      </template>
+    </div>
   </div>
-</div>
-
 
   <!-- Alpine Script -->
   <script>
     document.addEventListener('alpine:init', () => {
       Alpine.data('houseboatDetail', () => ({
         boat: null,
+        mainImage: '',
+        isLightboxOpen: false,
+        lightboxImage: '',
+        currentThumbIndex: 0,
         allHouseboats: [
           {
             id: 5,
@@ -153,88 +132,52 @@
               email: 'info@bookkeralahouseboat.com'
             }
           }
+          // Add more houseboats here
         ],
+        get recommendedBoats() {
+          return this.allHouseboats.filter(b => b.type === this.boat.type && b.id !== this.boat.id);
+        },
+        openLightbox(image, index) {
+          this.lightboxImage = image;
+          this.isLightboxOpen = true;
+          this.currentThumbIndex = index;
+        },
+        closeLightbox() {
+          this.isLightboxOpen = false;
+        },
+        nextImage() {
+          if (this.currentThumbIndex < this.boat.thumbnails.length - 1) {
+            this.currentThumbIndex++;
+          } else {
+            this.currentThumbIndex = 0;
+          }
+          this.lightboxImage = this.boat.thumbnails[this.currentThumbIndex];
+        },
+        prevImage() {
+          if (this.currentThumbIndex > 0) {
+            this.currentThumbIndex--;
+          } else {
+            this.currentThumbIndex = this.boat.thumbnails.length - 1;
+          }
+          this.lightboxImage = this.boat.thumbnails[this.currentThumbIndex];
+        },
         init() {
           const id = new URLSearchParams(window.location.search).get('id');
           this.boat = this.allHouseboats.find(b => b.id == id);
+          this.mainImage = this.boat?.mainImage || '';
+          this.currentThumbIndex = 0;
+
+          // Keyboard navigation for lightbox
+          document.addEventListener('keydown', (e) => {
+            if (!this.isLightboxOpen) return;
+            if (e.key === 'ArrowRight') this.nextImage();
+            else if (e.key === 'ArrowLeft') this.prevImage();
+            else if (e.key === 'Escape') this.closeLightbox();
+          });
         }
       }))
     });
   </script>
- <style>
-    .scrollbar-hide::-webkit-scrollbar {
-      display: none;
-    }
-    .scrollbar-hide {
-      -ms-overflow-style: none;
-      scrollbar-width: none;
-    }
-  </style>
- <!-- Footer -->
-  <footer class="bg-gray-800 text-white pt-10 mt-auto">
-    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-10">
-      <div>
-        <h3 class="text-xl font-bold mb-4">Book Kerala Houseboat</h3>
-        <hr class="border-gray-500 mb-4 w-20">
-        <p class="text-sm mb-2"><i class="fas fa-map-marker-alt mr-2"></i>Church Road, Pallathuruthy, Alappuzha, Kerala 688009</p>
-        <p class="text-sm mb-2"><i class="fas fa-phone-alt mr-2"></i>+91 9103614770, +91 9995857686</p>
-        <p class="text-sm"><i class="fas fa-envelope mr-2"></i>info@bookeralahouseboat.com</p>
-      </div>
 
-      <div>
-        <h4 class="text-lg font-bold mb-4">Company</h4>
-        <ul class="space-y-2 text-sm">
-          <li><a href="#" class="hover:text-yellow-400">About Us</a></li>
-          <li><a href="#" class="hover:text-yellow-400">Contact us</a></li>
-        </ul>
-      </div>
-
-      <div>
-        <h4 class="text-lg font-bold mb-4">Quick Links</h4>
-        <ul class="space-y-2 text-sm">
-          <li><a href="#" class="hover:text-yellow-400">Book Houseboat</a></li>
-          <li><a href="#" class="hover:text-yellow-400">Kerala packages</a></li>
-          <li><a href="#" class="hover:text-yellow-400">Guest Reviews</a></li>
-          <li><a href="#" class="hover:text-yellow-400">FAQs</a></li>
-          <li><a href="#" class="hover:text-yellow-400">Conference Houseboats</a></li>
-        </ul>
-      </div>
-
-      <div>
-        <h4 class="text-lg font-bold mb-4">Policies</h4>
-        <ul class="space-y-2 text-sm">
-          <li><a href="#" class="font-semibold hover:text-yellow-400">Cancellation Policy</a></li>
-          <li><a href="#" class="font-semibold hover:text-yellow-400">Booking Policy</a></li>
-          <li><a href="#" class="font-semibold hover:text-yellow-400">Child Policy</a></li>
-          <li><a href="#" class="font-semibold hover:text-yellow-400">Food Menu</a></li>
-        </ul>
-      </div>
-    </div>
-
- 
-             <!-- WhatsApp / Call Buttons -->
-    <div class="fixed bottom-6 right-6 space-y-2 z-50">
-      <a href="tel:+919995857686" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-full shadow-md block text-center">Call</a>
-      <a href="https://wa.me/919995857686" target="_blank" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-full shadow-md block text-center">WhatsApp</a>
-    </div>
-    <div class="bg-gray-900 mt-10 px-6 py-4 text-sm text-gray-300">
-      <p class="text-center mb-4">&copy; 2025 Book Kerala Houseboat. All Rights Reserved.</p>
-       <div class="flex justify-center space-x-4">
-        <a href="#" class="bg-yellow-500 p-2 rounded-full hover:bg-yellow-400" title="Back to Top">
-          <i class="fas fa-arrow-up text-white"></i>
-        </a>
-        <a href="#" class="bg-white text-gray-800 p-2 rounded-full hover:opacity-75" title="Facebook">
-          <i class="fab fa-facebook-f"></i>
-        </a>
-        <a href="#" class="bg-white text-gray-800 p-2 rounded-full hover:opacity-75" title="Instagram">
-          <i class="fab fa-instagram"></i>
-        </a>
-        <a href="https://wa.me/919995857686" target="_blank" class="bg-white text-green-600 p-2 rounded-full hover:opacity-75" title="WhatsApp">
-          <i class="fab fa-whatsapp"></i>
-        </a>
-      </div>
-    </div>
-  </footer>
 </body>
 </html>
-
