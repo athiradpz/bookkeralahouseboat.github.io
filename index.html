@@ -131,14 +131,12 @@
   </div>
 
   <!-- Mobile Menu -->
-  <div x-show="open" x-transition x-cloak class="md:hidden fixed inset-0 bg-black bg-opacity-95 z-40 pt-20 px-4 overflow-y-auto">
-    <div class="flex items-center justify-between px-2 pb-4">
-      <div class="flex items-center space-x-2">
-        <img src="assets/New BHK.png" alt="Logo" class="h-10 w-10 object-contain" />
-        <span class="text-white font-bold text-lg">BookKeralaHouseboat</span>
-      </div>
-      <button @click="open = false" class="text-white text-3xl">&times;</button>
+  <div x-show="open" x-transition x-cloak class="md:hidden bg-black bg-opacity-95 fixed inset-0 z-40 pt-20 px-4 overflow-y-auto">
+    <div class="absolute top-4 left-4 flex items-center space-x-2 z-50">
+      <img src="assets/New BHK.png" alt="Logo" class="h-10 w-10 object-contain" />
+      <span class="text-white font-bold text-lg">BookKeralaHouseboat</span>
     </div>
+      <button @click="open = false" class="text-white text-3xl">&times;</button>
 
     <div class="space-y-2 pb-4 mt-2">
       <a href="index.html" class="block text-white hover:text-teal-400">Home</a>
