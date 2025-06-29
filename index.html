@@ -131,10 +131,10 @@
   </div>
 
   <!-- Mobile Menu -->
-  <!-- Single close button inside overlay -->
-<div class="absolute top-4 right-4">
-  <button @click="open = false" class="text-white text-3xl font-bold">&times;</button>
-</div>
+  <div x-show="open" x-transition x-cloak class="md:hidden fixed inset-0 bg-black bg-opacity-95 z-40 pt-20 px-4 overflow-y-auto">
+    <div class="flex justify-end pr-4">
+      <button @click="open = false" class="text-white text-3xl">&times;</button>
+    </div>
 
     <div class="space-y-2 pb-4 mt-2">
       <a href="index.html" class="block text-white hover:text-teal-400">Home</a>
