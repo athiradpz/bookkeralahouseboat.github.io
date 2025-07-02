@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>1 Bedroom Houseboat | Book Kerala Houseboat</title>
+  <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-white text-gray-900">
+
+  <!-- ✅ Navbar (copied from homepage) -->
+  <nav class="bg-black bg-opacity-90 fixed w-full z-50 top-0 shadow-md" x-data="{ open: false, dropdownOpen: false }">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <!-- Logo & Name -->
+        <div class="flex items-center space-x-2">
+          <img src="assets/New BHK.png" alt="Logo" class="h-14 w-14 sm:h-16 sm:w-16 object-contain" />
+          <a href="index.html" class="text-lg font-bold text-white">BookKeralaHouseboat</a>
+        </div>
+
+        <!-- Hamburger Button -->
+        <div class="md:hidden">
+          <button @click="open = !open" class="text-white focus:outline-none">
+            <svg x-show="!open" x-cloak xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+              viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+            <svg x-show="open" x-cloak xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+              viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+
+        <!-- Desktop Menu -->
+        <div class="hidden md:flex space-x-4 items-center">
+          <a href="index.html" class="hover:text-teal-400 text-white">Home</a>
+          <div class="relative group" x-data="{ dropdownOpen: false }" @mouseenter="dropdownOpen = true" @mouseleave="dropdownOpen = false">
+            <button class="hover:text-yellow-400 text-white">Houseboats</button>
+            <ul x-show="dropdownOpen" x-transition x-cloak class="absolute left-0 mt-2 bg-white text-black w-64 rounded shadow-lg z-50">
+              <template x-for="i in 14" :key="i">
+                <li>
+                  <a :href="`${i}bedroom.html`" class="block px-4 py-2 hover:bg-yellow-100" x-text="`${i} Bedroom Houseboat`"></a>
+                </li>
+              </template>
+            </ul>
+          </div>
+          <a href="https://www.triptgo.com" target="_blank" class="hover:text-yellow-400 text-white">Kerala Tour Packages</a>
+          <a href="#" class="hover:text-yellow-400 text-white">Backwater Activities</a>
+          <a href="#" class="hover:text-yellow-400 text-white">Blog</a>
+          <a href="#" class="hover:text-yellow-400 text-white">Collaborations</a>
+          <a href="enquiry.html" class="hover:text-yellow-400 text-white font-semibold">Enquire Now</a>
+          <a href="#" class="hover:text-yellow-400 text-white">Contact Us</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div x-show="open" x-transition x-cloak class="md:hidden mt-2 space-y-2 pb-4 bg-black bg-opacity-95 fixed inset-0 z-40 pt-20 px-4 overflow-y-auto">
+      <a href="index.html" class="block text-white hover:text-teal-400">Home</a>
+      <div x-data="{ dropdownOpen: false }">
+        <button @click="dropdownOpen = !dropdownOpen" class="block text-white font-medium hover:text-yellow-400">Houseboats</button>
+        <ul x-show="dropdownOpen" x-transition x-cloak class="bg-white text-black rounded shadow-lg mt-2 ml-2 space-y-1 py-2 w-[90%] max-h-[70vh] overflow-y-auto">
+          <template x-for="i in 14" :key="i">
+            <li><a :href="`${i}bedroom.html`" class="block px-4 py-2 hover:bg-yellow-100" x-text="`${i} Bedroom Houseboat`"></a></li>
+          </template>
+        </ul>
+      </div>
+      <a href="https://www.triptgo.com" target="_blank" class="block text-white hover:text-yellow-400">Kerala Tour Packages</a>
+      <a href="#" class="block text-white hover:text-yellow-400">Backwater Activities</a>
+      <a href="#" class="block text-white hover:text-yellow-400">Blog</a>
+      <a href="#" class="block text-white hover:text-yellow-400">Collaborations</a>
+      <a href="enquiry.html" class="block text-white hover:text-yellow-400 font-semibold">Enquire Now</a>
+      <a href="#" class="block text-white hover:text-yellow-400">Contact Us</a>
+    </div>
+  </nav>
+
+  <!-- Add a spacer for fixed navbar -->
+  <div class="h-16 md:h-20"></div>
+
+<!--Page content-->
+  <div class="max-w-7xl mx-auto p-4 space-y-10">
+
+    <!-- DELUXE Section -->
+    <section>
+      <h2 class="text-2xl font-bold mb-4 text-yellow-700">Deluxe Houseboats Tour Package</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <!-- Card -->
+        <div class="border rounded-lg overflow-hidden shadow-md">
+          <img src="images/1bedroom-deluxe1.jpg" alt="Deluxe Houseboat" class="w-full h-48 object-cover" />
+          <div class="p-4">
+            <h3 class="font-semibold text-lg">1 Bedroom Deluxe Houseboat</h3>
+            <p class="text-sm text-gray-600">From ₹8500 - ₹9500</p>
+            <a href="#" class="mt-2 inline-block text-blue-500 hover:underline">View Details</a>
+          </div>
+        </div>
+        <!-- Repeat other Deluxe Cards -->
+      </div>
+    </section>
+
+    <!-- PREMIUM Section -->
+    <section>
+      <h2 class="text-2xl font-bold mb-4 text-yellow-700">Premium Houseboats Tour Package</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <!-- Repeat similar cards for Premium -->
+      </div>
+    </section>
+
+    <!-- LUXURY Section -->
+    <section>
+      <h2 class="text-2xl font-bold mb-4 text-yellow-700">Luxury Houseboats Tour Package</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <!-- Repeat similar cards for Luxury -->
+      </div>
+    </section>
+
+    <!-- ULTRA LUXURY Section -->
+    <section>
+      <h2 class="text-2xl font-bold mb-4 text-yellow-700">Ultra Luxury Houseboats Tour Package</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <!-- Repeat similar cards for Ultra Luxury -->
+      </div>
+    </section>
+
+  </div>
+
+</body>
+</html>
+
