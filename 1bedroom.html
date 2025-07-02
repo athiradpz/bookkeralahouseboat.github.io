@@ -89,36 +89,78 @@
   <!-- Add a spacer for fixed navbar -->
   <div class="h-16 md:h-20"></div>
 
+  <!-- 🔹 Horizontal Scroll Category Navigation (Add this here) -->
+<section class="max-w-7xl mx-auto px-4 mt-10">
+  <h2 class="text-2xl font-bold text-center mb-6 text-blue-900">Explore by Category</h2>
+  <div class="flex space-x-4 overflow-x-auto pb-4 snap-x scroll-smooth">
+    <a href="#deluxe" class="min-w-[180px] snap-start bg-yellow-100 hover:bg-yellow-200 rounded-xl shadow-md p-4 flex flex-col items-center text-center transition">
+      <img src="icons/deluxe-icon.png" alt="Deluxe" class="w-12 h-12 mb-2">
+      <span class="font-semibold text-yellow-900">Deluxe</span>
+    </a>
+    <a href="#premium" class="min-w-[180px] snap-start bg-blue-100 hover:bg-blue-200 rounded-xl shadow-md p-4 flex flex-col items-center text-center transition">
+      <img src="icons/premium-icon.png" alt="Premium" class="w-12 h-12 mb-2">
+      <span class="font-semibold text-blue-900">Premium</span>
+    </a>
+    <a href="#luxury" class="min-w-[180px] snap-start bg-purple-100 hover:bg-purple-200 rounded-xl shadow-md p-4 flex flex-col items-center text-center transition">
+      <img src="icons/luxury-icon.png" alt="Luxury" class="w-12 h-12 mb-2">
+      <span class="font-semibold text-purple-900">Luxury</span>
+    </a>
+    <a href="#ultraluxury" class="min-w-[180px] snap-start bg-green-100 hover:bg-green-200 rounded-xl shadow-md p-4 flex flex-col items-center text-center transition">
+      <img src="icons/ultra-icon.png" alt="Ultra Luxury" class="w-12 h-12 mb-2">
+      <span class="font-semibold text-green-900 text-center">Ultra Luxury</span>
+    </a>
+  </div>
+</section>
+
 <!--Page content-->
   <div class="max-w-7xl mx-auto p-4 space-y-10">
 
     <!-- DELUXE Section -->
-    <section>
+    <section id="deluxe" class="pt-16">
       <h2 class="text-2xl font-bold mb-4 text-yellow-700">Deluxe Houseboats Tour Package</h2>
-      <div class="grid md:grid-cols-3 gap-6">
+      <div class= "flex space-x-4 overflow-x-auto pb-4 snap-x scroll-smooth">
         <!-- Card -->
-        <div class="border rounded-lg overflow-hidden shadow-md">
-          <img src="images/1bedroom-deluxe1.jpg" alt="Deluxe Houseboat" class="w-full h-48 object-cover" />
+        <div class="min-w-[280px] snap-start bg-white rounded-xl shadow-md overflow-hidden">
+          <img src="images/1bedroom-deluxe1.jpg" class="w-full h-40 object-cover" alt="Deluxe Houseboat 1">
           <div class="p-4">
-            <h3 class="font-semibold text-lg">1 Bedroom Deluxe Houseboat</h3>
-            <p class="text-sm text-gray-600">From ₹8500 - ₹9500</p>
-            <a href="#" class="mt-2 inline-block text-blue-500 hover:underline">View Details</a>
+            <h3 class="text-lg font-semibold">1 Bedroom Deluxe</h3>
+            <p class="text-sm text-gray-600 mb-2">From ₹8500 - ₹9500</p>
+            <a href="#" class="text-blue-600 hover:underline text-sm">View Details</a>
           </div>
         </div>
+
+    <!-- Card 2 -->
+    <div class="min-w-[280px] snap-start bg-white rounded-xl shadow-md overflow-hidden">
+      <img src="images/1bedroom-deluxe2.jpg" class="w-full h-40 object-cover" alt="Deluxe Houseboat 2">
+      <div class="p-4">
+        <h3 class="text-lg font-semibold">1 Bedroom Deluxe - AC</h3>
+        <p class="text-sm text-gray-600 mb-2">From ₹8800 - ₹9800</p>
+        <a href="#" class="text-blue-600 hover:underline text-sm">View Details</a>
+      </div>
+    </div>
         <!-- Repeat other Deluxe Cards -->
       </div>
     </section>
 
     <!-- PREMIUM Section -->
-    <section>
+    <section id="premium" class="pt-16">
       <h2 class="text-2xl font-bold mb-4 text-yellow-700">Premium Houseboats Tour Package</h2>
-      <div class="grid md:grid-cols-3 gap-6">
+      <div class="flex space-x-4 overflow-x-auto pb-4 snap-x scroll-smooth">
+    <!-- Card -->
+        <div class="min-w-[280px] snap-start bg-white rounded-xl shadow-md overflow-hidden">
+          <img src="images/1bedroom-deluxe1.jpg" class="w-full h-40 object-cover" alt="Deluxe Houseboat 1">
+          <div class="p-4">
+            <h3 class="text-lg font-semibold">1 Bedroom Deluxe</h3>
+            <p class="text-sm text-gray-600 mb-2">From ₹8500 - ₹9500</p>
+            <a href="#" class="text-blue-600 hover:underline text-sm">View Details</a>
+          </div>
+        </div>
         <!-- Repeat similar cards for Premium -->
       </div>
     </section>
 
     <!-- LUXURY Section -->
-    <section>
+    <section id="luxury" class="pt-16">
       <h2 class="text-2xl font-bold mb-4 text-yellow-700">Luxury Houseboats Tour Package</h2>
       <div class="grid md:grid-cols-3 gap-6">
         <!-- Repeat similar cards for Luxury -->
@@ -126,7 +168,7 @@
     </section>
 
     <!-- ULTRA LUXURY Section -->
-    <section>
+    <section id="ultraluxury" class="pt-16">
       <h2 class="text-2xl font-bold mb-4 text-yellow-700">Ultra Luxury Houseboats Tour Package</h2>
       <div class="grid md:grid-cols-3 gap-6">
         <!-- Repeat similar cards for Ultra Luxury -->
