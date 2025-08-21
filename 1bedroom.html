@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>1 Bedroom Houseboat | Book Kerala Houseboat</title>
+  <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+</head>
+<body class="bg-white text-gray-900">
+
+  <!-- ✅ Navbar (copied from homepage) -->
+  <nav class="bg-black bg-opacity-90 fixed w-full z-50 top-0 shadow-md" x-data="{ open: false, dropdownOpen: false }">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <!-- Logo & Name -->
+        <div class="flex items-center space-x-2">
+          <img src="assets/New BHK.png" alt="Logo" class="h-14 w-14 sm:h-16 sm:w-16 object-contain" />
+          <a href="index.html" class="text-lg font-bold text-white">BookKeralaHouseboat</a>
+        </div>
+
+        <!-- Hamburger Button -->
+        <div class="md:hidden">
+          <button @click="open = !open" class="text-white focus:outline-none">
+            <svg x-show="!open" x-cloak xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+              viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+            <svg x-show="open" x-cloak xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+              viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+
+        <!-- Desktop Menu -->
+        <div class="hidden md:flex space-x-4 items-center">
+          <a href="index.html" class="hover:text-teal-400 text-white">Home</a>
+          <div class="relative group" x-data="{ dropdownOpen: false }" @mouseenter="dropdownOpen = true" @mouseleave="dropdownOpen = false">
+            <button class="hover:text-yellow-400 text-white">Houseboats</button>
+            <ul x-show="dropdownOpen" x-transition x-cloak class="absolute left-0 mt-2 bg-white text-black w-64 rounded shadow-lg z-50">
+              <template x-for="i in 14" :key="i">
+                <li>
+                  <a :href="`${i}bedroom.html`" class="block px-4 py-2 hover:bg-yellow-100" x-text="`${i} Bedroom Houseboat`"></a>
+                </li>
+              </template>
+              <li>
+               <a :href="conference-houseboats.html" class="block px-4 py-2 hover:bg-yellow-100">Conference Houseboats</a>
+              </li>
+            </ul>
+          </div>
+          <a href="https://www.triptgo.com" target="_blank" class="hover:text-yellow-400 text-white">Kerala Tour Packages</a>
+          <a href="#" class="hover:text-yellow-400 text-white">Backwater Activities</a>
+          <a href="#" class="hover:text-yellow-400 text-white">Blog</a>
+          <a href="#" class="hover:text-yellow-400 text-white">Collaborations</a>
+          <a href="enquiry.html" class="hover:text-yellow-400 text-white font-semibold">Enquire Now</a>
+          <a href="#" class="hover:text-yellow-400 text-white">Contact Us</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div x-show="open" x-transition x-cloak class="md:hidden mt-2 space-y-2 pb-4 bg-black bg-opacity-95 fixed inset-0 z-40 pt-20 px-4 overflow-y-auto">
+      <a href="index.html" class="block text-white hover:text-teal-400">Home</a>
+      <div x-data="{ dropdownOpen: false }">
+        <button @click="dropdownOpen = !dropdownOpen" class="block text-white font-medium hover:text-yellow-400">Houseboats</button>
+        <ul x-show="dropdownOpen" x-transition x-cloak class="bg-white text-black rounded shadow-lg mt-2 ml-2 space-y-1 py-2 w-[90%] max-h-[70vh] overflow-y-auto">
+          <template x-for="i in 14" :key="i">
+            <li><a :href="`${i}bedroom.html`" class="block px-4 py-2 hover:bg-yellow-100" x-text="`${i} Bedroom Houseboat`"></a></li>
+          </template>
+          <li>
+            <a :href="conference-houseboats.html" class="block px-4 py-2 hover:bg-yellow-100">Conference Houseboats</a>
+          </li>
+        </ul>
+      </div>
+      <a href="https://www.triptgo.com" target="_blank" class="block text-white hover:text-yellow-400">Kerala Tour Packages</a>
+      <a href="#" class="block text-white hover:text-yellow-400">Backwater Activities</a>
+      <a href="#" class="block text-white hover:text-yellow-400">Blog</a>
+      <a href="#" class="block text-white hover:text-yellow-400">Collaborations</a>
+      <a href="enquiry.html" class="block text-white hover:text-yellow-400 font-semibold">Enquire Now</a>
+      <a href="#" class="block text-white hover:text-yellow-400">Contact Us</a>
+    </div>
+  </nav>
+
+  <!-- Add a spacer for fixed navbar -->
+  <div class="h-16 md:h-20"></div>
+
+  <!-- 🛶 Intro Section -->
+<section class="bg-yellow-50 py-12 px-4">
+  <div class="max-w-7xl mx-auto text-center">
+    <h1 class="text-3xl sm:text-4xl font-bold text-yellow-900 mb-4">Choosing a 1 Bedroom Houseboat in Alleppey</h1>
+    <p class="text-lg text-gray-700 max-w-2xl mx-auto">
+      Ideal for couples, solo travelers, or small families, the 1 bedroom houseboat offers a cozy and private way to explore the enchanting backwaters of Alleppey. From budget-friendly deluxe options to luxurious experiences with all amenities, choose the type that matches your travel style, comfort, and expectations.
+  </div>
+</section>
+
+  <!-- 🔹 Horizontal Scroll Category Navigation (Add this here) -->
+<section class="max-w-7xl mx-auto px-4 mt-10">
+  <h2 class="text-2xl font-bold text-center mb-6 text-blue-900">Explore by Category</h2>
+  <div class="flex space-x-4 overflow-x-auto pb-4 snap-x scroll-smooth">
+    <a href="#deluxe" class="min-w-[180px] snap-start bg-yellow-100 hover:bg-yellow-200 rounded-xl shadow-md p-4 flex flex-col items-center text-center transition">
+      <img src="icons/deluxe-icon.png" alt="Deluxe" class="w-12 h-12 mb-2">
+      <span class="font-semibold text-yellow-900">Deluxe</span>
+    </a>
+    <a href="#premium" class="min-w-[180px] snap-start bg-blue-100 hover:bg-blue-200 rounded-xl shadow-md p-4 flex flex-col items-center text-center transition">
+      <img src="icons/premium-icon.png" alt="Premium" class="w-12 h-12 mb-2">
+      <span class="font-semibold text-blue-900">Premium</span>
+    </a>
+    <a href="#luxury" class="min-w-[180px] snap-start bg-purple-100 hover:bg-purple-200 rounded-xl shadow-md p-4 flex flex-col items-center text-center transition">
+      <img src="icons/luxury-icon.png" alt="Luxury" class="w-12 h-12 mb-2">
+      <span class="font-semibold text-purple-900">Luxury</span>
+    </a>
+    <a href="#ultraluxury" class="min-w-[180px] snap-start bg-green-100 hover:bg-green-200 rounded-xl shadow-md p-4 flex flex-col items-center text-center transition">
+      <img src="icons/ultra-icon.png" alt="Ultra Luxury" class="w-12 h-12 mb-2">
+      <span class="font-semibold text-green-900 text-center">Ultra Luxury</span>
+    </a>
+  </div>
+</section>
+
+<!--Page content-->
+  <div class="max-w-7xl mx-auto p-4 space-y-10">
+
+    <!-- DELUXE Section -->
+    <section id="deluxe" class="pt-16">
+      <h2 class="text-2xl font-bold mb-4 text-yellow-700">Deluxe Houseboats Tour Package</h2>
+      <div class= "flex space-x-4 overflow-x-auto pb-4 snap-x scroll-smooth">
+        <!-- Card -->
+        <div class="min-w-[280px] snap-start bg-white rounded-xl shadow-md overflow-hidden">
+          <img src="images/1bedroom-deluxe1.jpg" class="w-full h-40 object-cover" alt="Deluxe Houseboat 1">
+          <div class="p-4">
+            <h3 class="text-lg font-semibold">1 Bedroom Deluxe</h3>
+            <p class="text-sm text-gray-600 mb-2">From ₹8500 - ₹9500</p>
+            <a href="#" class="text-blue-600 hover:underline text-sm">View Details</a>
+          </div>
+        </div>
+
+    <!-- Card 2 -->
+    <div class="min-w-[280px] snap-start bg-white rounded-xl shadow-md overflow-hidden">
+      <img src="images/1bedroom-deluxe2.jpg" class="w-full h-40 object-cover" alt="Deluxe Houseboat 2">
+      <div class="p-4">
+        <h3 class="text-lg font-semibold">1 Bedroom Deluxe - AC</h3>
+        <p class="text-sm text-gray-600 mb-2">From ₹8800 - ₹9800</p>
+        <a href="#" class="text-blue-600 hover:underline text-sm">View Details</a>
+      </div>
+    </div>
+        <!-- Repeat other Deluxe Cards -->
+      </div>
+    </section>
+
+    <!-- PREMIUM Section -->
+    <section id="premium" class="pt-16">
+      <h2 class="text-2xl font-bold mb-4 text-yellow-700">Premium Houseboats Tour Package</h2>
+      <div class="flex space-x-4 overflow-x-auto pb-4 snap-x scroll-smooth">
+    <!-- Card -->
+        <div class="min-w-[280px] snap-start bg-white rounded-xl shadow-md overflow-hidden">
+          <img src="images/1bedroom-deluxe1.jpg" class="w-full h-40 object-cover" alt="Deluxe Houseboat 1">
+          <div class="p-4">
+            <h3 class="text-lg font-semibold">1 Bedroom Deluxe</h3>
+            <p class="text-sm text-gray-600 mb-2">From ₹8500 - ₹9500</p>
+            <a href="#" class="text-blue-600 hover:underline text-sm">View Details</a>
+          </div>
+        </div>
+        <!-- Repeat similar cards for Premium -->
+      </div>
+    </section>
+
+    <!-- LUXURY Section -->
+    <section id="luxury" class="pt-16">
+      <h2 class="text-2xl font-bold mb-4 text-yellow-700">Luxury Houseboats Tour Package</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <!-- Repeat similar cards for Luxury -->
+      </div>
+    </section>
+
+    <!-- ULTRA LUXURY Section -->
+    <section id="ultraluxury" class="pt-16">
+      <h2 class="text-2xl font-bold mb-4 text-yellow-700">Ultra Luxury Houseboats Tour Package</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <!-- Repeat similar cards for Ultra Luxury -->
+      </div>
+    </section>
+
+  </div>
+
+   <!-- Footer -->
+  <footer class="bg-gray-800 text-white pt-10 mt-auto">
+    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-10">
+      <div>
+        <h3 class="text-xl font-bold mb-4">Book Kerala Houseboat</h3>
+        <hr class="border-gray-500 mb-4 w-20">
+        <p class="text-sm mb-2"><i class="fas fa-map-marker-alt mr-2"></i>Church Road, Pallathuruthy, Alappuzha, Kerala 688009</p>
+        <p class="text-sm mb-2"><i class="fas fa-phone-alt mr-2"></i>+91 9103614770, +91 9995857686</p>
+        <p class="text-sm"><i class="fas fa-envelope mr-2"></i>info@bookeralahouseboat.com</p>
+      </div>
+
+      <div>
+        <h4 class="text-lg font-bold mb-4">Company</h4>
+        <ul class="space-y-2 text-sm">
+          <li><a href="#" class="hover:text-yellow-400">About Us</a></li>
+          <li><a href="#" class="hover:text-yellow-400">Contact us</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="text-lg font-bold mb-4">Quick Links</h4>
+        <ul class="space-y-2 text-sm">
+          <li><a href="#" class="hover:text-yellow-400">Book Houseboat</a></li>
+          <li><a href="#" class="hover:text-yellow-400">Kerala packages</a></li>
+          <li><a href="#" class="hover:text-yellow-400">Guest Reviews</a></li>
+          <li><a href="#" class="hover:text-yellow-400">FAQs</a></li>
+          <li><a href="#" class="hover:text-yellow-400">Conference Houseboats</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="text-lg font-bold mb-4">Policies</h4>
+        <ul class="space-y-2 text-sm">
+          <li><a href="#" class="font-semibold hover:text-yellow-400">Cancellation Policy</a></li>
+          <li><a href="#" class="font-semibold hover:text-yellow-400">Booking Policy</a></li>
+          <li><a href="#" class="font-semibold hover:text-yellow-400">Child Policy</a></li>
+          <li><a href="#" class="font-semibold hover:text-yellow-400">Food Menu</a></li>
+        </ul>
+      </div>
+    </div>
+
+ 
+             <!-- WhatsApp / Call Buttons -->
+    <div class="fixed bottom-6 right-6 space-y-2 z-50">
+      <a href="tel:+919995857686" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-full shadow-md block text-center">Call</a>
+      <a href="https://wa.me/919995857686" target="_blank" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-full shadow-md block text-center">WhatsApp</a>
+    </div>
+    <div class="bg-gray-900 mt-10 px-6 py-4 text-sm text-gray-300">
+      <p class="text-center mb-4">&copy; 2025 Book Kerala Houseboat. All Rights Reserved.</p>
+       <div class="flex justify-center space-x-4">
+        <a href="#" class="bg-yellow-500 p-2 rounded-full hover:bg-yellow-400" title="Back to Top">
+          <i class="fas fa-arrow-up text-white"></i>
+        </a>
+        <a href="#" class="bg-white text-gray-800 p-2 rounded-full hover:opacity-75" title="Facebook">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="#" class="bg-white text-gray-800 p-2 rounded-full hover:opacity-75" title="Instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://wa.me/919995857686" target="_blank" class="bg-white text-green-600 p-2 rounded-full hover:opacity-75" title="WhatsApp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
+

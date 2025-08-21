@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bookkeralahouseboat</title>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const params = new URLSearchParams(window.location.search);
+      const selectedRoomType = params.get("roomType");
+      const selectedCategory = params.get("category");
+
+      if (selectedRoomType) {
+        document.querySelector("#pageTitle").textContent = `${selectedRoomType.replace(/1bhk/, "1 Bedroom Houseboat").replace(/2bhk/, "2 Bedroom Houseboat")} in Alleppey Tour Package`;
+      }
+
+      if (selectedCategory) {
+        document.querySelectorAll(".houseboat-section").forEach(section => {
+          section.style.display = section.dataset.category === selectedCategory ? 'block' : 'none';
+        });
+      }
+    });
+  </script>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+  <style>
+    .main-slider {
+      width: 100%;
+      height: 400px;
+      margin-bottom: 20px;
+    }
+
+    .main-slider .swiper-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+
+    .thumb-slider {
+      height: 100px;
+      box-sizing: border-box;
+      padding: 10px 0;
+    }
+
+    .thumb-slider .swiper-slide {
+      width: 100px;
+      height: 100%;
+      opacity: 0.4;
+      cursor: pointer;
+    }
+
+    .thumb-slider .swiper-slide-thumb-active {
+      opacity: 1;
+    }
+
+    .thumb-slider .swiper-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body class="bg-gray-50">
+  <header class="bg-green-900 text-white py-6 text-center text-2xl font-bold">
+    <h1 id="pageTitle">1 Bedroom Houseboat in Alleppey Tour Package</h1>
+  </header>
+
+  <main class="p-6">
+    <!-- Image Slider Section -->
+    <div class="main-slider swiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="images/houseboat1.jpg" alt="Houseboat 1"></div>
+        <div class="swiper-slide"><img src="images/houseboat2.jpg" alt="Houseboat 2"></div>
+        <div class="swiper-slide"><img src="images/houseboat3.jpg" alt="Houseboat 3"></div>
+      </div>
+    </div>
+
+    <div class="thumb-slider swiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="images/houseboat1.jpg" alt="Thumb 1"></div>
+        <div class="swiper-slide"><img src="images/houseboat2.jpg" alt="Thumb 2"></div>
+        <div class="swiper-slide"><img src="images/houseboat3.jpg" alt="Thumb 3"></div>
+      </div>
+    </div>
+
+    <!-- Deluxe Section -->
+    <section class="houseboat-section mb-10" data-category="deluxe">
+      <h2 class="text-xl font-bold mb-4">Deluxe Houseboats Tour Package</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+        <!-- Card 1 -->
+        <div class="bg-white p-4 rounded shadow">
+          <img src="images/deluxe1.jpg" alt="Houseboat" class="w-full h-48 object-cover rounded">
+          <h3 class="font-bold mt-2">1 Bedroom Deluxe Houseboat</h3>
+          <p class="text-sm">From ₹10000 + GST</p>
+          <button class="text-blue-500 text-sm mt-1">Explore →</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Premium Section -->
+    <section class="houseboat-section mb-10" data-category="premium">
+      <h2 class="text-xl font-bold mb-4">Premium Houseboats Tour Package</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+        <!-- Card 1 -->
+        <div class="bg-white p-4 rounded shadow">
+          <img src="images/premium1.jpg" alt="Houseboat" class="w-full h-48 object-cover rounded">
+          <h3 class="font-bold mt-2">1 Bedroom Premium Houseboat</h3>
+          <p class="text-sm">From ₹12000 + GST</p>
+          <p class="text-xs text-gray-500">Code: LOSMPRE01D</p>
+          <button class="text-blue-500 text-sm mt-1">Explore →</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Luxury Section -->
+    <section class="houseboat-section mb-10" data-category="luxury">
+      <h2 class="text-xl font-bold mb-4">Luxury Houseboats Tour Package</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+        <!-- Card 1 -->
+        <div class="bg-white p-4 rounded shadow">
+          <img src="images/luxury1.jpg" alt="Houseboat" class="w-full h-48 object-cover rounded">
+          <h3 class="font-bold mt-2">1 Bedroom Luxury Houseboat</h3>
+          <p class="text-sm">From ₹15000 + GST</p>
+          <p class="text-xs text-gray-500">Code: LOSMLUX01D</p>
+          <button class="text-blue-500 text-sm mt-1">Explore →</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+  <script>
+    const thumbSwiper = new Swiper(".thumb-slider", {
+      spaceBetween: 10,
+      slidesPerView: 4,
+      freeMode: true,
+      watchSlidesProgress: true,
+    });
+
+    const mainSwiper = new Swiper(".main-slider", {
+      spaceBetween: 10,
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      thumbs: {
+        swiper: thumbSwiper,
+      },
+    });
+  </script>
+</body>
+</html>
+
