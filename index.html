@@ -389,9 +389,27 @@
 
 <!-- Alpine text output support -->
 <script>
-  document.addEventListener('alpine:init', () => {
-    Alpine.magic('text', (el) => (val) => val);
-  });
+function houseboatApp() {
+  return {
+    bedroom: '',
+    type: '',
+    houseboats: [],
+    init() {
+      fetch('https://cdn.jsdelivr.net/gh/bookkeralahouseboat/bookkeralahouseboat.github.io/houseboats.json')
+        .then(res => res.json())
+        .then(data => {
+          this.houseboats = data;
+        })
+        .catch(err => console.error('Error loading houseboats.json:', err));
+    },
+    filteredBoats() {
+      return this.houseboats.filter(b =>
+        (!this.bedroom || b.bedroom === this.bedroom) &&
+        (!this.type || b.type === this.type)
+      );
+    }
+  }
+}
 </script>
 
 
