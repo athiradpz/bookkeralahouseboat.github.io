@@ -13,119 +13,109 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
   <link rel="manifest" href="/site.webmanifest">
   <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-
 </head>
 
 <body class="bg-white text-gray-900">
   <!-- Navbar -->
-  <!-- Navbar with Mobile Hamburger -->
-<nav class="bg-black bg-opacity-90 fixed w-full z-50 top-0 shadow-md" x-data="{ open: false }">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex items-center justify-between h-16">
-      <!-- Logo -->
-      <div class="flex items-center space-x-2">
-  <img src="assets/New BHK.png" alt="Logo" class="h-14 w-14 sm:h-16 sm:w-16 object-contain" />
-  <a href="index.html" class="text-lg font-bold text-white">BookKeralaHouseboat</a>
-</div>
+  <nav class="bg-black bg-opacity-90 fixed w-full z-50 top-0 shadow-md" x-data="{ open: false }">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <!-- Logo -->
+        <div class="flex items-center space-x-2">
+          <img src="assets/New BHK.png" alt="Logo" class="h-14 w-14 sm:h-16 sm:w-16 object-contain" />
+          <a href="index.html" class="text-lg font-bold text-white">BookKeralaHouseboat</a>
+        </div>
 
-      <!-- Hamburger Button (Mobile) -->
-      <div class="md:hidden">
-        <button @click="open = !open" type="button" class="text-white focus:outline-none">
-          <svg x-show="!open" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
-            viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
-          <svg x-show="open" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
-            viewBox="0 0 24 24" stroke="currentColor" x-cloak>
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              d="M6 18L18 6M6 6l12 12" />
-          </svg>
-        </button>
+        <!-- Hamburger Button (Mobile) -->
+        <div class="md:hidden">
+          <button @click="open = !open" type="button" class="text-white focus:outline-none">
+            <svg x-show="!open" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+              viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+            <svg x-show="open" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+              viewBox="0 0 24 24" stroke="currentColor" x-cloak>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+
+        <!-- Menu Items (Desktop) -->
+        <div class="hidden md:flex space-x-4">
+          <a href="index.html" class="hover:text-teal-400 text-white">Home</a>
+          <a href="#" class="hover:text-yellow-400 text-white">Our Houseboats</a>
+          <a href="#" class="hover:text-yellow-400 text-white">Kerala Tour Packages</a>
+          <a href="#" class="hover:text-yellow-400 text-white">Backwater Activities</a>
+          <a href="#" class="hover:text-yellow-400 text-white">Food Menu</a>
+          <a href="#" class="hover:text-yellow-400 text-white">Blog</a>
+          <a href="enquiry.html" class="hover:text-yellow-400 text-white font-semibold">Enquire Now</a>
+          <a href="#" class="hover:text-yellow-400 text-white">Contact Us</a>
+        </div>
       </div>
 
-      <!-- Menu Items (Desktop) -->
-      <div class="hidden md:flex space-x-4">
-        <a href="index.html" class="hover:text-teal-400 text-white">Home</a>
-        <a href="#" class="hover:text-yellow-400 text-white">Our Houseboats</a>
-        <a href="#" class="hover:text-yellow-400 text-white">Kerala Tour Packages</a>
-        <a href="#" class="hover:text-yellow-400 text-white">Backwater Activities</a>
-        <a href="#" class="hover:text-yellow-400 text-white">Food Menu</a>
-        <a href="#" class="hover:text-yellow-400 text-white">Blog</a>
-        <a href="enquiry.html" class="hover:text-yellow-400 text-white font-semibold">Enquire Now</a>
-        <a href="#" class="hover:text-yellow-400 text-white">Contact Us</a>
+      <!-- Mobile Menu (Dropdown) -->
+      <div x-show="open" x-transition class="md:hidden mt-2 space-y-2 pb-4">
+        <a href="index.html" class="block text-white hover:text-teal-400">Home</a>
+        <a href="#" class="block text-white hover:text-yellow-400">Our Houseboats</a>
+        <a href="#" class="block text-white hover:text-yellow-400">Kerala Tour Packages</a>
+        <a href="#" class="block text-white hover:text-yellow-400">Backwater Activities</a>
+        <a href="#" class="block text-white hover:text-yellow-400">Food Menu</a>
+        <a href="#" class="block text-white hover:text-yellow-400">Blog</a>
+        <a href="enquiry.html" class="block text-white hover:text-yellow-400 font-semibold">Enquire Now</a>
+        <a href="#" class="block text-white hover:text-yellow-400">Contact Us</a>
       </div>
     </div>
-
-    <!-- Mobile Menu (Dropdown) -->
-    <div x-show="open" x-transition class="md:hidden mt-2 space-y-2 pb-4">
-      <a href="index.html" class="block text-white hover:text-teal-400">Home</a>
-      <a href="#" class="block text-white hover:text-yellow-400">Our Houseboats</a>
-      <a href="#" class="block text-white hover:text-yellow-400">Kerala Tour Packages</a>
-      <a href="#" class="block text-white hover:text-yellow-400">Backwater Activities</a>
-      <a href="#" class="block text-white hover:text-yellow-400">Food Menu</a>
-      <a href="#" class="block text-white hover:text-yellow-400">Blog</a>
-      <a href="enquiry.html" class="block text-white hover:text-yellow-400 font-semibold">Enquire Now</a>
-      <a href="#" class="block text-white hover:text-yellow-400">Contact Us</a>
-    </div>
-  </div>
-</nav>
-
+  </nav>
 
   <!-- Enquiry Section -->
   <section class="pt-28 pb-16 bg-gray-50 min-h-screen">
     <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-8">
-      <!-- Form -->
-  
-<form action="https://getform.io/f/byvyepga" method="POST" class="space-y-4">
-  <div class="grid grid-cols-2 gap-4">
-    <input type="text" name="name" placeholder="Your Name" class="p-2 border rounded w-full" required />
-    <input type="email" name="email" placeholder="Email Address" class="p-2 border rounded w-full" required />
-  </div>
+      <!-- WhatsApp Form -->
+      <form id="whatsappForm" class="space-y-4" onsubmit="sendToWhatsApp(event)">
+        <div class="grid grid-cols-2 gap-4">
+          <input type="text" name="name" placeholder="Your Name" class="p-2 border rounded w-full" required />
+          <input type="email" name="email" placeholder="Email Address" class="p-2 border rounded w-full" />
+        </div>
 
-  <div class="grid grid-cols-2 gap-4">
-    <input type="text" name="whatsapp" placeholder="WhatsApp Number" class="p-2 border rounded w-full" />
-    <input type="date" name="checkin" class="p-2 border rounded w-full" required />
-  </div>
+        <div class="grid grid-cols-2 gap-4">
+          <input type="text" name="whatsapp" placeholder="WhatsApp Number" class="p-2 border rounded w-full" required />
+          <input type="date" name="checkin" class="p-2 border rounded w-full" required />
+        </div>
 
-  <div class="grid grid-cols-3 gap-4">
-    <select name="nights" class="p-2 border rounded w-full">
-      <option value="">Nights</option>
-      <option>1</option>
-      <option>2</option>
-      <option>3</option>
-    </select>
-    <select name="type" class="p-2 border rounded w-full">
-      <option value="">Boat Type</option>
-      <option>Deluxe</option>
-      <option>Premium</option>
-      <option>Luxury</option>
-      <option>Ultra Luxury</option>
-    </select>
-    <select name="category" class="p-2 border rounded w-full">
-      <option value="">Category</option>
-      <option>Private Boat</option>
-      <option>Sharing</option>
-    </select>
-  </div>
+        <div class="grid grid-cols-3 gap-4">
+          <select name="nights" class="p-2 border rounded w-full">
+            <option value="">Nights</option>
+            <option>1</option><option>2</option><option>3</option>
+          </select>
+          <select name="type" class="p-2 border rounded w-full">
+            <option value="">Boat Type</option>
+            <option>Deluxe</option><option>Premium</option><option>Luxury</option><option>Ultra Luxury</option>
+          </select>
+          <select name="category" class="p-2 border rounded w-full">
+            <option value="">Category</option>
+            <option>Private Boat</option><option>Sharing</option>
+          </select>
+        </div>
 
-  <div class="grid grid-cols-2 gap-4">
-    <input type="number" name="adults" placeholder="Adults (Above 12 Yrs)" class="p-2 border rounded w-full" />
-    <input type="number" name="children6to12" placeholder="Children (6 to 12 Yrs)" class="p-2 border rounded w-full" />
-  </div>
+        <div class="grid grid-cols-2 gap-4">
+          <input type="number" name="adults" placeholder="Adults (Above 12 Yrs)" class="p-2 border rounded w-full" />
+          <input type="number" name="children6to12" placeholder="Children (6 to 12 Yrs)" class="p-2 border rounded w-full" />
+        </div>
 
-  <input type="number" name="children0to5" placeholder="Children (0 to 5 Yrs)" class="p-2 border rounded w-full" />
-  <textarea name="requirements" placeholder="Special Requirements (if any)" class="p-2 border rounded w-full"></textarea>
+        <input type="number" name="children0to5" placeholder="Children (0 to 5 Yrs)" class="p-2 border rounded w-full" />
+        <textarea name="requirements" placeholder="Special Requirements (if any)" class="p-2 border rounded w-full"></textarea>
 
-  <div class="flex items-center space-x-2">
-    <input type="checkbox" name="whatsapp_consent" class="w-4 h-4" />
-    <p class="text-xs">I authorize contact via WhatsApp & phone for booking details.</p>
-  </div>
+        <div class="flex items-center space-x-2">
+          <input type="checkbox" name="whatsapp_consent" class="w-4 h-4" required />
+          <p class="text-xs">I authorize contact via WhatsApp & phone for booking details.</p>
+        </div>
 
-  <button type="submit" class="w-full bg-green-500 hover:bg-yellow-600 text-white font-semibold py-2 rounded">
-    Submit
-  </button>
-</form>
+        <button type="submit" class="w-full bg-green-500 hover:bg-yellow-600 text-white font-semibold py-2 rounded">
+          Submit via WhatsApp
+        </button>
+      </form>
 
       <!-- Info Section -->
       <div class="bg-white p-6 shadow-md rounded-xl text-sm space-y-4">
@@ -158,6 +148,27 @@
       </div>
     </div>
   </section>
-</body>
 
+  <!-- WhatsApp Script -->
+  <script>
+    function sendToWhatsApp(event) {
+      event.preventDefault();
+      const form = document.getElementById("whatsappForm");
+      const data = new FormData(form);
+
+      let message = `*New Houseboat Enquiry*%0A`;
+      for (const [key, value] of data.entries()) {
+        if (value) {
+          message += `*${key}*: ${value}%0A`;
+        }
+      }
+
+      // Replace with your WhatsApp number (with country code, no +)
+      const phone = "919995857686"; 
+      const url = `https://wa.me/${phone}?text=${message}`;
+      window.open(url, "_blank");
+    }
+  </script>
+</body>
 </html>
+
