@@ -1,90 +1,401 @@
-<<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Book Kerala Houseboat</title>
-  <meta name="description"
-    content="Book premium Kerala houseboat experiences with ease. Enjoy deluxe cruises, local food, and serene backwater tours.">
+  <meta name="description" content="Book premium Kerala houseboat experiences with ease. Enjoy deluxe cruises, local food, and serene backwater tours.">
 
-  <!-- Tailwind CSS -->
+<!-- Tailwind CSS -->
   <link href="/assets/tailwind.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
 
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
+  <!-- Favicon -->
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="manifest" href="/site.webmanifest">
+
+  <!-- Favicon for browsers -->
+<link rel="icon" type="image/png" sizes="192x192" href="assets/icon-192x192.png">
+
+<!-- Web App Manifest -->
+<link rel="manifest" href="site.webmanifest">
+
+<!-- Android theme color -->
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#004d40">
+
+<!-- Apple Splash Screen -->
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="BKH">
+<link rel="apple-touch-icon" href="assets/icon-192x192.png">
+
+<!-- iOS -->
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="BKH">
+<link rel="apple-touch-icon" href="assets/icon-192x192.png">
+
   <style>
-    [x-cloak] {
-      display: none !important;
+  [x-cloak] { display: none !important; }
+</style>
+
+  <script>
+    window.onscroll = function () {
+      const btn = document.getElementById("scrollToTop");
+      if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+        btn.style.display = "block";
+      } else {
+        btn.style.display = "none";
+      }
+    };
+
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
-  </style>
+
+    function toggleForm() {
+      const form = document.getElementById("bookingForm");
+      form.classList.toggle("hidden");
+      form.scrollIntoView({ behavior: "smooth" });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const mobileMenuBtn = document.getElementById('mobileMenuButton');
+      if (mobileMenuBtn) {
+        mobileMenuBtn.addEventListener('click', () => {
+          const menu = document.getElementById('mobileMenu');
+          if (menu) menu.classList.toggle('hidden');
+        });
+      }
+    });
+  </script>
+
 </head>
 
 <body class="bg-black text-white flex flex-col min-h-screen">
 
-  <!-- Navbar (kept as-is, unchanged for brevity) -->
-  <!-- ...Your existing navbar code here... -->
 
-  <!-- Main Content -->
+ <!-- Navbar -->
+  <!-- Navbar -->
+<nav class="bg-black bg-opacity-90 fixed w-full z-50 top-0 shadow-md" x-data="{ open: false, dropdownOpen: false }">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+
+      <!-- Logo -->
+      <div class="flex items-center space-x-2">
+        <img src="assets/New BHK.png" alt="Logo" class="h-14 w-14 sm:h-16 sm:w-16 object-contain" />
+        <a href="index.html" class="text-lg font-bold text-white">BookKeralaHouseboat</a>
+      </div>
+
+      <!-- Hamburger Button (Mobile) -->
+      <div class="md:hidden">
+        <button @click="open = !open" type="button" class="text-white focus:outline-none z-50 relative">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+              viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+        </button>
+      </div>
+
+      <!-- Desktop Menu -->
+      <div class="hidden md:flex space-x-4 items-center">
+        <a href="index.html" class="hover:text-teal-400 text-white">Home</a>
+        <!-- Houseboats Dropdown -->
+        <div class="relative group" x-data="{ dropdownOpen: false }" @mouseenter="dropdownOpen = true" @mouseleave="dropdownOpen = false">
+          <button class="hover:text-yellow-400 text-white focus:outline-none">Houseboats</button>
+          <ul x-show="dropdownOpen" x-transition x-cloak class="absolute left-0 mt-2 bg-white text-black w-64 rounded shadow-lg z-50">
+            <template x-for="i in 14" :key="i">
+              <li>
+                <a :href="`${i}bedroom.html`" class="block px-4 py-2 hover:bg-yellow-100" x-text="`${i} Bedroom Houseboat`"></a>
+              </li>
+            </template>
+             <li>
+              <a :href="conference-houseboats.html" class="block px-4 py-2 hover:bg-yellow-100">Conference Houseboats</a>
+              <a href="conference-houseboats.html" class="block px-4 py-2 hover:bg-yellow-100">Conference Houseboats</a>
+             </li>
+          </ul>
+        </div>
+        <a href="https://www.triptgo.com" target="_blank" class="hover:text-yellow-400 text-white">Kerala Tour Packages</a>
+        <a href="#" class="hover:text-yellow-400 text-white">Backwater Activities</a>
+        <a href="#" class="hover:text-yellow-400 text-white">Blog</a>
+        <a href="#" class="hover:text-yellow-400 text-white">Collaborations</a>
+        <a href="enquiry.html" class="hover:text-yellow-400 text-white font-semibold">Enquire Now</a>
+        <a href="#" class="hover:text-yellow-400 text-white">Contact Us</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div x-show="open" x-transition x-cloak class="md:hidden bg-black bg-opacity-95 fixed inset-0 z-40 pt-20 px-4 overflow-y-auto">
+    <div class="absolute top-4 left-4 flex items-center space-x-2 z-50">
+      <img src="assets/New BHK.png" alt="Logo" class="h-10 w-10 object-contain" />
+      <span class="text-white font-bold text-lg">BookKeralaHouseboat</span>
+    </div>
+    <button @click="open = false" class="absolute top-4 right-4 text-white text-3xl font-bold z-50">&times;</button>
+
+    <div class="space-y-2 pb-4 mt-2">
+      <a href="index.html" class="block text-white hover:text-teal-400">Home</a>
+
+      <!-- Mobile Dropdown -->
+      <div x-data="{ dropdownOpen: false }" @click.away="dropdownOpen = false">
+        <button @click="dropdownOpen = !dropdownOpen" class="block text-white font-medium hover:text-yellow-400">
+          Houseboats
+        </button>
+        <ul x-show="dropdownOpen" x-transition x-cloak class="bg-white text-black rounded shadow-lg mt-2 ml-2 space-y-1 py-2 w-[90%] max-h-[70vh] overflow-y-auto">
+          <template x-for="i in 14" :key="i">
+            <li>
+              <a :href="`${i}bedroom.html`" class="block px-4 py-2 hover:bg-yellow-100" x-text="`${i} Bedroom Houseboat`"></a>
+            </li>
+          </template>
+          <li>
+              <a :href="conference-houseboats.html" class="block px-4 py-2 hover:bg-yellow-100">Conference Houseboats</a>
+              <a href="conference-houseboats.html" class="block px-4 py-2 hover:bg-yellow-100">Conference Houseboats</a>
+          </li>
+        </ul>
+      </div>
+
+      <a href="https://www.triptgo.com" target="_blank" class="block text-white hover:text-yellow-400">Kerala Tour Packages</a>
+      <a href="#" class="block text-white hover:text-yellow-400">Backwater Activities</a>
+      <a href="#" class="block text-white hover:text-yellow-400">Blog</a>
+      <a href="#" class="block text-white hover:text-yellow-400">Collaborations</a>
+      <a href="enquiry.html" class="block text-white hover:text-yellow-400 font-semibold">Enquire Now</a>
+      <a href="#" class="block text-white hover:text-yellow-400">Contact Us</a>
+    </div>
+  </div>
+</nav>
+
+
+<!-- Main Content -->
   <main class="flex-grow pt-16">
 
-    <!-- Hero Section (video + booking button) -->
-    <!-- ...Your existing hero/video section here... -->
-
-    <!-- Houseboat Filter + Cards Section -->
-    <section id="houseboat-filter" class="bg-gray-400 py-10" x-data="houseboatApp()" x-init="init()">
-      <div class="max-w-7xl mx-auto px-4">
-        <h2 class="text-2xl font-bold mb-6 text-center text-black">
-          Find Your Perfect Houseboat
-        </h2>
-
-        <!-- Filters -->
-        <div class="grid md:grid-cols-2 gap-4 mb-6">
-          <div>
-            <label class="block mb-2 font-semibold text-gray-700">Select Bedroom:</label>
-            <select x-model="bedroom" class="w-full border border-gray-300 rounded-md p-2 bg-white text-gray-800">
-              <option value="">All</option>
-              <template x-for="n in 14" :key="n">
-                <option :value="n" x-text="`${n} Bedroom Houseboat`"></option>
-              </template>
-            </select>
-          </div>
-          <div>
-            <label class="block mb-2 font-semibold text-gray-700">Select Type:</label>
-            <select x-model="type" class="w-full border border-gray-300 rounded-md p-2 bg-white text-gray-800">
-              <option value="">All</option>
-              <option value="Deluxe">Deluxe</option>
-              <option value="Premium">Premium</option>
-              <option value="Luxury">Luxury</option>
-              <option value="Ultra Luxury">Ultra Luxury</option>
-            </select>
-          </div>
-        </div>
-
-        <!-- Houseboat Cards -->
-        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          <template x-for="boat in filteredBoats()" :key="boat.id">
-            <div class="bg-white rounded-lg shadow-md overflow-hidden">
-              <img :src="boat.mainImage" alt="Houseboat Image" class="w-full h-48 object-cover">
-              <div class="p-4">
-                <h3 class="text-xl font-semibold mb-2" x-text="boat.name"></h3>
-                <p class="text-gray-600" x-text="'Price: ' + boat.price"></p>
-                <p class="text-yellow-600" x-text="'Rating: ' + boat.rating + ' ⭐'"></p>
-                <a :href="'houseboat-detail.html?id=' + boat.id"
-                  class="inline-block mt-3 px-4 py-2 bg-yellow-400 hover:bg-yellow-500 text-white rounded">Enquire</a>
-              </div>
-            </div>
-          </template>
+    <!-- Video Section -->
+    <div class="relative w-full h-screen">
+      <video autoplay muted loop playsinline class="absolute top-0 left-0 w-full h-full object-cover z-0">
+        <source src="assets/wesite video bkh.mp4" type="video/mp4">
+      </video>
+      <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center px-4">
+        <div class="p-6 rounded-xl max-w-md text-center text-white z-10">
+          <h1 class="text-3xl sm:text-4xl font-bold mb-4">Book Kerala Houseboat</h1>
+          <p class="text-lg sm:text-xl mb-6">More than a sail, it's an experience to treasure</p>
+          <button onclick="toggleForm()" class="bg-yellow-600 hover:bg-teal-700 text-white font-semibold py-2 px-6 rounded transition">Book Now</button>
         </div>
       </div>
-    </section>
+    </div>
+
+    <!-- Booking Form -->
+    <div id="bookingForm" class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-80 hidden z-20 px-4 relative">
+      <button onclick="toggleForm()" class="absolute top-4 right-4 text-white text-3xl font-bold z-30 hover:text-red-500">&times;</button>
+      <div class="bg-white p-6 rounded-xl shadow-md max-w-lg w-full text-black">
+        <h2 class="text-2xl font-bold mb-4 text-center">Book Your Houseboat</h2>
+        <form action="https://getform.io/f/anlxkkqa" method="POST" class="space-y-4">
+          <input type="text" name="name" placeholder="Your Name" required class="w-full p-2 border rounded" />
+          <input type="email" name="email" placeholder="Email Address" required class="w-full p-2 border rounded" />
+          <input type="tel" name="whatsapp" placeholder="WhatsApp Number" class="w-full p-2 border rounded" />
+          <input type="date" name="booking_date" class="w-full p-2 border rounded" />
+          <div class="flex flex-wrap gap-2">
+            <label><input type="radio" name="package" value="Deluxe" /> Deluxe</label>
+            <label><input type="radio" name="package" value="Premium" /> Premium</label>
+            <label><input type="radio" name="package" value="Luxury" /> Luxury</label>
+            <label><input type="radio" name="package" value="Ultraluxury" /> Ultraluxury</label>
+          </div>
+          <input type="number" name="adults" placeholder="Number of Adults" class="w-full p-2 border rounded" />
+          <input type="number" name="children_above_5" placeholder="Children (above 5)" class="w-full p-2 border rounded" />
+          <div class="flex items-center space-x-2">
+            <input type="checkbox" name="pickup" id="pickup" value="Yes" />
+            <label for="pickup" class="text-sm">Need Pickup</label>
+          </div>
+          <textarea name="message" placeholder="Message" rows="3" class="w-full p-2 border rounded"></textarea>
+          <button type="submit" class="w-full bg-green-500 hover:bg-yellow-600 text-white font-semibold py-2 rounded">Submit</button>
+          <button type="button" onclick="toggleForm()" class="w-full bg-gray-500 hover:bg-gray-600 py-2 rounded text-white font-semibold mt-2">Close</button>
+        </form>
+      </div>
+    </div>
+
+
+    <!-- Scroll to Top -->
+    <button id="scrollToTop" onclick="scrollToTop()" class="hidden fixed bottom-20 right-6 bg-teal-600 hover:bg-teal-700 text-white px-4 py-2 rounded-full shadow z-50">↑ Top</button>
 
   </main>
 
-  <!-- Footer (kept as-is) -->
- <!-- Footer -->
+  <!-- Alpine.js Houseboat Filter Section on Homepage -->
+<section id="houseboat-filter" class="bg-gray-400 py-10" x-data="{
+  bedroom: '',
+  type: '',
+  houseboats: [
+    {
+      id: 5,
+      name: 'Deluxe two bedroom',
+      type: 'Deluxe',
+      bedroom: '2',
+      price: '₹10,000 onwards',
+      rating: 4.5,
+      mainImage: 'images/deluxe/2bed/Wood Cas/1.jpg',
+      thumbnails: [
+        'images/deluxe/2bed/Wood Cas/10.jpg',
+        'images/deluxe/2bed/Wood Cas/11.jpg',
+        'images/deluxe/2bed/Wood Cas/12.jpg',
+        'images/deluxe/2bed/Wood Cas/2.jpg',
+        'images/deluxe/2bed/Wood Cas/12.jpg'
+      ]
+    },
+    {
+      id: 6,
+      name: 'Deluxe two bedroom - Upper Deck',
+      type: 'Deluxe',
+      bedroom: '2',
+      price: '₹12,000 onwards',
+      rating: 4.0,
+      mainImage: 'images/deluxe/2bed/Regal/Regal1 (1).jpg',
+      thumbnails: [
+        'images/deluxe/2bed/Regal/Regal1 (2).jpg',
+        'images/deluxe/2bed/Regal/Regal1 (3).jpg',
+        'images/deluxe/2bed/Regal/Regal1 (5).jpg'
+      ]
+    },
+    {
+      id: 3,
+      name: 'Deluxe 1BR - Sunset Cruise',
+      type: 'Deluxe',
+      bedroom: '1',
+      price: '₹8,500 - ₹10,000',
+      rating: 4.3,
+      mainImage: 'images/Deluxe/sunsetcruise.jpg',
+      thumbnails: [
+        'images/Deluxe/sunsetcruise1.jpg',
+        'images/Deluxe/sunsetcruise2.jpg'
+      ]
+    },
+    {
+      id: 4,
+      name: 'Deluxe 1BR - Emerald Wave',
+      type: 'Deluxe',
+      bedroom: '1',
+      price: '₹9,000 - ₹10,500',
+      rating: 4.6,
+      mainImage: 'images/Deluxe/emeraldwave.jpg',
+      thumbnails: [
+        'images/Deluxe/emeraldwave1.jpg',
+        'images/Deluxe/emeraldwave2.jpg'
+      ]
+    },
+    {
+      id: 7,
+      name: 'Premium 1 Bedroom',
+      bedroom: '1',
+      type: 'Premium',
+      price: '₹12,000',
+      rating: 4.7,
+      mainImage: 'images/Premium/1b-premium.jpg'
+    },
+    {
+      id: 8,
+      name: 'Luxury 1 Bedroom',
+      bedroom: '1',
+      type: 'Luxury',
+      price: '₹15,000',
+      rating: 4.9,
+      mainImage: 'images/Luxury/1bed/luxury(1).jpg'
+    },
+    {
+      id: 9,
+      name: 'Deluxe 2 Bedroom',
+      bedroom: '2',
+      type: 'Deluxe',
+      price: '₹10,000',
+      rating: 4.6,
+      mainImage: 'images/2b-deluxe.jpg'
+    },
+    {
+      id: 10,
+      name: 'Luxury 3 Bedroom',
+      bedroom: '3',
+      type: 'Luxury',
+      price: '₹18,000',
+      rating: 5.0,
+      mainImage: 'images/3b-luxury.jpg'
+    }
+  ]
+}">
+  <div class="max-w-7xl mx-auto px-4">
+    <h2 class="text-2xl font-bold mb-6 text-center text-black">
+      Find Your Perfect Houseboat
+    </h2>
+
+     <!-- Filters -->
+    <div class="grid md:grid-cols-2 gap-4 mb-6">
+      <div>
+        <label class="block mb-2 font-semibold text-gray-700">Select Bedroom:</label>
+        <select x-model="bedroom" class="w-full border border-gray-300 rounded-md p-2 bg-white text-gray-800">
+          <option value="">All</option>
+          <option value="1">1 Bedroom Houseboat</option>
+          <option value="2">2 Bedroom Houseboat</option>
+          <option value="3">3 Bedroom Houseboat</option>
+          <option value="4">4 Bedroom Houseboat</option>
+          <option value="5">5 Bedroom Houseboat</option>
+          <option value="6">6 Bedroom Houseboat</option>
+          <option value="7">7 Bedroom Houseboat</option>
+          <option value="8">8 Bedroom Houseboat</option>
+          <option value="9">9 Bedroom Houseboat</option>
+          <option value="10">10 Bedroom Houseboat</option>
+          <option value="11">11 Bedroom Houseboat</option>
+          <option value="12">12 Bedroom Houseboat</option>
+          <option value="13">13 Bedroom Houseboat</option>
+          <option value="14">14 Bedroom Houseboat</option>
+
+        </select>
+      </div>
+      <div>
+        <label class="block mb-2 font-semibold text-gray-700">Select Type:</label>
+        <select x-model="type" class="w-full border border-gray-300 rounded-md p-2 bg-white text-gray-800">
+          <option value="">All</option>
+          <option value="Deluxe">Deluxe</option>
+          <option value="Premium">Premium</option>
+          <option value="Luxury">Luxury</option>
+          <option value="Ultra Luxury">Ultra Luxury</option>
+        </select>
+      </div>
+    </div>
+
+
+    <!-- Houseboat Cards -->
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <template x-for="boat in houseboats.filter(h => (!bedroom || h.bedroom === bedroom) && (!type || h.type === type))" :key="boat.id">
+        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+          <img :src="boat.mainImage" alt="Houseboat Image" class="w-full h-48 object-cover">
+          <div class="p-4">
+            <h3 class="text-xl font-semibold mb-2" x-text="boat.name"></h3>
+            <p class="text-gray-600" x-text="'Price: ' + boat.price"></p>
+            <p class="text-yellow-600" x-text="'Rating: ' + boat.rating + ' ⭐'"></p>
+            <a :href="'houseboat-detail.html?id=' + boat.id" class="inline-block mt-3 px-4 py-2 bg-yellow-400 hover:bg-yellow-500 text-white rounded">Enquire</a>
+          </div>
+        </div>
+      </template>
+    </div>
+  </div>
+</section>
+
+
+<!-- Ensure Alpine.js is included -->
+<script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+
+<!-- Alpine text output support -->
+<script>
+  document.addEventListener('alpine:init', () => {
+    Alpine.magic('text', (el) => (val) => val);
+  });
+</script>
+
+
+  <!-- Footer -->
   <footer class="bg-gray-800 text-white pt-10 mt-auto">
     <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-10">
       <div>
@@ -125,7 +436,7 @@
       </div>
     </div>
 
- 
+
              <!-- WhatsApp / Call Buttons -->
     <div class="fixed bottom-6 right-6 space-y-2 z-50">
       <a href="tel:+919995857686" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-full shadow-md block text-center">Call</a>
@@ -150,34 +461,54 @@
     </div>
   </footer>
 
-  <!-- ...Your existing footer code here... -->
 
-  <!-- Alpine.js Script for Dynamic Data -->
-  <script>
-    function houseboatApp() {
-      return {
-        bedroom: '',
-        type: '',
-        houseboats: [],
-        init() {
-          // Fetch JSON from Cloudinary or GitHub CDN
-          fetch('https://cdn.jsdelivr.net/gh/bookkeralahouseboat/bookkeralahouseboat.github.io/houseboats.json')
-            .then(res => res.json())
-            .then(data => {
-              this.houseboats = data;
-            })
-            .catch(err => console.error('Error loading houseboats.json:', err));
-        },
-        filteredBoats() {
-          return this.houseboats.filter(b =>
-            (!this.bedroom || b.bedroom == this.bedroom) &&
-            (!this.type || b.type === this.type)
-          );
-        }
+
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('service-worker.js')
+      .then((reg) => console.log('✅ Service Worker registered:', reg))
+      .catch((err) => console.error('❌ Service Worker registration failed:', err));
+  }
+</script>
+
+<!-- Install Button -->
+<button id="installBtn"
+  class="fixed bottom-28 right-6 bg-yellow-600 hover:bg-yellow-700 text-white px-4 py-2 rounded-full shadow z-50 hidden">
+  Install App
+</button>
+
+<script>
+  let deferredPrompt;
+  const installBtn = document.getElementById('installBtn');
+
+  window.addEventListener('beforeinstallprompt', (e) => {
+    // Prevent automatic mini-infobar
+    e.preventDefault();
+    deferredPrompt = e;
+
+    // Show the install button
+    installBtn.classList.remove('hidden');
+
+    installBtn.addEventListener('click', async () => {
+      if (!deferredPrompt) return;
+
+      deferredPrompt.prompt();
+      const { outcome } = await deferredPrompt.userChoice;
+
+      if (outcome === 'accepted') {
+        console.log('User accepted the install prompt');
+      } else {
+        console.log('User dismissed the install prompt');
       }
-    }
-  </script>
+
+      deferredPrompt = null;
+      installBtn.classList.add('hidden');
+    });
+  });
+</script>
+
 
 </body>
 
 </html>
+
